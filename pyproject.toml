@@ -15,3 +15,13 @@ dependencies = [
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[dependency-groups]
+analysis = [
+    "marimo>=0.13.9",
+    "plotly>=6.1.0",
+]
+dev = [
+    "pre-commit>=4.2.0",
+    "pytest>=8.3.5",
+]
