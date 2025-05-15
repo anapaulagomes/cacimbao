@@ -1,0 +1,17 @@
+[project]
+name = "cacimbao"
+version = "0.1.0"
+description = "Brazilian datasets for educational purposes"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "narwhals>=0.7.0",
+    "polars>=0.20.0",
+    "pandas>=2.0.0",
+    "requests>=2.31.0",
+    "frictionless>=5.0.0"
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
