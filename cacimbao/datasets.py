@@ -16,7 +16,16 @@ DATASETS_METADATA: Dict[str, Dict] = {
         "size": "medium",  # small / medium / large  # TODO establish a standard for this
         "description": "Brazilian filmography dataset from Cinemateca Brasileira",
         "local": False,
+        "url": "https://bases.cinemateca.org.br/cgi-bin/wxis.exe/iah/?IsisScript=iah/iah.xis&base=FILMOGRAFIA&lang=p",
         "download_url": "https://github.com/anapaulagomes/cinemateca-brasileira/releases/download/v1/filmografia-15052025.zip",
+    },
+    "pescadores_e_pescadoras_profissionais": {
+        "name": "pescadores_e_pescadoras_profissionais",
+        "size": "medium",  # small / medium / large  # TODO establish a standard for this
+        "description": "Brazilian filmography dataset from Cinemateca Brasileira",
+        "url": "https://dados.gov.br/dados/conjuntos-dados/base-de-dados-dos-registros-de-pescadores-e-pescadoras-profissionais",
+        "local": True,
+        "filepath": "data/pescadores-e-pescadoras-profissionais/pescadores-e-pescadoras-profissionais-15052025.parquet",
     },
 }
 
@@ -115,7 +124,7 @@ def download_dataset(name: str, df_format: Literal["polars", "pandas"] = "polars
     dataset_info = DATASETS_METADATA[name]
 
     if dataset_info["local"]:
-        file_path = DATASETS_DIR / dataset_info["filepath"]
+        file_path = Path(".").cwd() / dataset_info["filepath"]
         if not file_path.exists():
             raise FileNotFoundError(f"Local dataset '{name}' not found at {file_path}")
     else:
@@ -127,7 +136,12 @@ def download_dataset(name: str, df_format: Literal["polars", "pandas"] = "polars
         filename = datapackage["path"]
         file_path = file_path / filename
 
-    df = nw.read_csv(file_path, backend=df_format)
+    if file_path.suffix == ".csv":
+        df = nw.read_csv(file_path, backend=df_format)
+    elif file_path.suffix == ".parquet":
+        df = nw.read_parquet(file_path, backend=df_format)
+    else:
+        raise ValueError(f"Formato de arquivo não suportado: {file_path.suffix}")
 
     if df_format == "pandas":
         return df.to_pandas()
