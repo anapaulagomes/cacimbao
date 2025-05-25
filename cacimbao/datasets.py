@@ -21,7 +21,7 @@ DATASETS_METADATA: Dict[str, Dict] = {
 }
 
 
-def _download_and_extract_zip(url: str, target_dir: Path) -> None:
+def _download_and_extract_zip(url: str, target_dir: Path) -> Path:
     """
     Download and extract a zip file from a URL.
 
