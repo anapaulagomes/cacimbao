@@ -23,6 +23,11 @@ class TestMergeCSVsToParquet:
         assert df.shape == (4, 2)  # 4 rows and 2 columns
 
     def test_accept_arguments_to_read_csv(self, tmp_path):
+        """Test that we can pass additional arguments to read_csv.
+
+        In this case, the `truncate_ragged_lines` argument is used to ignore
+        the extra columns in the second CSV file.
+        """
         data_dir = tmp_path / "data"
         data_dir.mkdir()
         csv1 = data_dir / "file1.csv"
