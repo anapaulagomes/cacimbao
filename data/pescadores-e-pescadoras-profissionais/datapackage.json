@@ -1,0 +1,52 @@
+{
+  "name": "pescadores-e-pescadoras-profissionais-15052025",
+  "type": "table",
+  "path": "data/pescadores-e-pescadoras-profissionais-15052025.parquet",
+  "scheme": "file",
+  "format": "parquet",
+  "mediatype": "application/parquet",
+  "schema": {
+    "fields": [
+      {
+        "name": "CPF",
+        "type": "string"
+      },
+      {
+        "name": "Nome do Pescador",
+        "type": "string"
+      },
+      {
+        "name": "Faixa de Renda",
+        "type": "string"
+      },
+      {
+        "name": "Nivel Escolaridade",
+        "type": "string"
+      },
+      {
+        "name": "Tipo Alfabetizacao",
+        "type": "string"
+      },
+      {
+        "name": "Sexo",
+        "type": "string"
+      },
+      {
+        "name": "Categoria",
+        "type": "string"
+      },
+      {
+        "name": "Forma de Atuacao",
+        "type": "string"
+      },
+      {
+        "name": "UF",
+        "type": "string"
+      },
+      {
+        "name": "Municipio",
+        "type": "string"
+      }
+    ]
+  }
+}
