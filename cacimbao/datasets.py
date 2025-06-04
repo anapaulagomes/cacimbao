@@ -21,11 +21,19 @@ DATASETS_METADATA: Dict[str, Dict] = {
     },
     "pescadores_e_pescadoras_profissionais": {
         "name": "pescadores_e_pescadoras_profissionais",
-        "size": "medium",  # small / medium / large  # TODO establish a standard for this
+        "size": "medium",
         "description": "Brazilian filmography dataset from Cinemateca Brasileira",
         "url": "https://dados.gov.br/dados/conjuntos-dados/base-de-dados-dos-registros-de-pescadores-e-pescadoras-profissionais",
         "local": True,
         "filepath": "data/pescadores-e-pescadoras-profissionais/pescadores-e-pescadoras-profissionais-15052025.parquet",
+    },
+    "salario_minimo": {
+        "name": "salario_minimo_real_vigente",
+        "size": "small",
+        "description": "Salário mínimo real e vigente de 1940 a 2024.",
+        "url": "http://www.ipeadata.gov.br/Default.aspx",
+        "local": True,
+        "filepath": "data/salario-minimo/salario-minimo-real-vigente-04062025.parquet",
     },
 }
 

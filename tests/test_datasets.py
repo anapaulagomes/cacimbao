@@ -8,6 +8,7 @@ class TestListDatasets:
         expected_datasets = [
             "filmografia_brasileira",
             "pescadores_e_pescadoras_profissionais",
+            "salario_minimo",
         ]
         assert list_datasets() == expected_datasets
 
