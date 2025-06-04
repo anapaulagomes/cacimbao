@@ -1,0 +1,24 @@
+{
+  "name": "salario-minimo-real-vigente",
+  "type": "table",
+  "path": "data/salario-minimo/salario-minimo-real-vigente.parquet",
+  "scheme": "file",
+  "format": "parquet",
+  "mediatype": "application/parquet",
+  "schema": {
+    "fields": [
+      {
+        "name": "Data",
+        "type": "datetime"
+      },
+      {
+        "name": "Salário mínimo real - R$ (do último mês) - Instituto de Pesquisa Econômica",
+        "type": "number"
+      },
+      {
+        "name": "Salário mínimo vigente - R$ - Ministério da Economia, Outras (Min. Economia/Outras) - MTE12_SALMIN12",
+        "type": "number"
+      }
+    ]
+  }
+}
