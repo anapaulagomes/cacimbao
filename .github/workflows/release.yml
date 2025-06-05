@@ -18,6 +18,7 @@ jobs:
       name: release
       url: https://pypi.org/p/cacimbao
     permissions:
+      contents: read
       id-token: write
     steps:
       - uses: actions/checkout@v4
