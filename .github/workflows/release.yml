@@ -14,10 +14,12 @@ jobs:
     environment:
       # Create this environment in the GitHub repository under Settings -> Environments
       name: release
+      url: https://pypi.org/p/cacimbao
     permissions:
       id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v3
       - run: uv build
-      - run: uv publish --trusted-publishing always
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
