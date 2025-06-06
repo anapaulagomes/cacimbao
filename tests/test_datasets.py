@@ -1,6 +1,6 @@
 import polars as pl
 
-from cacimbao.datasets import download_dataset, list_datasets
+from cacimbao.datasets import download_dataset, list_datasets, load_dataset
 
 
 class TestListDatasets:
@@ -19,5 +19,5 @@ class TestDownloadDataset:
         assert isinstance(df, pl.DataFrame)
 
     def test_load_local_dataset(self):
-        df = download_dataset("pescadores_e_pescadoras_profissionais")
+        df = load_dataset("pescadores_e_pescadoras_profissionais")
         assert isinstance(df, pl.DataFrame)
