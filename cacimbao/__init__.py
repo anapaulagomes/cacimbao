@@ -1,1 +1,3 @@
-from cacimbao.datasets import list_datasets, download_dataset, load_dataset  # noqa: F401
+from cacimbao.datasets import download_dataset, list_datasets, load_dataset
+
+__all__ = ["download_dataset", "list_datasets", "load_dataset"]

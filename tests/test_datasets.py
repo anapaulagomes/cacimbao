@@ -1,7 +1,7 @@
 import polars as pl
 
-from cacimbao.datasets import (DATASETS_METADATA, download_dataset,
-                               list_datasets, load_dataset)
+from cacimbao import download_dataset, list_datasets, load_dataset
+from cacimbao.datasets import DATASETS_METADATA
 
 
 class TestListDatasets:
