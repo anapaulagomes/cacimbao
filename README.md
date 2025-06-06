@@ -1,5 +1,7 @@
 # cacimbao
 
+![PyPI - Version](https://img.shields.io/pypi/v/cacimbao) [![Test](https://github.com/anapaulagomes/cacimbao/actions/workflows/ci.yml/badge.svg)](https://github.com/anapaulagomes/cacimbao/actions/workflows/ci.yml)
+
 Bases de dados brasileiras para fins educacionais
 
 ## Uso
