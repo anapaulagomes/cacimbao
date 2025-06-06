@@ -10,13 +10,25 @@ Primeiro, instale o pacote com o PyPi:
 pip install cacimbao
 ```
 
+### Base de dados disponíveis
+
 Depois, você pode usar o pacote para ver as bases disponíveis:
 
 ```python
 import cacimbao
 
-cacimbao.list_datasets()  # name, size, description, local or not
+cacimbao.list_datasets()
 ```
+
+Se quiser ver mais detalhes sobre as base de dados disponíveis, você pode usar:
+
+```python
+import cacimbao
+
+cacimbao.list_datasets(include_metadata=True)
+```
+
+### Carregando uma base de dados local
 
 Carregue um dataset local:
 
@@ -24,11 +36,15 @@ Carregue um dataset local:
 df = cacimbao.load_dataset("pescadores_e_pescadoras_profissionais")
 ```
 
+### Carregando uma base de dados remota
+
 Ou escolha um dataset para _download_:
 
 ```python
 df = cacimbao.download_dataset("filmografia_brasileira")
 ```
+
+### Escolha do formato do dataframe
 
 Você pode também escolher qual o formato do dataframe na sua biblioteca preferida.
 A biblioteca padrão é o Polars mas você pode trabalhar com Pandas também.

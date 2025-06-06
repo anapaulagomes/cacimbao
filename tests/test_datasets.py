@@ -1,6 +1,7 @@
 import polars as pl
 
-from cacimbao.datasets import download_dataset, list_datasets, load_dataset
+from cacimbao.datasets import (DATASETS_METADATA, download_dataset,
+                               list_datasets, load_dataset)
 
 
 class TestListDatasets:
@@ -11,6 +12,11 @@ class TestListDatasets:
             "salario_minimo",
         ]
         assert list_datasets() == expected_datasets
+
+    def test_list_datasets_with_metadata(self):
+        datasets = list_datasets(include_metadata=True)
+        assert isinstance(datasets, dict)
+        assert datasets == DATASETS_METADATA
 
 
 class TestDownloadDataset:
