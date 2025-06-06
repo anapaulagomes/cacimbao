@@ -1,6 +1,6 @@
 import polars as pl
 
-from cacimbao.helpers import merge_csvs_to_parquet
+from cacimbao.data_preparation import merge_csvs_to_parquet
 
 
 class TestMergeCSVsToParquet:
