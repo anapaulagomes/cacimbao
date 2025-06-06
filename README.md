@@ -21,10 +21,10 @@ cacimbao.list_datasets()  # name, size, description, local or not
 Carregue um dataset local:
 
 ```python
-df = cacimbao.download_dataset("filmografia_brasileira")
+df = cacimbao.load_dataset("pescadores_e_pescadoras_profissionais")
 ```
 
-Ou escolha um dataset para download:
+Ou escolha um dataset para _download_:
 
 ```python
 df = cacimbao.download_dataset("filmografia_brasileira")
