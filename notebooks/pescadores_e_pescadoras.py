@@ -6,6 +6,7 @@
 #     "polars==1.29.0",
 #     "numpy==2.2.5",
 #     "plotly==6.1.0",
+#     "pandas==2.0.0",
 # ]
 # ///
 import marimo
