@@ -29,7 +29,7 @@ DATASETS_METADATA: Dict[str, Dict] = {
         "Tem por volta de shape: 1.700.000 linhas e 10 colunas (valor pode mudar com a atualização da base).",
         "url": "https://dados.gov.br/dados/conjuntos-dados/base-de-dados-dos-registros-de-pescadores-e-pescadoras-profissionais",
         "local": True,
-        "filepath": "data/pescadores-e-pescadoras-profissionais/pescadores-e-pescadoras-profissionais-15052025.parquet",
+        "filepath": "data/pescadores-e-pescadoras-profissionais/pescadores-e-pescadoras-profissionais-07062025.parquet",
     },
     "salario_minimo": {
         "name": "salario_minimo_real_vigente",

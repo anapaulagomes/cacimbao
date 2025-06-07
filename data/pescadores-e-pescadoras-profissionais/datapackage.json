@@ -1,20 +1,12 @@
 {
-  "name": "pescadores-e-pescadoras-profissionais-15052025",
+  "name": "pescadores-e-pescadoras-profissionais-07062025",
   "type": "table",
-  "path": "data/pescadores-e-pescadoras-profissionais-15052025.parquet",
+  "path": "data/pescadores-e-pescadoras-profissionais/pescadores-e-pescadoras-profissionais-07062025.parquet",
   "scheme": "file",
   "format": "parquet",
   "mediatype": "application/parquet",
   "schema": {
     "fields": [
-      {
-        "name": "CPF",
-        "type": "string"
-      },
-      {
-        "name": "Nome do Pescador",
-        "type": "string"
-      },
       {
         "name": "Faixa de Renda",
         "type": "string"
