@@ -4,7 +4,8 @@
 #     "marimo",
 #     "cacimbao==0.1.2",
 #     "polars==1.29.0",
-#     "plotly[express]==6.1.2",
+#     "numpy==2.2.5",
+#     "plotly==6.1.0",
 # ]
 # ///
 import marimo
