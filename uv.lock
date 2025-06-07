@@ -45,9 +45,7 @@ name = "cacimbao"
 version = "0.1.2"
 source = { editable = "." }
 dependencies = [
-    { name = "frictionless" },
     { name = "narwhals" },
-    { name = "pandas" },
     { name = "polars" },
     { name = "requests" },
 ]
@@ -65,9 +63,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "frictionless", specifier = ">=5.0.0" },
     { name = "narwhals", specifier = ">=0.7.0" },
-    { name = "pandas", specifier = ">=2.0.0" },
     { name = "polars", specifier = ">=0.20.0" },
     { name = "requests", specifier = ">=2.31.0" },
 ]
