@@ -2,17 +2,18 @@
 # requires-python = ">=3.10"
 # dependencies = [
 #     "marimo",
-#     "cacimbao==0.1.2",
-#     "polars==1.29.0",
+#     "polars",
 #     "numpy",
 #     "pandas",
-#     "plotly==6.1.0",
+#     "plotly",
+#     "cacimbao",
 # ]
 # ///
+
 import marimo
 
 __generated_with = "0.13.9"
-app = marimo.App(width="columns")
+app = marimo.App(width="full")
 
 
 @app.cell
@@ -85,7 +86,7 @@ def _(mo):
 @app.cell
 def _(Path, json):
     brazil_states_geojson = json.loads(
-        Path("notebooks/brazil-states.geojson").read_text()
+        Path("notebooks/public/brazil-states.geojson").read_text()
     )
     for feature in brazil_states_geojson["features"]:
         feature["id"] = feature["properties"]["name"]

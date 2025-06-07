@@ -1,6 +1,7 @@
 import io
 import json
 import zipfile
+from importlib.resources import files
 from pathlib import Path
 from typing import Dict, List, Literal, Union
 
@@ -29,7 +30,7 @@ DATASETS_METADATA: Dict[str, Dict] = {
         "Tem por volta de shape: 1.700.000 linhas e 10 colunas (valor pode mudar com a atualização da base).",
         "url": "https://dados.gov.br/dados/conjuntos-dados/base-de-dados-dos-registros-de-pescadores-e-pescadoras-profissionais",
         "local": True,
-        "filepath": "data/pescadores-e-pescadoras-profissionais/pescadores-e-pescadoras-profissionais-07062025.parquet",
+        "filepath": "pescadores-e-pescadoras-profissionais/pescadores-e-pescadoras-profissionais-07062025.parquet",
     },
     "salario_minimo": {
         "name": "salario_minimo_real_vigente",
@@ -39,7 +40,7 @@ DATASETS_METADATA: Dict[str, Dict] = {
         "Tem por volta de shape: 1.000 linhas e 3 colunas (valor pode mudar com a atualização da base).",
         "url": "http://www.ipeadata.gov.br/Default.aspx",
         "local": True,
-        "filepath": "data/salario-minimo/salario-minimo-real-vigente-04062025.parquet",
+        "filepath": "salario-minimo/salario-minimo-real-vigente-04062025.parquet",
     },
 }
 
@@ -139,7 +140,8 @@ def download_dataset(name: str, df_format: Literal["polars", "pandas"] = "polars
     dataset_info = DATASETS_METADATA[name]
 
     if dataset_info["local"]:
-        file_path = Path(".").cwd() / dataset_info["filepath"]
+        file_path = files("cacimbao.data").joinpath(dataset_info["filepath"])
+
         if not file_path.exists():
             raise FileNotFoundError(f"Local dataset '{name}' not found at {file_path}")
     else:
