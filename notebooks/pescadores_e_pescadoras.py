@@ -1,7 +1,16 @@
+# /// script
+# requires-python = ">=3.10"
+# dependencies = [
+#     "marimo",
+#     "cacimbao==0.1.2",
+#     "polars==1.29.0",
+#     "plotly==6.1.0",
+# ]
+# ///
 import marimo
 
 __generated_with = "0.13.9"
-app = marimo.App(width="medium")
+app = marimo.App(width="columns")
 
 
 @app.cell
