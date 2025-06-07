@@ -4,9 +4,9 @@
 #     "marimo",
 #     "cacimbao==0.1.2",
 #     "polars==1.29.0",
-#     "numpy==2.2.5",
+#     "numpy",
+#     "pandas",
 #     "plotly==6.1.0",
-#     "pandas==2.0.0",
 # ]
 # ///
 import marimo
