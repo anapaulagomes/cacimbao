@@ -42,7 +42,7 @@ wheels = [
 
 [[package]]
 name = "cacimbao"
-version = "0.1.1"
+version = "0.1.2"
 source = { editable = "." }
 dependencies = [
     { name = "frictionless" },
@@ -75,7 +75,7 @@ requires-dist = [
 [package.metadata.requires-dev]
 analysis = [
     { name = "marimo", specifier = ">=0.13.9" },
-    { name = "plotly", specifier = ">=6.1.0" },
+    { name = "plotly", specifier = "==6.1.2" },
 ]
 dev = [
     { name = "frictionless", extras = ["parquet"], specifier = ">=5.18.1" },
@@ -896,15 +896,15 @@ wheels = [
 
 [[package]]
 name = "plotly"
-version = "6.1.0"
+version = "6.1.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "narwhals" },
     { name = "packaging" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/a9/e3/66eabba0b35095027e1ae5cb2e091cd168d44362242b5496baac9a460697/plotly-6.1.0.tar.gz", hash = "sha256:f13f497ccc2d97f06f771a30b27fab0cbd220f2975865f4ecbc75057135521de", size = 7545417, upload_time = "2025-05-15T16:04:39.532Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ae/77/431447616eda6a432dc3ce541b3f808ecb8803ea3d4ab2573b67f8eb4208/plotly-6.1.2.tar.gz", hash = "sha256:4fdaa228926ba3e3a213f4d1713287e69dcad1a7e66cf2025bd7d7026d5014b4", size = 7662971, upload_time = "2025-05-27T20:21:52.56Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ee/11/83ae52318353f9da4a88cc23e7f9dbc3d449b3f0fd6158fba15eb3c3b816/plotly-6.1.0-py3-none-any.whl", hash = "sha256:a29d3ed523c9d7960095693af1ee52689830df0f9c6bae3e5e92c20c4f5684c3", size = 16118476, upload_time = "2025-05-15T16:04:30.81Z" },
+    { url = "https://files.pythonhosted.org/packages/bf/6f/759d5da0517547a5d38aabf05d04d9f8adf83391d2c7fc33f904417d3ba2/plotly-6.1.2-py3-none-any.whl", hash = "sha256:f1548a8ed9158d59e03d7fed548c7db5549f3130d9ae19293c8638c202648f6d", size = 16265530, upload_time = "2025-05-27T20:21:46.6Z" },
 ]
 
 [[package]]
