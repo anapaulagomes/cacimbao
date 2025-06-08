@@ -53,14 +53,18 @@ def prepare_salario_minimo_data(
         .cast(pl.Float64)
     )
     combined_data.write_parquet(
-        "data/salario-minimo/salario-minimo-real-vigente.parquet"
+        f"data/salario-minimo/salario-minimo-real-vigente-{today_label()}.parquet"
     )
     return combined_data
 
 
+def today_label() -> str:
+    """Return today's date in the format DDMMYYYY."""
+    return date.today().strftime("%d%m%Y")
+
+
 def prepare_pescadores_data(csv_dir: str) -> pl.DataFrame:
-    today = date.today().strftime("%d%m%Y")
-    output_filepath = f"data/pescadores-e-pescadoras-profissionais/pescadores-e-pescadoras-profissionais-{today}.parquet"
+    output_filepath = f"data/pescadores-e-pescadoras-profissionais/pescadores-e-pescadoras-profissionais-{today_label()}.parquet"
     drop_columns = ["CPF", "Nome do Pescador"]  # personal information
     combined_data = merge_csvs_to_parquet(
         Path(csv_dir),
