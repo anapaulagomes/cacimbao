@@ -1,6 +1,6 @@
 [project]
 name = "cacimbao"
-version = "0.1.4"
+version = "0.2.0"
 description = "Base de dados brasileiras com dados reais para propósitos educacionais"
 readme = "README.md"
 requires-python = ">=3.10"
