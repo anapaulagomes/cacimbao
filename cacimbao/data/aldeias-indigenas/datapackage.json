@@ -1,0 +1,64 @@
+{
+  "name": "aldeias-indigenas-08062025",
+  "type": "table",
+  "path": "data/aldeias-indigenas/aldeias-indigenas-08062025.parquet",
+  "scheme": "file",
+  "format": "parquet",
+  "mediatype": "application/parquet",
+  "schema": {
+    "fields": [
+      {
+        "name": "gml_id",
+        "type": "string"
+      },
+      {
+        "name": "cod_aldeia",
+        "type": "integer"
+      },
+      {
+        "name": "nome_aldeia",
+        "type": "string"
+      },
+      {
+        "name": "cod_ti",
+        "type": "integer"
+      },
+      {
+        "name": "cod_municipio",
+        "type": "integer"
+      },
+      {
+        "name": "data_cadastro",
+        "type": "string"
+      },
+      {
+        "name": "flag_ativo",
+        "type": "string"
+      },
+      {
+        "name": "nome_cr",
+        "type": "string"
+      },
+      {
+        "name": "nommunic",
+        "type": "string"
+      },
+      {
+        "name": "nomuf",
+        "type": "string"
+      },
+      {
+        "name": "undadm_codigo",
+        "type": "integer"
+      },
+      {
+        "name": "coord_lat",
+        "type": "number"
+      },
+      {
+        "name": "coord_long",
+        "type": "number"
+      }
+    ]
+  }
+}

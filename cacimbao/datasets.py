@@ -42,6 +42,14 @@ DATASETS_METADATA: Dict[str, Dict] = {
         "local": True,
         "filepath": "salario-minimo/salario-minimo-real-vigente-04062025.parquet",
     },
+    "aldeias_indigenas": {
+        "name": "aldeias_indigenas",
+        "size": "small",
+        "description": "Dados geoespaciais sobre aldeias indígenas, aldeias e coordenações regionais, técnicas locais e mapas das terras indígenas fornecidos pela Coordenação de Geoprocessamento da FUNAI. Tem por volta de 4.300 linhas e 13 colunas (valor pode mudar com a atualização da base).",
+        "url": "https://dados.gov.br/dados/conjuntos-dados/tabela-de-aldeias-indgenas",
+        "local": True,
+        "filepath": "aldeias-indigenas/aldeias-indigenas-08062025.parquet",
+    },
 }
 
 
