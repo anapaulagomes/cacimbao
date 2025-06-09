@@ -1,6 +1,6 @@
-<img src="cacimbao_logo.svg" alt="cacimbão logo" width="125" align="right"/>
-
 # cacimbão
+
+<img src="cacimbao_logo.svg" alt="cacimbão logo" width="125" align="right"/>
 
 ![PyPI - Version](https://img.shields.io/pypi/v/cacimbao) [![Test](https://github.com/anapaulagomes/cacimbao/actions/workflows/ci.yml/badge.svg)](https://github.com/anapaulagomes/cacimbao/actions/workflows/ci.yml)
 
