@@ -1,0 +1,9 @@
+cff-version: 1.1.0
+message: "Se você usa esse software, por favor, cite-o."
+authors:
+- family-names: Ana Paula
+  given-names: Gomes Ferreira
+orcid: https://orcid.org/0000-0003-3419-853X
+title: "Cacimbão: base de dados brasileiras para fins educacionais"
+version: v0.2.0-DOI
+date-released: 2025-06-11
