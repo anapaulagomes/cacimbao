@@ -1,10 +1,14 @@
 from importlib.resources import files
+from pathlib import Path
 from typing import Literal
 
 import narwhals as nw
 
-from ..helpers import DATASETS_DIR, download_and_extract_zip, load_datapackage
-from .metadata import DATASETS_METADATA
+from cacimbao.datasets.metadata import DATASETS_METADATA
+from cacimbao.helpers import download_and_extract_zip, load_datapackage
+
+DATASETS_DIR = Path.home() / "cacimbao"
+DATASETS_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def download_dataset(name: str, df_format: Literal["polars", "pandas"] = "polars"):

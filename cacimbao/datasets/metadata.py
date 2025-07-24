@@ -1,6 +1,7 @@
 from typing import Dict, List, Union
 
-from ..helpers import DATASETS_DIR, load_datapackage
+from cacimbao.datasets.loaders import DATASETS_DIR
+from cacimbao.helpers import load_datapackage
 
 DATASETS_METADATA: Dict[str, Dict] = {
     "filmografia_brasileira": {
@@ -44,7 +45,7 @@ DATASETS_METADATA: Dict[str, Dict] = {
 }
 
 
-def _get_dataset_metadata(name: str) -> Dict:
+def get_dataset_metadata(name: str) -> Dict:
     """
     Get metadata for a dataset, including datapackage information if available.
 
@@ -56,7 +57,7 @@ def _get_dataset_metadata(name: str) -> Dict:
     """
     metadata = DATASETS_METADATA[name].copy()
 
-    # if the dataset is not local and we have a datapackage.json, load its metadata
+    # if the dataset is not local, and we have a datapackage.json, load its metadata
     if not metadata["local"]:
         datapackage_path = DATASETS_DIR / "datapackage.json"
         if datapackage_path.exists():

@@ -2,7 +2,7 @@ from pathlib import Path
 
 import polars as pl
 
-from ..helpers import merge_csvs_to_parquet, today_label
+from cacimbao.helpers import merge_csvs_to_parquet, today_label
 
 
 def prepare_salario_minimo_data(

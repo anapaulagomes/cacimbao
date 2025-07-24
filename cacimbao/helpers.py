@@ -8,9 +8,6 @@ from typing import Dict
 import polars as pl
 import requests
 
-DATASETS_DIR = Path.home() / "cacimbao"
-DATASETS_DIR.mkdir(parents=True, exist_ok=True)
-
 
 def download_and_extract_zip(url: str, target_dir: Path) -> Path:
     """
