@@ -1,7 +1,8 @@
-from datetime import date
 from pathlib import Path
 
 import polars as pl
+
+from ..helpers import merge_csvs_to_parquet, today_label
 
 
 def prepare_salario_minimo_data(
@@ -58,11 +59,6 @@ def prepare_salario_minimo_data(
     return combined_data
 
 
-def today_label() -> str:
-    """Return today's date in the format DDMMYYYY."""
-    return date.today().strftime("%d%m%Y")
-
-
 def prepare_pescadores_data(csv_dir: str) -> pl.DataFrame:
     output_filepath = f"data/pescadores-e-pescadoras-profissionais/pescadores-e-pescadoras-profissionais-{today_label()}.parquet"
     drop_columns = ["CPF", "Nome do Pescador"]  # personal information
@@ -74,15 +70,3 @@ def prepare_pescadores_data(csv_dir: str) -> pl.DataFrame:
         truncate_ragged_lines=True,
     )
     return combined_data
-
-
-def merge_csvs_to_parquet(
-    data_dir: Path, output_file: str, drop_columns=None, **read_csv_kwargs
-):
-    """Given a directory with csv files, merge them into a single parquet file."""
-    data_dir_glob = f"{data_dir}/*.csv"
-    df = pl.read_csv(data_dir_glob, **read_csv_kwargs)
-    if drop_columns:
-        df = df.drop(drop_columns)
-    df.write_parquet(output_file)
-    return output_file

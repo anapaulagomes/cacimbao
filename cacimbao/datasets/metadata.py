@@ -1,15 +1,6 @@
-import io
-import json
-import zipfile
-from importlib.resources import files
-from pathlib import Path
-from typing import Dict, List, Literal, Union
+from typing import Dict, List, Union
 
-import narwhals as nw
-import requests
-
-DATASETS_DIR = Path.home() / "cacimbao"
-DATASETS_DIR.mkdir(parents=True, exist_ok=True)
+from ..helpers import DATASETS_DIR, load_datapackage
 
 DATASETS_METADATA: Dict[str, Dict] = {
     "filmografia_brasileira": {
@@ -53,44 +44,6 @@ DATASETS_METADATA: Dict[str, Dict] = {
 }
 
 
-def _download_and_extract_zip(url: str, target_dir: Path) -> Path:
-    """
-    Download and extract a zip file from a URL.
-
-    Args:
-        url: URL of the zip file
-        target_dir: Directory to extract the contents to
-    """
-    target_dir.mkdir(parents=True, exist_ok=True)
-
-    response = requests.get(url, stream=True)
-    try:
-        response.raise_for_status()
-    except requests.HTTPError as e:
-        raise requests.HTTPError(f"Falha ao baixar o arquivo: {e}")
-
-    try:
-        with zipfile.ZipFile(io.BytesIO(response.content)) as zf:
-            zf.extractall(path=target_dir)
-    except zipfile.BadZipFile as e:
-        raise zipfile.BadZipFile(f"O arquivo baixado não é um ZIP válido: {e}")
-    return target_dir
-
-
-def _load_datapackage(datapackage_path: Path) -> Dict:
-    """
-    Load and parse a datapackage.json file.
-
-    Args:
-        datapackage_path: Path to the datapackage.json file
-
-    Returns:
-        Dictionary containing the datapackage metadata
-    """
-    with open(datapackage_path, "r", encoding="utf-8") as f:
-        return json.load(f)
-
-
 def _get_dataset_metadata(name: str) -> Dict:
     """
     Get metadata for a dataset, including datapackage information if available.
@@ -107,7 +60,7 @@ def _get_dataset_metadata(name: str) -> Dict:
     if not metadata["local"]:
         datapackage_path = DATASETS_DIR / "datapackage.json"
         if datapackage_path.exists():
-            datapackage = _load_datapackage(datapackage_path)
+            datapackage = load_datapackage(datapackage_path)
             if datapackage.get("resources"):
                 resource = datapackage["resources"][0]
                 metadata.update(
@@ -127,54 +80,3 @@ def list_datasets(include_metadata=False) -> Union[List[str], Dict[str, Dict]]:
     if include_metadata:
         return DATASETS_METADATA
     return list(DATASETS_METADATA.keys())
-
-
-def download_dataset(name: str, df_format: Literal["polars", "pandas"] = "polars"):
-    """
-    Download and load a dataset.
-
-    Args:
-        name: Name of the dataset to download
-        df_format: Format of the returned dataframe ("polars" or "pandas")
-
-    Returns:
-        DataFrame in the specified format
-    """
-    if name not in DATASETS_METADATA:
-        raise ValueError(
-            f"Base de dados '{name}' não encontrada. Use list_datasets() para ver as bases disponíveis."
-        )
-
-    dataset_info = DATASETS_METADATA[name]
-
-    if dataset_info["local"]:
-        file_path = files("cacimbao.data").joinpath(dataset_info["filepath"])
-
-        if not file_path.exists():
-            raise FileNotFoundError(f"Local dataset '{name}' not found at {file_path}")
-    else:
-        file_path = DATASETS_DIR / name
-        file_path = _download_and_extract_zip(dataset_info["download_url"], file_path)
-
-        # load the datapackage.json to get the correct filename
-        datapackage = _load_datapackage(file_path / "datapackage.json")
-        filename = datapackage["path"]
-        file_path = file_path / filename
-
-    if file_path.suffix == ".csv":
-        df = nw.read_csv(file_path, backend=df_format)
-    elif file_path.suffix == ".parquet":
-        df = nw.read_parquet(file_path, backend=df_format)
-    else:
-        raise ValueError(f"Formato de arquivo não suportado: {file_path.suffix}")
-
-    if df_format == "pandas":
-        return df.to_pandas()
-    return df.to_polars()
-
-
-def load_dataset(name: str, df_format: Literal["polars", "pandas"] = "polars"):
-    """
-    Alias for download_dataset to sign the intent of loading a local dataset.
-    """
-    return download_dataset(name, df_format)

@@ -2,7 +2,7 @@ import polars as pl
 import pytest
 
 from cacimbao import download_dataset, list_datasets, load_dataset
-from cacimbao.datasets import DATASETS_METADATA
+from cacimbao.datasets.metadata import DATASETS_METADATA
 
 
 class TestListDatasets:
