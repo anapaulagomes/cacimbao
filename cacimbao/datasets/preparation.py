@@ -1,8 +1,6 @@
-from pathlib import Path
-
 import polars as pl
 
-from cacimbao.helpers import merge_csvs_to_parquet, today_label
+from cacimbao.helpers import today_label
 
 
 def prepare_salario_minimo_data(
@@ -55,18 +53,5 @@ def prepare_salario_minimo_data(
     )
     combined_data.write_parquet(
         f"data/salario-minimo/salario-minimo-real-vigente-{today_label()}.parquet"
-    )
-    return combined_data
-
-
-def prepare_pescadores_data(csv_dir: str) -> pl.DataFrame:
-    output_filepath = f"data/pescadores-e-pescadoras-profissionais/pescadores-e-pescadoras-profissionais-{today_label()}.parquet"
-    drop_columns = ["CPF", "Nome do Pescador"]  # personal information
-    combined_data = merge_csvs_to_parquet(
-        Path(csv_dir),
-        output_filepath,
-        drop_columns,
-        separator=";",
-        truncate_ragged_lines=True,
     )
     return combined_data

@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import polars as pl
 import pytest
 
@@ -23,7 +25,9 @@ EXPECTED_DATASETS_METADATA = [
         "Tem por volta de shape: 1.700.000 linhas e 10 colunas (valor pode mudar com a atualização da base).",
         "url": "https://dados.gov.br/dados/conjuntos-dados/base-de-dados-dos-registros-de-pescadores-e-pescadoras-profissionais",
         "local": True,
-        "filepath": "pescadores-e-pescadoras-profissionais/pescadores-e-pescadoras-profissionais-07062025.parquet",
+        "filepath": Path(
+            "pescadores-e-pescadoras-profissionais/pescadores-e-pescadoras-profissionais-07062025.parquet"
+        ),
     },
     {
         "name": "salario_minimo_real_vigente",
@@ -33,7 +37,7 @@ EXPECTED_DATASETS_METADATA = [
         "Tem por volta de shape: 1.000 linhas e 3 colunas (valor pode mudar com a atualização da base).",
         "url": "http://www.ipeadata.gov.br/Default.aspx",
         "local": True,
-        "filepath": "salario-minimo/salario-minimo-real-vigente-04062025.parquet",
+        "filepath": Path("salario-minimo/salario-minimo-real-vigente-04062025.parquet"),
     },
     {
         "name": "aldeias_indigenas",
@@ -41,7 +45,7 @@ EXPECTED_DATASETS_METADATA = [
         "description": "Dados geoespaciais sobre aldeias indígenas, aldeias e coordenações regionais, técnicas locais e mapas das terras indígenas fornecidos pela Coordenação de Geoprocessamento da FUNAI. Tem por volta de 4.300 linhas e 13 colunas (valor pode mudar com a atualização da base).",
         "url": "https://dados.gov.br/dados/conjuntos-dados/tabela-de-aldeias-indgenas",
         "local": True,
-        "filepath": "aldeias-indigenas/aldeias-indigenas-08062025.parquet",
+        "filepath": Path("aldeias-indigenas/aldeias-indigenas-08062025.parquet"),
     },
 ]
 
