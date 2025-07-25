@@ -4,6 +4,7 @@ from enum import Enum
 from importlib.resources import files
 from pathlib import Path
 from typing import Union
+from zipfile import ZipFile
 
 import polars as pl
 
@@ -180,6 +181,37 @@ class AldeiasIndigenasDataset(BaseDataset):
         filepath = f"aldeias-indigenas/aldeias-indigenas-{today_label()}.parquet"
         df.write_parquet(files("cacimbao.data").joinpath(filepath))
         return df
+
+
+class PesquisaNacionalDeSaude2019Dataset(BaseDataset):
+    """Dataset for the 2019 National Health Survey in Brazil."""
+
+    name: str = "pesquisa_nacional_de_saude_2019"
+    local: bool = False
+    size: Size = Size.LARGE  # currently, 33 MB
+    description: str = (
+        "Pesquisa Nacional de Saúde 2019, realizada pelo IBGE. "
+        "Contém dados sobre condições de saúde, acesso e uso dos serviços de saúde, "
+        "e outros aspectos relacionados à saúde da população brasileira. "
+        "Tem por volta de 293.726 linhas e 1.087 colunas (valor pode mudar com a atualização da base)."
+    )
+    url: str = "https://www.pns.icict.fiocruz.br/bases-de-dados/"
+    download_url: str = (
+        "https://www.pns.icict.fiocruz.br/wp-content/uploads/2023/11/pns2019.zip"
+    )
+    filepath: Path = Path(
+        "pesquisa-nacional-de-saude-2019/pesquisa-nacional-de-saude-2019-25072025.parquet"
+    )
+
+    @staticmethod
+    def prepare(zip_filepath: str):
+        # TODO run prepare after downloading the zip file
+        index = zip_filepath.rfind("/")
+        csv_filename = zip_filepath[index + 1 :].replace(".zip", ".csv")
+        df = pl.read_csv(ZipFile(zip_filepath).read(csv_filename))
+        # TODO adjust the filepath to include the date
+        filepath = f"pesquisa-nacional-de-saude-2019/pesquisa-nacional-de-saude-2019-{today_label()}.parquet"
+        df.write_parquet(files("cacimbao.data").joinpath(filepath))
 
 
 def list_datasets(include_metadata=False) -> list:
