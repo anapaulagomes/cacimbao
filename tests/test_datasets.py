@@ -43,7 +43,7 @@ EXPECTED_DATASETS_METADATA = [
         "name": "aldeias_indigenas",
         "size": Size.SMALL,
         "description": "Dados geoespaciais sobre aldeias indígenas, aldeias e coordenações regionais, técnicas locais e mapas das terras indígenas fornecidos pela Coordenação de Geoprocessamento da FUNAI. Tem por volta de 4.300 linhas e 13 colunas (valor pode mudar com a atualização da base).",
-        "url": "https://dados.gov.br/dados/conjuntos-dados/tabela-de-aldeias-indgenas",
+        "url": "https://www.gov.br/funai/pt-br/acesso-a-informacao/dados-abertos/base-de-dados/Tabeladealdeias.ods",
         "local": True,
         "filepath": Path("aldeias-indigenas/aldeias-indigenas-08062025.parquet"),
     },
@@ -55,7 +55,7 @@ class TestListDatasets:
         expected_datasets = [
             "filmografia_brasileira",
             "pescadores_e_pescadoras_profissionais",
-            "salario_minimo",
+            "salario_minimo_real_vigente",
             "aldeias_indigenas",
         ]
         assert list_datasets() == expected_datasets

@@ -1,6 +1,7 @@
 from abc import abstractmethod
 from dataclasses import dataclass
 from enum import Enum
+from importlib.resources import files
 from pathlib import Path
 
 import polars as pl
@@ -28,8 +29,9 @@ class BaseDataset:
     filepath: Path = Path()
     download_url: str = ""
 
+    @staticmethod
     @abstractmethod
-    def prepare(self, *args, **kwargs) -> pl.DataFrame:
+    def prepare(*args, **kwargs) -> pl.DataFrame:
         """This method orchestrates the preparation steps of the dataset for use.
 
         This method should be implemented by subclasses that are local.
@@ -51,7 +53,8 @@ class FilmografiaBrasileiraDataset(BaseDataset):
     url: str = "https://bases.cinemateca.org.br/cgi-bin/wxis.exe/iah/?IsisScript=iah/iah.xis&base=FILMOGRAFIA&lang=p"
     download_url: str = "https://github.com/anapaulagomes/cinemateca-brasileira/releases/download/v1/filmografia-15052025.zip"
 
-    def prepare(self):
+    @staticmethod
+    def prepare(*args, **kwargs):
         """Not local, so no preparation needed. The data is placed directly in the data folder."""
 
 
@@ -71,7 +74,8 @@ class PescadoresEPescadorasProfissionaisDataset(BaseDataset):
         "pescadores-e-pescadoras-profissionais/pescadores-e-pescadoras-profissionais-07062025.parquet"
     )
 
-    def prepare(self, csv_dir):
+    @staticmethod
+    def prepare(csv_dir: str):
         """Merge the CSVs from the states into one parquet file and remove personal information."""
         output_filepath = f"data/pescadores-e-pescadoras-profissionais/pescadores-e-pescadoras-profissionais-{today_label()}.parquet"
         drop_columns = ["CPF", "Nome do Pescador"]  # personal information
@@ -99,7 +103,8 @@ class SalarioMinimoRealVigenteDataset(BaseDataset):
     url: str = "http://www.ipeadata.gov.br/Default.aspx"
     filepath: Path = Path("salario-minimo/salario-minimo-real-vigente-04062025.parquet")
 
-    def prepare(self, real_salary_filepath: str, current_salary_filepath: str):
+    @staticmethod
+    def prepare(real_salary_filepath: str, current_salary_filepath: str):
         """Prepare the salary data by merging two datasets from IPEA and MTE.
 
         Downloaded from: http://www.ipeadata.gov.br/Default.aspx
@@ -148,6 +153,32 @@ class SalarioMinimoRealVigenteDataset(BaseDataset):
             f"data/salario-minimo/salario-minimo-real-vigente-{today_label()}.parquet"
         )
         return combined_data
+
+
+class AldeiasIndigenasDataset(BaseDataset):
+    """Dataset for indigenous villages in Brazil."""
+
+    name: str = "aldeias_indigenas"
+    local: bool = True
+    size: Size = Size.SMALL
+    description: str = (
+        "Dados geoespaciais sobre aldeias indígenas, aldeias e coordenações regionais, técnicas locais e "
+        "mapas das terras indígenas fornecidos pela Coordenação de Geoprocessamento da FUNAI. "
+        "Tem por volta de 4.300 linhas e 13 colunas (valor pode mudar com a atualização da base)."
+    )
+    # from: https://dados.gov.br/dados/conjuntos-dados/tabela-de-aldeias-indgenas
+    url: str = "https://www.gov.br/funai/pt-br/acesso-a-informacao/dados-abertos/base-de-dados/Tabeladealdeias.ods"
+    filepath: Path = Path("aldeias-indigenas/aldeias-indigenas-08062025.parquet")
+
+    @staticmethod
+    def prepare(filepath: str):
+        """The ODS file is open in LibreOffice Calc and saved as a CSV file.
+        It is not possible to read the ODS file directly with Polars due to an open issue:
+        https://github.com/pola-rs/polars/issues/14053"""
+        df = pl.read_csv(source=filepath)
+        filepath = f"aldeias-indigenas/aldeias-indigenas-{today_label()}.parquet"
+        df.write_parquet(files("cacimbao.data").joinpath(filepath))
+        return df
 
 
 def list_datasets(include_metadata=False):
