@@ -1,180 +1,225 @@
-import io
-import json
-import zipfile
+from abc import abstractmethod
+from dataclasses import dataclass
+from enum import Enum
 from importlib.resources import files
 from pathlib import Path
-from typing import Dict, List, Literal, Union
+from typing import Union
 
-import narwhals as nw
-import requests
+import polars as pl
 
-DATASETS_DIR = Path.home() / "cacimbao"
-DATASETS_DIR.mkdir(parents=True, exist_ok=True)
+from cacimbao.helpers import merge_csvs_to_parquet, today_label
 
-DATASETS_METADATA: Dict[str, Dict] = {
-    "filmografia_brasileira": {
-        "name": "filmografia_brasileira",
-        "size": "medium",  # small / medium / large  # TODO establish a standard for this
-        "description": "Base de dados da filmografia brasileira produzido pela Cinemateca Brasileira. "
+
+class Size(Enum):
+    """Enum for dataset sizes."""
+
+    SMALL = "small"
+    MEDIUM = "medium"
+    LARGE = "large"
+
+
+@dataclass
+class BaseDataset:
+    """Base class for a dataset."""
+
+    name: str
+    size: Size
+    description: str
+    url: str  # original URL of the dataset
+    local: bool
+    filepath: Path = Path()
+    download_url: str = ""
+
+    @staticmethod
+    @abstractmethod
+    def prepare(*args, **kwargs) -> Union[pl.DataFrame | None]:
+        """This method orchestrates the preparation steps of the dataset for use.
+
+        This method should be implemented by subclasses that are local.
+        It is expected to handle the preparation of the dataset, such as merging files,
+        write to parquet, and any other necessary transformations, and return a Polars DataFrame."""
+
+
+class FilmografiaBrasileiraDataset(BaseDataset):
+    """Dataset for Brazilian filmography."""
+
+    name: str = "filmografia_brasileira"
+    local: bool = False
+    size: Size = Size.MEDIUM
+    description: str = (
+        "Base de dados da filmografia brasileira produzido pela Cinemateca Brasileira. "
         "Contém informações sobre filmes e seus diretores, fontes, canções, atores e mais. "
-        "Tem por volta de shape: 57.495 linhas e 37 colunas (valor pode mudar com a atualização da base).",
-        "local": False,
-        "url": "https://bases.cinemateca.org.br/cgi-bin/wxis.exe/iah/?IsisScript=iah/iah.xis&base=FILMOGRAFIA&lang=p",
-        "download_url": "https://github.com/anapaulagomes/cinemateca-brasileira/releases/download/v1/filmografia-15052025.zip",
-    },
-    "pescadores_e_pescadoras_profissionais": {
-        "name": "pescadores_e_pescadoras_profissionais",
-        "size": "large",
-        "description": "Pescadores e pescadoras profissionais do Brasil, com dados de 2015 a 2024."
+        "Tem por volta de shape: 57.495 linhas e 37 colunas (valor pode mudar com a atualização da base)."
+    )
+    url: str = "https://bases.cinemateca.org.br/cgi-bin/wxis.exe/iah/?IsisScript=iah/iah.xis&base=FILMOGRAFIA&lang=p"
+    download_url: str = "https://github.com/anapaulagomes/cinemateca-brasileira/releases/download/v1/filmografia-15052025.zip"
+
+    @staticmethod
+    def prepare(*args, **kwargs):
+        """Not local, so no preparation needed. The data is placed directly in the data folder."""
+
+
+class PescadoresEPescadorasProfissionaisDataset(BaseDataset):
+    """Dataset for professional fishermen and fisherwomen in Brazil."""
+
+    name: str = "pescadores_e_pescadoras_profissionais"
+    local: bool = True
+    size: Size = Size.LARGE
+    description: str = (
+        "Pescadores e pescadoras profissionais do Brasil, com dados de 2015 a 2024."
         "Contém dados como faixa de renda, nível de escolaridade, forma de atuação e localização."
-        "Tem por volta de shape: 1.700.000 linhas e 10 colunas (valor pode mudar com a atualização da base).",
-        "url": "https://dados.gov.br/dados/conjuntos-dados/base-de-dados-dos-registros-de-pescadores-e-pescadoras-profissionais",
-        "local": True,
-        "filepath": "pescadores-e-pescadoras-profissionais/pescadores-e-pescadoras-profissionais-07062025.parquet",
-    },
-    "salario_minimo": {
-        "name": "salario_minimo_real_vigente",
-        "size": "small",
-        "description": "Salário mínimo real e vigente de 1940 a 2024."
-        "Contém dados mensais do salário mínimo real (ajustado pela inflação) e o salário mínimo vigente (valor atual)."
-        "Tem por volta de shape: 1.000 linhas e 3 colunas (valor pode mudar com a atualização da base).",
-        "url": "http://www.ipeadata.gov.br/Default.aspx",
-        "local": True,
-        "filepath": "salario-minimo/salario-minimo-real-vigente-04062025.parquet",
-    },
-    "aldeias_indigenas": {
-        "name": "aldeias_indigenas",
-        "size": "small",
-        "description": "Dados geoespaciais sobre aldeias indígenas, aldeias e coordenações regionais, técnicas locais e mapas das terras indígenas fornecidos pela Coordenação de Geoprocessamento da FUNAI. Tem por volta de 4.300 linhas e 13 colunas (valor pode mudar com a atualização da base).",
-        "url": "https://dados.gov.br/dados/conjuntos-dados/tabela-de-aldeias-indgenas",
-        "local": True,
-        "filepath": "aldeias-indigenas/aldeias-indigenas-08062025.parquet",
-    },
-}
+        "Tem por volta de shape: 1.700.000 linhas e 10 colunas (valor pode mudar com a atualização da base)."
+    )
+    url: str = "https://dados.gov.br/dados/conjuntos-dados/base-de-dados-dos-registros-de-pescadores-e-pescadoras-profissionais"
+    filepath: Path = Path(
+        "pescadores-e-pescadoras-profissionais/pescadores-e-pescadoras-profissionais-07062025.parquet"
+    )
 
-
-def _download_and_extract_zip(url: str, target_dir: Path) -> Path:
-    """
-    Download and extract a zip file from a URL.
-
-    Args:
-        url: URL of the zip file
-        target_dir: Directory to extract the contents to
-    """
-    target_dir.mkdir(parents=True, exist_ok=True)
-
-    response = requests.get(url, stream=True)
-    try:
-        response.raise_for_status()
-    except requests.HTTPError as e:
-        raise requests.HTTPError(f"Falha ao baixar o arquivo: {e}")
-
-    try:
-        with zipfile.ZipFile(io.BytesIO(response.content)) as zf:
-            zf.extractall(path=target_dir)
-    except zipfile.BadZipFile as e:
-        raise zipfile.BadZipFile(f"O arquivo baixado não é um ZIP válido: {e}")
-    return target_dir
-
-
-def _load_datapackage(datapackage_path: Path) -> Dict:
-    """
-    Load and parse a datapackage.json file.
-
-    Args:
-        datapackage_path: Path to the datapackage.json file
-
-    Returns:
-        Dictionary containing the datapackage metadata
-    """
-    with open(datapackage_path, "r", encoding="utf-8") as f:
-        return json.load(f)
-
-
-def _get_dataset_metadata(name: str) -> Dict:
-    """
-    Get metadata for a dataset, including datapackage information if available.
-
-    Args:
-        name: Name of the dataset
-
-    Returns:
-        Dictionary containing the dataset metadata
-    """
-    metadata = DATASETS_METADATA[name].copy()
-
-    # if the dataset is not local and we have a datapackage.json, load its metadata
-    if not metadata["local"]:
-        datapackage_path = DATASETS_DIR / "datapackage.json"
-        if datapackage_path.exists():
-            datapackage = _load_datapackage(datapackage_path)
-            if datapackage.get("resources"):
-                resource = datapackage["resources"][0]
-                metadata.update(
-                    {
-                        "description": datapackage.get(
-                            "description", metadata["description"]
-                        ),
-                        "size": f"{resource.get('bytes', 0) / 1024 / 1024:.1f}MB",
-                        "filename": resource["path"],
-                    }
-                )
-
-    return metadata
-
-
-def list_datasets(include_metadata=False) -> Union[List[str], Dict[str, Dict]]:
-    if include_metadata:
-        return DATASETS_METADATA
-    return list(DATASETS_METADATA.keys())
-
-
-def download_dataset(name: str, df_format: Literal["polars", "pandas"] = "polars"):
-    """
-    Download and load a dataset.
-
-    Args:
-        name: Name of the dataset to download
-        df_format: Format of the returned dataframe ("polars" or "pandas")
-
-    Returns:
-        DataFrame in the specified format
-    """
-    if name not in DATASETS_METADATA:
-        raise ValueError(
-            f"Base de dados '{name}' não encontrada. Use list_datasets() para ver as bases disponíveis."
+    @staticmethod
+    def prepare(csv_dir: str):
+        """Merge the CSVs from the states into one parquet file and remove personal information."""
+        output_filepath = f"data/pescadores-e-pescadoras-profissionais/pescadores-e-pescadoras-profissionais-{today_label()}.parquet"
+        drop_columns = ["CPF", "Nome do Pescador"]  # personal information
+        combined_data = merge_csvs_to_parquet(
+            Path(csv_dir),
+            output_filepath,
+            drop_columns,
+            separator=";",
+            truncate_ragged_lines=True,
         )
-
-    dataset_info = DATASETS_METADATA[name]
-
-    if dataset_info["local"]:
-        file_path = files("cacimbao.data").joinpath(dataset_info["filepath"])
-
-        if not file_path.exists():
-            raise FileNotFoundError(f"Local dataset '{name}' not found at {file_path}")
-    else:
-        file_path = DATASETS_DIR / name
-        file_path = _download_and_extract_zip(dataset_info["download_url"], file_path)
-
-        # load the datapackage.json to get the correct filename
-        datapackage = _load_datapackage(file_path / "datapackage.json")
-        filename = datapackage["path"]
-        file_path = file_path / filename
-
-    if file_path.suffix == ".csv":
-        df = nw.read_csv(file_path, backend=df_format)
-    elif file_path.suffix == ".parquet":
-        df = nw.read_parquet(file_path, backend=df_format)
-    else:
-        raise ValueError(f"Formato de arquivo não suportado: {file_path.suffix}")
-
-    if df_format == "pandas":
-        return df.to_pandas()
-    return df.to_polars()
+        return combined_data
 
 
-def load_dataset(name: str, df_format: Literal["polars", "pandas"] = "polars"):
+class SalarioMinimoRealVigenteDataset(BaseDataset):
+    """Dataset for real and current minimum wage in Brazil."""
+
+    name: str = "salario_minimo_real_vigente"
+    local: bool = True
+    size: Size = Size.SMALL
+    description: str = (
+        "Salário mínimo real e vigente de 1940 a 2024."
+        "Contém dados mensais do salário mínimo real (ajustado pela inflação) e o salário mínimo vigente (valor atual)."
+        "Tem por volta de shape: 1.000 linhas e 3 colunas (valor pode mudar com a atualização da base)."
+    )
+    url: str = "http://www.ipeadata.gov.br/Default.aspx"
+    filepath: Path = Path("salario-minimo/salario-minimo-real-vigente-04062025.parquet")
+
+    @staticmethod
+    def prepare(real_salary_filepath: str, current_salary_filepath: str):
+        """Prepare the salary data by merging two datasets from IPEA and MTE.
+
+        Downloaded from: http://www.ipeadata.gov.br/Default.aspx
+        * Salário mínimo real (GAC12_SALMINRE12)
+        * Salário mínimo vigente (MTE12_SALMIN12)
+        """
+        real = pl.read_csv(
+            real_salary_filepath,
+            separator=";",
+            schema={
+                "Data": pl.String,
+                "Salário mínimo real - R$ (do último mês) - Instituto de Pesquisa Econômica": pl.String,
+            },
+            truncate_ragged_lines=True,
+        )
+        current = pl.read_csv(
+            current_salary_filepath,
+            separator=";",
+            schema={
+                "Data": pl.String,
+                "Salário mínimo vigente - R$ - Ministério da Economia, Outras (Min. Economia/Outras) - MTE12_SALMIN12": pl.String,
+            },
+            truncate_ragged_lines=True,
+        )
+        combined_data = real.join(
+            current, on="Data"
+        )  # merged data based on the "Data" column
+        combined_data = combined_data.with_columns(
+            pl.col("Data").str.to_date(format="%Y.%m")
+        )
+        combined_data = combined_data.with_columns(
+            pl.col(
+                "Salário mínimo real - R$ (do último mês) - Instituto de Pesquisa Econômica"
+            )
+            .str.replace(",", ".")
+            .cast(pl.Float64)
+        )
+        combined_data = combined_data.with_columns(
+            pl.col(
+                "Salário mínimo vigente - R$ - Ministério da Economia, Outras (Min. Economia/Outras) - MTE12_SALMIN12"
+            )
+            .str.replace(",", ".")
+            .cast(pl.Float64)
+        )
+        combined_data.write_parquet(
+            f"data/salario-minimo/salario-minimo-real-vigente-{today_label()}.parquet"
+        )
+        return combined_data
+
+
+class AldeiasIndigenasDataset(BaseDataset):
+    """Dataset for indigenous villages in Brazil."""
+
+    name: str = "aldeias_indigenas"
+    local: bool = True
+    size: Size = Size.SMALL
+    description: str = (
+        "Dados geoespaciais sobre aldeias indígenas, aldeias e coordenações regionais, técnicas locais e "
+        "mapas das terras indígenas fornecidos pela Coordenação de Geoprocessamento da FUNAI. "
+        "Tem por volta de 4.300 linhas e 13 colunas (valor pode mudar com a atualização da base)."
+    )
+    # from: https://dados.gov.br/dados/conjuntos-dados/tabela-de-aldeias-indgenas
+    url: str = "https://www.gov.br/funai/pt-br/acesso-a-informacao/dados-abertos/base-de-dados/Tabeladealdeias.ods"
+    filepath: Path = Path("aldeias-indigenas/aldeias-indigenas-08062025.parquet")
+
+    @staticmethod
+    def prepare(filepath: str):
+        """The ODS file is open in LibreOffice Calc and saved as a CSV file.
+        It is not possible to read the ODS file directly with Polars due to an open issue:
+        https://github.com/pola-rs/polars/issues/14053"""
+        df = pl.read_csv(source=filepath)
+        filepath = f"aldeias-indigenas/aldeias-indigenas-{today_label()}.parquet"
+        df.write_parquet(files("cacimbao.data").joinpath(filepath))
+        return df
+
+
+def list_datasets(include_metadata=False) -> list:
     """
-    Alias for download_dataset to sign the intent of loading a local dataset.
+    List available datasets.
+
+    Args:
+        include_metadata: If True, returns metadata for each dataset.
+
+    Returns:
+        List of dataset names or a list of dictionaries with dataset metadata.
     """
-    return download_dataset(name, df_format)
+    all_datasets = []
+    for dataset in BaseDataset.__subclasses__():
+        dataset_attributes = dataset.__dataclass_fields__.keys()
+        if include_metadata:
+            metadata = {
+                key: value
+                for key, value in dataset.__dict__.items()
+                if key in dataset_attributes
+            }
+            all_datasets.append(metadata)
+        else:
+            all_datasets.append(dataset.name)
+    return all_datasets
+
+
+def get_dataset(name: str):
+    """
+    Get a dataset by name.
+
+    Args:
+        name: Name of the dataset.
+
+    Returns:
+        An instance of the dataset class.
+    """
+    for dataset in BaseDataset.__subclasses__():
+        if dataset.name == name:
+            return dataset
+    raise ValueError(
+        f"Base de dados '{name}' não encontrada. Use list_datasets() para ver as bases disponíveis."
+    )

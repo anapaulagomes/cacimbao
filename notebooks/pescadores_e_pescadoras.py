@@ -60,9 +60,11 @@ def _(mo):
 
 @app.cell
 def _(cacimbao):
-    cacimbao.list_datasets(include_metadata=True)[
-        "pescadores_e_pescadoras_profissionais"
-    ]
+    [
+        dataset
+        for dataset in cacimbao.list_datasets(include_metadata=True)
+        if dataset["name"] == "pescadores_e_pescadoras_profissionais"
+    ][0]
     return
 
 
