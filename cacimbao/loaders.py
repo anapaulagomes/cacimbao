@@ -4,8 +4,8 @@ from typing import Literal
 
 import narwhals as nw
 
+from cacimbao.datasets import get_dataset
 from cacimbao.helpers import download_and_extract_zip, load_datapackage
-from cacimbao.new_datasets import get_dataset
 
 DATASETS_DIR = Path.home() / "cacimbao"
 DATASETS_DIR.mkdir(parents=True, exist_ok=True)

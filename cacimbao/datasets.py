@@ -85,6 +85,71 @@ class PescadoresEPescadorasProfissionaisDataset(BaseDataset):
         return combined_data
 
 
+class SalarioMinimoRealVigenteDataset(BaseDataset):
+    """Dataset for real and current minimum wage in Brazil."""
+
+    name: str = "salario_minimo_real_vigente"
+    local: bool = True
+    size: Size = Size.SMALL
+    description: str = (
+        "Salário mínimo real e vigente de 1940 a 2024."
+        "Contém dados mensais do salário mínimo real (ajustado pela inflação) e o salário mínimo vigente (valor atual)."
+        "Tem por volta de shape: 1.000 linhas e 3 colunas (valor pode mudar com a atualização da base)."
+    )
+    url: str = "http://www.ipeadata.gov.br/Default.aspx"
+    filepath: Path = Path("salario-minimo/salario-minimo-real-vigente-04062025.parquet")
+
+    def prepare(self, real_salary_filepath: str, current_salary_filepath: str):
+        """Prepare the salary data by merging two datasets from IPEA and MTE.
+
+        Downloaded from: http://www.ipeadata.gov.br/Default.aspx
+        * Salário mínimo real (GAC12_SALMINRE12)
+        * Salário mínimo vigente (MTE12_SALMIN12)
+        """
+        real = pl.read_csv(
+            real_salary_filepath,
+            separator=";",
+            schema={
+                "Data": pl.String,
+                "Salário mínimo real - R$ (do último mês) - Instituto de Pesquisa Econômica": pl.String,
+            },
+            truncate_ragged_lines=True,
+        )
+        current = pl.read_csv(
+            current_salary_filepath,
+            separator=";",
+            schema={
+                "Data": pl.String,
+                "Salário mínimo vigente - R$ - Ministério da Economia, Outras (Min. Economia/Outras) - MTE12_SALMIN12": pl.String,
+            },
+            truncate_ragged_lines=True,
+        )
+        combined_data = real.join(
+            current, on="Data"
+        )  # merged data based on the "Data" column
+        combined_data = combined_data.with_columns(
+            pl.col("Data").str.to_date(format="%Y.%m")
+        )
+        combined_data = combined_data.with_columns(
+            pl.col(
+                "Salário mínimo real - R$ (do último mês) - Instituto de Pesquisa Econômica"
+            )
+            .str.replace(",", ".")
+            .cast(pl.Float64)
+        )
+        combined_data = combined_data.with_columns(
+            pl.col(
+                "Salário mínimo vigente - R$ - Ministério da Economia, Outras (Min. Economia/Outras) - MTE12_SALMIN12"
+            )
+            .str.replace(",", ".")
+            .cast(pl.Float64)
+        )
+        combined_data.write_parquet(
+            f"data/salario-minimo/salario-minimo-real-vigente-{today_label()}.parquet"
+        )
+        return combined_data
+
+
 def list_datasets(include_metadata=False):
     """
     List available datasets.

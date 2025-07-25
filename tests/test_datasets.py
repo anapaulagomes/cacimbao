@@ -4,7 +4,7 @@ import polars as pl
 import pytest
 
 from cacimbao import download_dataset, load_dataset
-from cacimbao.new_datasets import Size, list_datasets
+from cacimbao.datasets import Size, list_datasets
 
 EXPECTED_DATASETS_METADATA = [
     {
