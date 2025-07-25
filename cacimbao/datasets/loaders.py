@@ -4,8 +4,8 @@ from typing import Literal
 
 import narwhals as nw
 
-from cacimbao.datasets.metadata import DATASETS_METADATA
 from cacimbao.helpers import download_and_extract_zip, load_datapackage
+from cacimbao.new_datasets import get_dataset
 
 DATASETS_DIR = Path.home() / "cacimbao"
 DATASETS_DIR.mkdir(parents=True, exist_ok=True)
@@ -22,21 +22,16 @@ def download_dataset(name: str, df_format: Literal["polars", "pandas"] = "polars
     Returns:
         DataFrame in the specified format
     """
-    if name not in DATASETS_METADATA:
-        raise ValueError(
-            f"Base de dados '{name}' não encontrada. Use list_datasets() para ver as bases disponíveis."
-        )
+    dataset_info = get_dataset(name)
 
-    dataset_info = DATASETS_METADATA[name]
-
-    if dataset_info["local"]:
-        file_path = files("cacimbao.data").joinpath(dataset_info["filepath"])
+    if dataset_info.local:
+        file_path = files("cacimbao.data").joinpath(dataset_info.filepath)
 
         if not file_path.exists():
             raise FileNotFoundError(f"Local dataset '{name}' not found at {file_path}")
     else:
         file_path = DATASETS_DIR / name
-        file_path = download_and_extract_zip(dataset_info["download_url"], file_path)
+        file_path = download_and_extract_zip(dataset_info.download_url, file_path)
 
         # load the datapackage.json to get the correct filename
         datapackage = load_datapackage(file_path / "datapackage.json")
