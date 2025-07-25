@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from enum import Enum
 from importlib.resources import files
 from pathlib import Path
+from typing import Union
 
 import polars as pl
 
@@ -31,7 +32,7 @@ class BaseDataset:
 
     @staticmethod
     @abstractmethod
-    def prepare(*args, **kwargs) -> pl.DataFrame:
+    def prepare(*args, **kwargs) -> Union[pl.DataFrame | None]:
         """This method orchestrates the preparation steps of the dataset for use.
 
         This method should be implemented by subclasses that are local.
