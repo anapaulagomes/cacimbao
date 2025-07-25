@@ -11,7 +11,9 @@ DATASETS_DIR = Path.home() / "cacimbao"
 DATASETS_DIR.mkdir(parents=True, exist_ok=True)
 
 
-def download_dataset(name: str, df_format: Literal["polars", "pandas"] = "polars"):
+def download_dataset(
+    name: str, df_format: Literal["polars", "pandas"] = "polars"
+) -> nw.DataFrame:
     """
     Download and load a dataset.
 
@@ -50,7 +52,9 @@ def download_dataset(name: str, df_format: Literal["polars", "pandas"] = "polars
     return df.to_polars()
 
 
-def load_dataset(name: str, df_format: Literal["polars", "pandas"] = "polars"):
+def load_dataset(
+    name: str, df_format: Literal["polars", "pandas"] = "polars"
+) -> nw.DataFrame:
     """
     Alias for download_dataset to sign the intent of loading a local dataset.
     """

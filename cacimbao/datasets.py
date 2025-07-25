@@ -181,7 +181,7 @@ class AldeiasIndigenasDataset(BaseDataset):
         return df
 
 
-def list_datasets(include_metadata=False):
+def list_datasets(include_metadata=False) -> list:
     """
     List available datasets.
 
@@ -189,7 +189,7 @@ def list_datasets(include_metadata=False):
         include_metadata: If True, returns metadata for each dataset.
 
     Returns:
-        List of dataset names or a dictionary with dataset metadata.
+        List of dataset names or a list of dictionaries with dataset metadata.
     """
     all_datasets = []
     for dataset in BaseDataset.__subclasses__():
