@@ -1,5 +1,6 @@
 import io
 import json
+import re
 import zipfile
 from datetime import date
 from pathlib import Path
@@ -7,6 +8,7 @@ from typing import Dict
 
 import polars as pl
 import requests
+from unidecode import unidecode
 
 
 def download_and_extract_zip(url: str, target_dir: Path) -> Path:
@@ -62,3 +64,13 @@ def merge_csvs_to_parquet(
         df = df.drop(drop_columns)
     df.write_parquet(output_file)
     return output_file
+
+
+def normalize_column_name(text: str) -> str:
+    normalized_description = unidecode(text)
+    normalized_description = re.sub(r"[^\w]", " ", normalized_description)
+    normalized_description = normalized_description.lower().replace(" ", "_")
+    normalized_description = re.sub(r"_+", "_", normalized_description)
+    if normalized_description.endswith("_"):
+        normalized_description = normalized_description[:-1]
+    return normalized_description

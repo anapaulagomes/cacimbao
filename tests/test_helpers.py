@@ -1,6 +1,7 @@
 import polars as pl
+import pytest
 
-from cacimbao.helpers import merge_csvs_to_parquet
+from cacimbao.helpers import merge_csvs_to_parquet, normalize_column_name
 
 
 class TestMergeCSVsToParquet:
@@ -44,3 +45,31 @@ class TestMergeCSVsToParquet:
 
         df = pl.read_parquet(output_file)
         assert df.shape == (4, 2)  # 4 rows and 2 columns
+
+
+class TestNormalize:
+    @pytest.mark.parametrize(
+        "text,expected",
+        [
+            ("Unidade da Federação", "unidade_da_federacao"),
+            (
+                "Fazer uso de acupuntura, plantas medicinais e fitoterapia, homeopatia, "
+                "meditação, yoga, tai chi chuan, liang gong ou alguma outra prática "
+                "integrativa e complementar",
+                "fazer_uso_de_acupuntura_plantas_medicinais_e_fitoterapia_homeopatia_"
+                "meditacao_yoga_tai_chi_chuan_liang_gong_ou_alguma_outra_pratica_"
+                "integrativa_e_complementar",
+            ),
+            (
+                "O(A) Sr(a) pagou algum valor pelos medicamentos?",
+                "o_a_sr_a_pagou_algum_valor_pelos_medicamentos",
+            ),
+            (
+                "Peso - Final (em kg) (3 inteiros e 1 casa decimal)",
+                "peso_final_em_kg_3_inteiros_e_1_casa_decimal",
+            ),
+            ("Quantos", "quantos"),
+        ],
+    )
+    def test_normalize(self, text, expected):
+        assert normalize_column_name(text) == expected
