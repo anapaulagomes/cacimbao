@@ -18,6 +18,8 @@ build-backend = "hatchling.build"
 include = [
     "cacimbao/",
 ]
+# heavy files
+exclude = ["cacimbao/data/pesquisa-nacional-de-saude-2019/*.parquet"]
 
 [dependency-groups]
 analysis = [
