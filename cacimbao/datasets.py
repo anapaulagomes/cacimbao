@@ -102,7 +102,9 @@ class PescadoresEPescadorasProfissionaisDataset(BaseDataset):
     description: str = (
         "Pescadores e pescadoras profissionais do Brasil, com dados de 2015 a 2024."
         "Contém dados como faixa de renda, nível de escolaridade, forma de atuação e localização."
-        "Tem por volta de shape: 1.700.000 linhas e 10 colunas (valor pode mudar com a atualização da base)."
+        "Tem por volta de shape: 1.700.000 linhas e 8 colunas (valor pode mudar com a atualização da base)."
+        "A base de dados original tem 10 colunas. Duas colunas foram removidas: "
+        "CPF e Nome do Pescador, por serem informações pessoais."
     )
     url: str = "https://dados.gov.br/dados/conjuntos-dados/base-de-dados-dos-registros-de-pescadores-e-pescadoras-profissionais"
     filepath: Path = Path(
