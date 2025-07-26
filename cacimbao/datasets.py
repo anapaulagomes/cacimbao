@@ -35,14 +35,35 @@ class BaseDataset:
     filepath: Path = Path()
     download_url: str = ""
 
-    @staticmethod
+    @classmethod
     @abstractmethod
-    def prepare(*args, **kwargs) -> Union[pl.DataFrame | None]:
+    def prepare(cls, *args, **kwargs) -> Union[pl.DataFrame | None]:
         """This method orchestrates the preparation steps of the dataset for use.
 
         This method should be implemented by subclasses that are local.
         It is expected to handle the preparation of the dataset, such as merging files,
         write to parquet, and any other necessary transformations, and return a Polars DataFrame."""
+
+    @classmethod
+    def filename_prefix(cls):
+        return cls.name.replace("_", "-")
+
+    @classmethod
+    def dir(cls):
+        return files("cacimbao.data").joinpath(cls.filename_prefix())
+
+    @classmethod
+    def datapackage_filepath(cls):
+        return f"{cls.dir()}/datapackage.json"
+
+    @classmethod
+    def new_datapackage_filepath(cls):
+        return f"{cls.dir()}/datapackage-{today_label()}.json"
+
+    @classmethod
+    def new_filepath(cls):
+        filepath = f"{cls.dir()}/{cls.filename_prefix()}-{today_label()}.parquet"
+        return files("cacimbao.data").joinpath(filepath)
 
 
 class FilmografiaBrasileiraDataset(BaseDataset):
@@ -59,8 +80,8 @@ class FilmografiaBrasileiraDataset(BaseDataset):
     url: str = "https://bases.cinemateca.org.br/cgi-bin/wxis.exe/iah/?IsisScript=iah/iah.xis&base=FILMOGRAFIA&lang=p"
     download_url: str = "https://github.com/anapaulagomes/cinemateca-brasileira/releases/download/v1/filmografia-15052025.zip"
 
-    @staticmethod
-    def prepare(*args, **kwargs):
+    @classmethod
+    def prepare(cls, *args, **kwargs):
         """Not local, so no preparation needed. The data is placed directly in the data folder."""
 
 
@@ -80,8 +101,8 @@ class PescadoresEPescadorasProfissionaisDataset(BaseDataset):
         "pescadores-e-pescadoras-profissionais/pescadores-e-pescadoras-profissionais-07062025.parquet"
     )
 
-    @staticmethod
-    def prepare(csv_dir: str):
+    @classmethod
+    def prepare(cls, csv_dir: str):
         """Merge the CSVs from the states into one parquet file and remove personal information."""
         output_filepath = f"data/pescadores-e-pescadoras-profissionais/pescadores-e-pescadoras-profissionais-{today_label()}.parquet"
         drop_columns = ["CPF", "Nome do Pescador"]  # personal information
@@ -109,8 +130,8 @@ class SalarioMinimoRealVigenteDataset(BaseDataset):
     url: str = "http://www.ipeadata.gov.br/Default.aspx"
     filepath: Path = Path("salario-minimo/salario-minimo-real-vigente-04062025.parquet")
 
-    @staticmethod
-    def prepare(real_salary_filepath: str, current_salary_filepath: str):
+    @classmethod
+    def prepare(cls, real_salary_filepath: str, current_salary_filepath: str):
         """Prepare the salary data by merging two datasets from IPEA and MTE.
 
         Downloaded from: http://www.ipeadata.gov.br/Default.aspx
@@ -176,8 +197,8 @@ class AldeiasIndigenasDataset(BaseDataset):
     url: str = "https://www.gov.br/funai/pt-br/acesso-a-informacao/dados-abertos/base-de-dados/Tabeladealdeias.ods"
     filepath: Path = Path("aldeias-indigenas/aldeias-indigenas-08062025.parquet")
 
-    @staticmethod
-    def prepare(filepath: str):
+    @classmethod
+    def prepare(cls, filepath: str):
         """The ODS file is open in LibreOffice Calc and saved as a CSV file.
         It is not possible to read the ODS file directly with Polars due to an open issue:
         https://github.com/pola-rs/polars/issues/14053"""
@@ -208,47 +229,36 @@ class PesquisaNacionalDeSaude2019Dataset(BaseDataset):
         "Tem por volta de 293.726 linhas e 1.087 colunas (valor pode mudar com a atualização da base)."
     )
     url: str = "https://www.pns.icict.fiocruz.br/bases-de-dados/"
-    download_url: str = (
-        "https://www.pns.icict.fiocruz.br/wp-content/uploads/2023/11/pns2019.zip"
-    )
+    download_url: str = "https://raw.githubusercontent.com/anapaulagomes/cacimbao/add-pns/cacimbao/data/pesquisa-nacional-de-saude-2019/pesquisa-nacional-de-saude-2019-26072025.parquet.zip"
     filepath: Path = Path(
         "pesquisa-nacional-de-saude-2019/pesquisa-nacional-de-saude-2019-25072025.parquet"
     )
 
-    @staticmethod
-    def prepare(zip_filepath: str) -> pl.DataFrame:
+    @classmethod
+    def prepare(cls, zip_filepath: str) -> pl.DataFrame:
         logger.info("Preparando o dicionário de dados...")
-        data_dict = PesquisaNacionalDeSaude2019Dataset._data_dict()
-        logger.info("Hora do download do arquivo .zip e criação do .parquet...")
-        parquet_filepath = (
-            PesquisaNacionalDeSaude2019Dataset._download_zip_and_create_parquet_file(
-                zip_filepath, data_dict
-            )
-        )  # FIXME
+        data_dict = cls._data_dict()
+        logger.info("Hora descompactar o arquivo .zip e criar o .parquet...")
+        parquet_filepath = cls._create_parquet_file(zip_filepath, data_dict)
         logger.info("Momento de criação do datapackage...")
-        PesquisaNacionalDeSaude2019Dataset._create_datapackage(
-            parquet_filepath, data_dict
-        )
+        cls._create_datapackage(parquet_filepath, data_dict)
         logger.info("Fim.")
 
         return pl.read_parquet(parquet_filepath)
 
-    @staticmethod
-    def _download_zip_and_create_parquet_file(
-        zip_filepath: str, data_dict: dict
-    ) -> str:
+    @classmethod
+    def _create_parquet_file(cls, zip_filepath: str, data_dict: dict) -> str:
         index = zip_filepath.rfind("/")
         csv_filename = zip_filepath[index + 1 :].replace(".zip", ".csv")
         df = pl.read_csv(ZipFile(zip_filepath).read(csv_filename))
         df.columns = [field["alternative_name"] for field in data_dict.values()]
-        # TODO adjust the filepath to include the date
-        filepath = f"pesquisa-nacional-de-saude-2019/pesquisa-nacional-de-saude-2019-{today_label()}.parquet"
-        df.write_parquet(files("cacimbao.data").joinpath(filepath))
-        return str(files("cacimbao.data").joinpath(filepath))
 
-    @staticmethod
-    def _create_datapackage(parquet_filepath: str, data_dict: dict):
-        resource = Resource(path=parquet_filepath)
+        df.write_parquet(cls.new_filepath())
+        return str(cls.new_filepath())
+
+    @classmethod
+    def _create_datapackage(cls, parquet_filepath: str, data_dict: dict):
+        resource = Resource(path=parquet_filepath, format="parquet")
         resource.infer()
 
         schema_descriptor = resource.schema.to_descriptor()
@@ -266,19 +276,17 @@ class PesquisaNacionalDeSaude2019Dataset(BaseDataset):
             modified_fields.append(modified_field)
 
         schema_descriptor["fields"] = modified_fields
-
+        # the path needs to be adjusted to the relative path so it can work when the user
+        # downloads the dataset
+        resource.path = parquet_filepath[parquet_filepath.rfind("/") + 1 :]
         resource.schema = Schema.from_descriptor(schema_descriptor)
-        #  FIXME: adjust the path to avoid repetition
-        datapackage_filepath = (
-            "cacimbao/data/pesquisa-nacional-de-saude-2019/datapackage.json"
-        )
-        resource.to_json(datapackage_filepath)
-        return datapackage_filepath
+        resource.to_json(cls.new_datapackage_filepath())
+        return cls.new_datapackage_filepath()
 
-    @staticmethod
-    def _data_dict():
+    @classmethod
+    def _data_dict(cls):
         data_dict_file = pl.read_excel(
-            "cacimbao/data/pesquisa-nacional-de-saude-2019/dicionario_PNS_microdados_2019_23062023.xls",
+            f"{cls.dir()}/dicionario_PNS_microdados_2019_23062023.xls",
             read_options={"header_row": 3},
         )
         data_dict_file.columns = [
