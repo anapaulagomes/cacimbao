@@ -25,6 +25,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v3
-      - name: Install the project
-        run: uv sync --dev --no-group analysis
       - run: uv run pytest
