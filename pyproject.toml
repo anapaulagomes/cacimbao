@@ -3,7 +3,7 @@ name = "cacimbao"
 version = "0.2.0"
 description = "Base de dados brasileiras com dados reais para propósitos educacionais"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 dependencies = [
     "narwhals>=0.7.0",
     "polars>=0.20.0",
@@ -18,14 +18,25 @@ build-backend = "hatchling.build"
 include = [
     "cacimbao/",
 ]
+# heavy files
+exclude = ["cacimbao/data/pesquisa-nacional-de-saude-2019/*.parquet", "cacimbao/data/pesquisa-nacional-de-saude-2019/*.zip"]
+
+[tool.pytest.ini_options]
+addopts = "-m 'not integration'"
+markers = [
+    "integration: marks tests as integration (deselect with '-m \"not integration\"')"
+]
 
 [dependency-groups]
 analysis = [
-    "marimo>=0.13.9",
+    "marimo>=0.14.13",
     "plotly==6.1.2",
 ]
 dev = [
+    "fastexcel>=0.14.0",
+    "freezegun>=1.5.3",
     "frictionless[parquet]>=5.18.1",
     "pre-commit>=4.2.0",
-    "pytest>=8.3.5",
+    "pytest==8.4.1",
+    "unidecode>=1.4.0",
 ]

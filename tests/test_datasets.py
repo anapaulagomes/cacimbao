@@ -1,6 +1,10 @@
+import os
 from pathlib import Path
 
-from cacimbao.datasets import Size, list_datasets
+import pytest
+from freezegun import freeze_time
+
+from cacimbao.datasets import PesquisaNacionalDeSaude2019Dataset, Size, list_datasets
 
 EXPECTED_DATASETS_METADATA = [
     {
@@ -43,6 +47,20 @@ EXPECTED_DATASETS_METADATA = [
         "local": True,
         "filepath": Path("aldeias-indigenas/aldeias-indigenas-08062025.parquet"),
     },
+    {
+        "name": "pesquisa_nacional_de_saude_2019",
+        "local": False,
+        "size": Size.LARGE,
+        "description": "Pesquisa Nacional de Saúde 2019, realizada pelo IBGE. Contém dados sobre condições de saúde, "
+        "acesso e uso dos serviços de saúde, e outros aspectos relacionados à saúde "
+        "da população brasileira. Tem por volta de 293.726 linhas e 1.087 colunas "
+        "(valor pode mudar com a atualização da base).",
+        "url": "https://www.pns.icict.fiocruz.br/bases-de-dados/",
+        "download_url": "https://raw.githubusercontent.com/anapaulagomes/cacimbao/add-pns/cacimbao/data/pesquisa-nacional-de-saude-2019/pesquisa-nacional-de-saude-2019-26072025.parquet.zip",
+        "filepath": Path(
+            "pesquisa-nacional-de-saude-2019/pesquisa-nacional-de-saude-2019-25072025.parquet"
+        ),
+    },
 ]
 
 
@@ -53,10 +71,23 @@ class TestListDatasets:
             "pescadores_e_pescadoras_profissionais",
             "salario_minimo_real_vigente",
             "aldeias_indigenas",
+            "pesquisa_nacional_de_saude_2019",
         ]
         assert list_datasets() == expected_datasets
 
     def test_list_datasets_with_metadata(self):
         datasets = list_datasets(include_metadata=True)
         assert isinstance(datasets, list)
-        assert datasets == EXPECTED_DATASETS_METADATA
+        assert datasets == EXPECTED_DATASETS_METADATA  # FIXME replace with class tests
+
+
+@pytest.mark.integration
+class TestPesquisaNacionalDeSaude2019Dataset:
+    @freeze_time("2000-01-01")
+    def test_prepare(self):
+        zip_filepath = "tests/fixtures/sample_pns2019.zip"
+        df = PesquisaNacionalDeSaude2019Dataset.prepare(zip_filepath)
+
+        assert df.shape == (99, 1087)
+        os.unlink(PesquisaNacionalDeSaude2019Dataset.new_filepath())
+        os.unlink(PesquisaNacionalDeSaude2019Dataset.new_datapackage_filepath())

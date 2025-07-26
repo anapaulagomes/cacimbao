@@ -1,0 +1,4360 @@
+{
+  "name": "pesquisa-nacional-de-saude-2019-26072025",
+  "type": "table",
+  "path": "pesquisa-nacional-de-saude-2019-26072025.parquet",
+  "scheme": "file",
+  "format": "parquet",
+  "mediatype": "application/parquet",
+  "schema": {
+    "fields": [
+      {
+        "name": "V0001__unidade_da_federacao",
+        "type": "integer"
+      },
+      {
+        "name": "V0024__estrato",
+        "type": "integer"
+      },
+      {
+        "name": "UPA_PNS__upa",
+        "type": "integer"
+      },
+      {
+        "name": "V0006_PNS__numero_de_ordem_do_domicilio_na_pns",
+        "type": "integer"
+      },
+      {
+        "name": "V0015__tipo_da_entrevista",
+        "type": "integer"
+      },
+      {
+        "name": "V0020__ano_de_referencia",
+        "type": "integer"
+      },
+      {
+        "name": "V0022__total_de_moradores",
+        "type": "string"
+      },
+      {
+        "name": "V0026__tipo_de_situacao_censitaria",
+        "type": "integer"
+      },
+      {
+        "name": "V0031__tipo_de_area",
+        "type": "integer"
+      },
+      {
+        "name": "V0025A__selecao_do_morador_de_15_anos_ou_mais_para_responder_o_questionario_individual",
+        "type": "string"
+      },
+      {
+        "name": "V0025B__selecao_do_morador_de_15_anos_ou_mais_para_ter_medida_antropometrica_aferida",
+        "type": "string"
+      },
+      {
+        "name": "A001__tipo_do_domicilio",
+        "type": "string"
+      },
+      {
+        "name": "A002010__qual_e_o_material_que_predomina_na_construcao_das_paredes_externas_deste_domicilio",
+        "type": "string"
+      },
+      {
+        "name": "A003010__material_predominante_na_cobertura_telhado_do_domicilio",
+        "type": "string"
+      },
+      {
+        "name": "A004010__qual_e_o_material_que_predomina_no_piso_deste_domicilio",
+        "type": "string"
+      },
+      {
+        "name": "A01001___quantos_comodos_tem_este_domicilio",
+        "type": "string"
+      },
+      {
+        "name": "A011__quantos_comodos_estao_servindo_permanentemente_de_dormitorio_para_os_moradores_deste_domicilio",
+        "type": "string"
+      },
+      {
+        "name": "A005010__qual_e_a_principal_forma_de_abastecimento_de_agua_deste_domicilio",
+        "type": "string"
+      },
+      {
+        "name": "A005012__este_domicilio_esta_ligado_a_rede_geral_de_distribuicao_de_agua",
+        "type": "string"
+      },
+      {
+        "name": "A00601___a_agua_utilizada_neste_domicilio_chega",
+        "type": "string"
+      },
+      {
+        "name": "A009010___a_agua_utilizada_para_beber_neste_domicilio_e",
+        "type": "string"
+      },
+      {
+        "name": "A01401__quantos_banheiros_com_chuveiro_ou_banheira_e_vaso_sanitario_ou_privada_de_uso_exclusivo_dos_moradores_existem_neste_domicilio_inclusive_os_localizados_no_terreno_ou_propriedade",
+        "type": "string"
+      },
+      {
+        "name": "A01402__quantos_banheiros_com_chuveiro_ou_banheira_e_vaso_sanitario_ou_privada_de_uso_comum_a_mais_de_um_domicilio_existem_neste_terreno_ou_propriedade",
+        "type": "string"
+      },
+      {
+        "name": "A01403__utiliza_sanitario_ou_buraco_para_dejecoes_inclusive_os_localizados_no_terreno_ou_na_propriedade_cercado_por_paredes_de_qualquer_material",
+        "type": "string"
+      },
+      {
+        "name": "A01501__para_onde_vai_o_esgoto_do_banheiro_ou_para_onde_vai_o_esgoto_do_sanitario_ou_do_buraco_para_dejecoes",
+        "type": "string"
+      },
+      {
+        "name": "A016010__qual_o_principal_destino_dado_ao_lixo",
+        "type": "string"
+      },
+      {
+        "name": "A018011__neste_domicilio_existe_televisao_em_cores",
+        "type": "string"
+      },
+      {
+        "name": "A018012__quantos",
+        "type": "string"
+      },
+      {
+        "name": "A018013__neste_domicilio_existe_geladeira",
+        "type": "string"
+      },
+      {
+        "name": "A018014__quantos",
+        "type": "string"
+      },
+      {
+        "name": "A018015__neste_domicilio_existe_maquina_de_lavar_roupa",
+        "type": "string"
+      },
+      {
+        "name": "A018016__quantos",
+        "type": "string"
+      },
+      {
+        "name": "A018017__neste_domicilio_existe_telefone_fixo_convencional",
+        "type": "string"
+      },
+      {
+        "name": "A018018__quantos",
+        "type": "string"
+      },
+      {
+        "name": "A018019__neste_domicilio_existe_telefone_movel_celular",
+        "type": "string"
+      },
+      {
+        "name": "A018020__quantos",
+        "type": "string"
+      },
+      {
+        "name": "A018021__neste_domicilio_existe_forno_micro_ondas",
+        "type": "string"
+      },
+      {
+        "name": "A018022__quantos",
+        "type": "string"
+      },
+      {
+        "name": "A018023__neste_domicilio_existe_computador_considere_inclusive_os_portateis_tais_como_laptop_notebook_ou_netbook",
+        "type": "string"
+      },
+      {
+        "name": "A018024__quantos",
+        "type": "string"
+      },
+      {
+        "name": "A018025__neste_domicilio_existe_motocicleta",
+        "type": "string"
+      },
+      {
+        "name": "A018026__quantos",
+        "type": "string"
+      },
+      {
+        "name": "A018027__neste_domicilio_existe_automovel",
+        "type": "string"
+      },
+      {
+        "name": "A018028__quantos",
+        "type": "string"
+      },
+      {
+        "name": "A01901__algum_morador_tem_acesso_a_internet_no_domicilio_por_meio_de_computador_tablet_telefone_movel_celular_televisao_ou_outro_equipamento",
+        "type": "string"
+      },
+      {
+        "name": "A02101__no_seu_domicilio_ha_trabalhador_as_domestico_as_que_trabalham_em_seu_domicilio_tres_vezes_ou_mais_por_semana_empregada_domestica_baba_cuidador_etc",
+        "type": "string"
+      },
+      {
+        "name": "A02102__quantos",
+        "type": "string"
+      },
+      {
+        "name": "A02201___em_seu_domicilio_ha_algum_animal_de_estimacao",
+        "type": "string"
+      },
+      {
+        "name": "A02305__quantos_destes_animais_sao_gatos",
+        "type": "string"
+      },
+      {
+        "name": "A02306__quantos_destes_animais_sao_cachorros",
+        "type": "string"
+      },
+      {
+        "name": "A02307__quantos_destes_animais_sao_aves",
+        "type": "string"
+      },
+      {
+        "name": "A02308__quantos_destes_animais_sao_peixes",
+        "type": "string"
+      },
+      {
+        "name": "A02401__nos_ultimos_12_meses_quantos_gatos_foram_vacinados_contra_raiva",
+        "type": "string"
+      },
+      {
+        "name": "A02402__nos_ultimos_12_meses_quantos_cachorros_foram_vacinados_contra_raiva",
+        "type": "string"
+      },
+      {
+        "name": "B001__o_seu_domicilio_esta_cadastrado_na_unidade_de_saude_da_familia",
+        "type": "string"
+      },
+      {
+        "name": "B002___quando_o_seu_domicilio_foi_cadastrado",
+        "type": "string"
+      },
+      {
+        "name": "B003__nos_ultimos_doze_meses_com_que_frequencia_o_seu_domicilio_recebeu_uma_visita_de_algum_agente_comunitario_ou_algum_membro_da_equipe_de_saude_da_familia",
+        "type": "string"
+      },
+      {
+        "name": "B004__nos_ultimos_doze_meses_com_que_frequencia_o_seu_domicilio_recebeu_uma_visita_de_algum_agente_de_endemias_como_a_dengue_por_exemplo",
+        "type": "string"
+      },
+      {
+        "name": "C001__numero_de_pessoas_no_domicilio",
+        "type": "string"
+      },
+      {
+        "name": "C00301__numero_de_ordem_do_morador",
+        "type": "string"
+      },
+      {
+        "name": "C004__condicao_no_domicilio",
+        "type": "string"
+      },
+      {
+        "name": "C006__sexo",
+        "type": "string"
+      },
+      {
+        "name": "C00701__dia_de_nascimento",
+        "type": "string"
+      },
+      {
+        "name": "C00702__mes_de_nascimento",
+        "type": "string"
+      },
+      {
+        "name": "C00703__ano_de_nascimento",
+        "type": "string"
+      },
+      {
+        "name": "C008__idade_do_morador_na_data_de_referencia",
+        "type": "string"
+      },
+      {
+        "name": "C009__cor_ou_raca",
+        "type": "string"
+      },
+      {
+        "name": "C01001__conjuge_ou_companheiro_a_mora_em_nesse_domicilio",
+        "type": "string"
+      },
+      {
+        "name": "C010010__numero_de_ordem_do_conjuge_ou_companheiro_a",
+        "type": "string"
+      },
+      {
+        "name": "C013__conjuge_ou_companheiro_a_mora_em_outro_domicilio",
+        "type": "string"
+      },
+      {
+        "name": "C014__qual_e_a_natureza_dessa_uniao",
+        "type": "string"
+      },
+      {
+        "name": "C015__esta_uniao_e_registrada_em_cartorio",
+        "type": "string"
+      },
+      {
+        "name": "C016__foi_realizada_cerimonia_religiosa_para_esta_uniao",
+        "type": "string"
+      },
+      {
+        "name": "C017___ja_viveu_com_conjuge_ou_companheiro_a_antes",
+        "type": "string"
+      },
+      {
+        "name": "C018__que_idade_tinha_quando_comecou_a_viver_com_seu_sua_primeiro_a_unico_a_marido_mulher_ou_companheiro_a",
+        "type": "string"
+      },
+      {
+        "name": "C01801__que_idade_tinha_quando_comecou_a_viver_com_seu_sua_primeiro_a_unico_a_marido_mulher_ou_companheiro_a",
+        "type": "string"
+      },
+      {
+        "name": "C011__qual_e_o_estado_civil_de",
+        "type": "string"
+      },
+      {
+        "name": "C012__informante_do_modulo_c",
+        "type": "string"
+      },
+      {
+        "name": "D001__sabe_ler_e_escrever",
+        "type": "string"
+      },
+      {
+        "name": "D00201__frequenta_escola_ou_creche",
+        "type": "string"
+      },
+      {
+        "name": "D00202__a_escola_que_frequenta_e_da",
+        "type": "string"
+      },
+      {
+        "name": "D00301__qual_e_o_curso_que_frequenta",
+        "type": "string"
+      },
+      {
+        "name": "D00501___esse_curso_que_frequenta_e_dividido_em",
+        "type": "string"
+      },
+      {
+        "name": "D006__qual_e_o_ano_semestre_serie_que_frequenta",
+        "type": "string"
+      },
+      {
+        "name": "D00601 __qual_e_a_etapa_do_ensino_fundamental_que_frequenta",
+        "type": "string"
+      },
+      {
+        "name": "D007___ja_concluiu_algum_outro_curso_superior_de_graduacao",
+        "type": "string"
+      },
+      {
+        "name": "D008__anteriormente_frequentou_escola_ou_creche",
+        "type": "string"
+      },
+      {
+        "name": "D00901__qual_foi_o_curso_mais_elevado_que_frequentou",
+        "type": "string"
+      },
+      {
+        "name": "D010__a_duracao_deste_curso_que_frequentou_anteriormente_era_de",
+        "type": "string"
+      },
+      {
+        "name": "D01101__este_curso_que_frequentou_anteriormente_era_dividido_em",
+        "type": "string"
+      },
+      {
+        "name": "D01201__concluiu_com_aprovacao_pelo_menos_o_primeiro_ano_semestre_serie_deste_curso_que_frequentou",
+        "type": "string"
+      },
+      {
+        "name": "D01301__qual_foi_o_ultimo_ano_semestre_serie_que_concluiu_com_aprovacao_neste_curso_que_frequentou",
+        "type": "string"
+      },
+      {
+        "name": "D01302__qual_foi_a_etapa_de_ensino_fundamental_que_frequentou",
+        "type": "string"
+      },
+      {
+        "name": "D01303___concluiu_os_anos_iniciais_deste_curso_que_frequentou",
+        "type": "string"
+      },
+      {
+        "name": "D014___concluiu_este_curso_que_frequentou",
+        "type": "string"
+      },
+      {
+        "name": "D015__informante_do_modulo_d",
+        "type": "string"
+      },
+      {
+        "name": "E001__na_semana_de_a_semana_de_referencia_trabalhou_ou_estagiou_durante_pelo_menos_uma_hora_em_alguma_atividade_remunerada_em_dinheiro",
+        "type": "string"
+      },
+      {
+        "name": "E002__na_semana_de_a_semana_de_referencia_trabalhou_ou_estagiou_durante_pelo_menos_uma_hora_em_alguma_atividade_remunerada_em_produtos_mercadorias_moradia_alimentacao_treinamento_ou_aprendizado_etc",
+        "type": "string"
+      },
+      {
+        "name": "E003__na_semana_de_a_semana_de_referencia_fez_algum_bico_ou_trabalhou_em_alguma_atividade_ocasional_remunerada_durante_pelo_menos_1_hora",
+        "type": "string"
+      },
+      {
+        "name": "E004__na_semana_de_a_semana_de_referencia_ajudou_durante_pelo_menos_1_hora_sem_receber_pagamento_no_trabalho_remunerado_de_algum_morador_do_domicilio_ou_de_parente",
+        "type": "string"
+      },
+      {
+        "name": "E005__na_semana_de_a_semana_de_referencia_tinha_algum_trabalho_remunerado_do_qual_estava_temporariamente_afastado",
+        "type": "string"
+      },
+      {
+        "name": "E006011__na_semana_de_a_semana_de_referencia_por_que_motivo_estava_afastado_desse_trabalho",
+        "type": "string"
+      },
+      {
+        "name": "E008__a_doenca_ou_acidente_foi_relacionado_ao_trabalho",
+        "type": "string"
+      },
+      {
+        "name": "E010010___em_ultimo_dia_da_semana_de_referencia_fazia_quanto_tempo_que_estava_afastado_desse_trabalho",
+        "type": "string"
+      },
+      {
+        "name": "E010011__tempo_que_estava_afastado_de_1_mes_a_menos_de_1_ano",
+        "type": "string"
+      },
+      {
+        "name": "E010012__tempo_que_estava_afastado_de_1_ano_a_menos_de_2_anos",
+        "type": "string"
+      },
+      {
+        "name": "E010013__tempo_que_estava_afastado_de_2_anos_a_98_anos",
+        "type": "string"
+      },
+      {
+        "name": "E011__quantos_trabalhos_tinha_na_semana_de_a",
+        "type": "string"
+      },
+      {
+        "name": "E01201__qual_era_a_ocupacao_cargo_ou_funcao_que_tinha_nesse_trabalho",
+        "type": "string"
+      },
+      {
+        "name": "E01401__nesse_trabalho_era",
+        "type": "string"
+      },
+      {
+        "name": "E014011__trabalhador_nao_remunerado_em_ajuda_a_membro_do_domicilio_ou_parente",
+        "type": "string"
+      },
+      {
+        "name": "E01402__nesse_trabalho_era_servidor_publico_estatutario_federal_estadual_ou_municipal",
+        "type": "string"
+      },
+      {
+        "name": "E01403__nesse_trabalho_tinha_carteira_de_trabalho_assinada",
+        "type": "string"
+      },
+      {
+        "name": "E01501__qual_era_a_principal_atividade_desse_negocio_empresa",
+        "type": "string"
+      },
+      {
+        "name": "E01601___recebia_fazia_normalmente_nesse_trabalho_rendimento_retirada_em_dinheiro",
+        "type": "string"
+      },
+      {
+        "name": "E01602__qual_era_o_rendimento_bruto_mensal_ou_retirada_que_fazia_normalmente_nesse_trabalho_valor_em_dinheiro",
+        "type": "string"
+      },
+      {
+        "name": "E01603___recebia_fazia_normalmente_nesse_trabalho_rendimento_retirada_em_produtos_ou_mercadorias",
+        "type": "string"
+      },
+      {
+        "name": "E01604__qual_era_o_rendimento_bruto_mensal_ou_retirada_que_fazia_normalmente_nesse_trabalho_valor_estimado_em_produtos_ou_mercadorias",
+        "type": "string"
+      },
+      {
+        "name": "E01605___recebia_fazia_normalmente_nesse_trabalho_rendimento_retirada_somente_em_beneficios",
+        "type": "string"
+      },
+      {
+        "name": "E017__quantas_horas_trabalhava_normalmente_por_semana_nesse_trabalho",
+        "type": "string"
+      },
+      {
+        "name": "E01801___recebia_fazia_normalmente_nesse_s_outro_s_trabalho_s_rendimento_retirada_em_dinheiro",
+        "type": "string"
+      },
+      {
+        "name": "E01802__qual_era_o_rendimento_bruto_mensal_ou_retirada_que_fazia_normalmente_nesse_s_outro_s_trabalho_s_valor_em_dinheiro",
+        "type": "string"
+      },
+      {
+        "name": "E01803___recebia_fazia_normalmente_nesse_s_outro_s_trabalho_s_rendimento_retirada_em_produtos_ou_mercadorias",
+        "type": "string"
+      },
+      {
+        "name": "E01804__qual_era_o_rendimento_bruto_mensal_ou_retirada_que_fazia_normalmente_nesse_s_outro_s_trabalho_s_valor_estimado_em_produtos_ou_mercadorias",
+        "type": "string"
+      },
+      {
+        "name": "E01805___recebia_fazia_normalmente_nesse_s_outro_s_trabalho_s_rendimento_retirada_somente_em_beneficios",
+        "type": "string"
+      },
+      {
+        "name": "E019__quantas_horas_trabalhava_normalmente_por_semana_nesses_outros_trabalhos",
+        "type": "string"
+      },
+      {
+        "name": "E022__no_periodo_de_a_periodo_de_referencia_de_30_dias_tomou_alguma_providencia_para_conseguir_trabalho_seja_um_emprego_ou_um_negocio_proprio",
+        "type": "string"
+      },
+      {
+        "name": "E023011__no_periodo_de_a_periodo_de_referencia_de_30_dias_qual_foi_a_principal_providencia_que_tomou_para_conseguir_trabalho",
+        "type": "string"
+      },
+      {
+        "name": "E024011__qual_foi_o_principal_motivo_de_nao_ter_tomado_providencia_para_conseguir_trabalho_no_periodo_de_a_periodo_de_referencia_de_30_dias",
+        "type": "string"
+      },
+      {
+        "name": "E02402__quanto_tempo_depois_de_ultimo_dia_da_semana_de_referencia_ira_comecar_esse_trabalho_que_conseguiu",
+        "type": "string"
+      },
+      {
+        "name": "E024021__numero_de_meses_para_comecar_o_trabalho_que_conseguiu",
+        "type": "string"
+      },
+      {
+        "name": "E025__ate_o_dia_ultimo_dia_da_semana_de_referencia_fazia_quanto_tempo_que_estava_sem_qualquer_trabalho_e_tentando_conseguir_trabalho",
+        "type": "string"
+      },
+      {
+        "name": "E02501__fazia_quanto_tempo_que_vinha_procurando_trabalho_de_1_mes_a_menos_de_1_ano",
+        "type": "string"
+      },
+      {
+        "name": "E02502__fazia_quanto_tempo_que_vinha_procurando_trabalho_de_1_ano_a_menos_de_2_anos",
+        "type": "string"
+      },
+      {
+        "name": "E02503__fazia_quanto_tempo_vinha_procurando_trabalho_2_anos_ou_mais",
+        "type": "string"
+      },
+      {
+        "name": "E026__se_tivesse_conseguido_um_trabalho_poderia_ter_comecado_a_trabalhar_na_semana_de_a_semana_de_referencia",
+        "type": "string"
+      },
+      {
+        "name": "E02601__no_periodo_de_a_periodo_de_referencia_de_358_dias_trabalhou_por_pelo_menos_1_hora",
+        "type": "string"
+      },
+      {
+        "name": "E02801__na_semana_de_a_semana_de_referencia_realizou_tarefas_de_cuidados_de_moradores_deste_domicilio_que_eram_criancas_idosos_enfermos_ou_pessoas_com_necessidades_especiais_tais_como_auxiliar_nos_cuidados_pessoais_alimentar_vestir_pentear_dar_remedio_dar_banho_colocar_para_dormir",
+        "type": "string"
+      },
+      {
+        "name": "E02802__na_semana_de_a_semana_de_referencia_realizou_tarefas_de_cuidados_de_moradores_deste_domicilio_que_eram_criancas_idosos_enfermos_ou_pessoas_com_necessidades_especiais_tais_como_auxiliar_em_atividades_educacionais",
+        "type": "string"
+      },
+      {
+        "name": "E02803__na_semana_de_a_semana_de_referencia_realizou_tarefas_de_cuidados_de_moradores_deste_domicilio_que_eram_criancas_idosos_enfermos_ou_pessoas_com_necessidades_especiais_tais_como_ler_jogar_ou_brincar",
+        "type": "string"
+      },
+      {
+        "name": "E02804__na_semana_de_a_semana_de_referencia_realizou_tarefas_de_cuidados_de_moradores_deste_domicilio_que_eram_criancas_idosos_enfermos_ou_pessoas_com_necessidades_especiais_tais_como_monitorar_ou_fazer_companhia_dentro_do_domicilio",
+        "type": "string"
+      },
+      {
+        "name": "E02805__na_semana_de_a_semana_de_referencia_realizou_tarefas_de_cuidados_de_moradores_deste_domicilio_que_eram_criancas_idosos_enfermos_ou_pessoas_com_necessidades_especiais_tais_como_transportar_ou_acompanhar_para_escola_medico_exames_parque_praca_atividades_sociais_culturais_esportivas_ou_religiosas",
+        "type": "string"
+      },
+      {
+        "name": "E02806__outras_tarefas_de_cuidados_de_moradores_do_domicilio",
+        "type": "string"
+      },
+      {
+        "name": "E030__na_semana_de_a_semana_de_referencia_cuidou_de_parentes_que_nao_moravam_neste_domicilio_e_que_precisavam_de_cuidados_criancas_idosos_enfermos_ou_pessoas_com_necessidades_especiais",
+        "type": "string"
+      },
+      {
+        "name": "E03101__na_semana_de_a_semana_de_referencia_fez_tarefas_domesticas_para_o_proprio_domicilio_tais_como_preparar_ou_servir_alimentos_arrumar_a_mesa_ou_lavar_as_loucas",
+        "type": "string"
+      },
+      {
+        "name": "E03102__na_semana_de_a_semana_de_referencia_fez_tarefas_domesticas_para_o_proprio_domicilio_tais_como_cuidar_da_limpeza_ou_manutencao_de_roupas_e_sapatos",
+        "type": "string"
+      },
+      {
+        "name": "E03103__na_semana_de_a_semana_de_referencia_fez_tarefas_domesticas_para_o_proprio_domicilio_tais_como_fazer_pequenos_reparos_ou_manutencao_do_domicilio_do_automovel_de_eletrodomesticos_ou_outros_equipamentos",
+        "type": "string"
+      },
+      {
+        "name": "E03104__na_semana_de_a_semana_de_referencia_fez_tarefas_domesticas_para_o_proprio_domicilio_tais_como_limpar_ou_arrumar_o_domicilio_a_garagem_o_quintal_ou_o_jardim",
+        "type": "string"
+      },
+      {
+        "name": "E03105__na_semana_de_a_semana_de_referencia_fez_tarefas_domesticas_para_o_proprio_domicilio_tais_como_cuidar_da_organizacao_do_domicilio_pagar_contas_contratar_servicos_orientar_empregados_etc",
+        "type": "string"
+      },
+      {
+        "name": "E03106__na_semana_de_a_semana_de_referencia_fez_tarefas_domesticas_para_o_proprio_domicilio_tais_como_fazer_compras_ou_pesquisar_precos_de_bens_para_o_domicilio",
+        "type": "string"
+      },
+      {
+        "name": "E03107__na_semana_de_a_semana_de_referencia_fez_tarefas_domesticas_para_o_proprio_domicilio_tais_como_cuidar_dos_animais_domesticos",
+        "type": "string"
+      },
+      {
+        "name": "E03108__na_semana_de_a_semana_de_referencia_fez_tarefas_domesticas_para_o_proprio_domicilio_tais_como_outras_tarefas_domesticas",
+        "type": "string"
+      },
+      {
+        "name": "E032___na_semana_de_a_semana_de_referencia_fez_alguma_tarefa_domestica_em_domicilio_de_parente",
+        "type": "string"
+      },
+      {
+        "name": "E033___na_semana_de_a_semana_de_referencia_qual_foi_o_total_de_horas_que_dedicou_as_atividades_de_cuidados_de_pessoas_e_ou_afazeres_domesticos",
+        "type": "string"
+      },
+      {
+        "name": "E027__informante_do_modulo_e",
+        "type": "string"
+      },
+      {
+        "name": "F001011__em_mes_da_pesquisa_recebia_normalmente_rendimento_de_aposentadoria_ou_pensao_de_instituto_de_previdencia_federal_inss_estadual_municipal_ou_do_governo_federal_estadual_municipal",
+        "type": "string"
+      },
+      {
+        "name": "F001021__valor_habitualmente_recebido",
+        "type": "string"
+      },
+      {
+        "name": "F007011__em_mes_da_pesquisa_recebia_normalmente_rendimento_de_pensao_alimenticia_doacao_ou_mesada_em_dinheiro_de_pessoa_que_nao_morava_no_domicilio",
+        "type": "string"
+      },
+      {
+        "name": "F007021__valor_habitualmente_recebido",
+        "type": "string"
+      },
+      {
+        "name": "F008011__em_mes_da_pesquisa_recebia_normalmente_rendimento_de_aluguel_ou_arrendamento",
+        "type": "string"
+      },
+      {
+        "name": "F008021__valor_habitualmente_recebido",
+        "type": "string"
+      },
+      {
+        "name": "VDF001__em_mes_da_pesquisa_recebia_normalmente_algum_juro_de_caderneta_de_poupanca_e_de_outras_aplicacoes_financeiras_dividendos_programas_sociais_seguro_desemprego_seguro_defeso_ou_outros_rendimentos",
+        "type": "string"
+      },
+      {
+        "name": "VDF00102__valor_recebido_em_reais_vdf001",
+        "type": "string"
+      },
+      {
+        "name": "F016__informante_do_modulo_f",
+        "type": "string"
+      },
+      {
+        "name": "G033___usa_oculos_ou_outro_aparelho_de_auxilio_para_lidar_com_problemas_de_visao",
+        "type": "string"
+      },
+      {
+        "name": "G034___faz_uso_de_oculos",
+        "type": "string"
+      },
+      {
+        "name": "G035__os_oculos_foram_obtidos_no_sus",
+        "type": "string"
+      },
+      {
+        "name": "G036___faz_uso_de_lentes_de_contato",
+        "type": "string"
+      },
+      {
+        "name": "G038___faz_uso_de_lupas_ou_lentes_especiais",
+        "type": "string"
+      },
+      {
+        "name": "G039__as_lupas_ou_lentes_especiais_foram_obtidos_no_sus",
+        "type": "string"
+      },
+      {
+        "name": "G040___faz_uso_de_bengala_articulada",
+        "type": "string"
+      },
+      {
+        "name": "G041__a_bengala_articulada_foi_obtida_no_sus",
+        "type": "string"
+      },
+      {
+        "name": "G042___faz_uso_de_cao_guia",
+        "type": "string"
+      },
+      {
+        "name": "G044___faz_uso_de_algum_outro_aparelho_de_auxilio_para_lidar_com_problemas_de_visao",
+        "type": "string"
+      },
+      {
+        "name": "G046___tem_dificuldade_permanente_de_enxergar_mesmo_usando_oculos_lentes_de_contato_ou_lupas",
+        "type": "string"
+      },
+      {
+        "name": "G047___tem_dificuldade_permanente_de_enxergar",
+        "type": "string"
+      },
+      {
+        "name": "G048___usa_aparelho_auditivo_ou_outro_aparelho_de_auxilio_para_ouvir_melhor",
+        "type": "string"
+      },
+      {
+        "name": "G049___faz_uso_de_aparelho_auditivo",
+        "type": "string"
+      },
+      {
+        "name": "G050__o_aparelho_auditivo_foi_obtido_no_sus",
+        "type": "string"
+      },
+      {
+        "name": "G051___faz_uso_de_implante_coclear",
+        "type": "string"
+      },
+      {
+        "name": "G052__o_implante_coclear_foi_obtido_no_sus",
+        "type": "string"
+      },
+      {
+        "name": "G053___faz_uso_de_sistema_de_frequencia_modulada_individual_sistema_fm",
+        "type": "string"
+      },
+      {
+        "name": "G054__o_sistema_de_frequencia_modulada_individual_sistema_fm_foi_obtido_no_sus",
+        "type": "string"
+      },
+      {
+        "name": "G055___faz_uso_de_algum_outro_aparelho_de_auxilio_para_ouvir_melhor",
+        "type": "string"
+      },
+      {
+        "name": "G057___tem_dificuldade_permanente_de_ouvir_mesmo_usando_aparelhos_auditivos_para_moradores_com_5_anos_ou_mais_de_idade_ou_tem_dificuldade_permanente_para_ouvir_sons_como_vozes_ou_musica_mesmo_usando_aparelhos_auditivos_para_moradores_com_2_a_4_anos_de_idade",
+        "type": "string"
+      },
+      {
+        "name": "G058___tem_dificuldade_permanente_de_ouvir_para_moradores_com_5_anos_ou_mais_de_idade_ou_tem_dificuldade_permanente_de_ouvir_sons_como_vozes_ou_musica_para_moradores_com_2_a_4_anos_de_idade",
+        "type": "string"
+      },
+      {
+        "name": "G05801__sabe_usar_a_lingua_brasileira_de_sinais_libras_para_moradores_com_5_anos_ou_mais_de_idade",
+        "type": "string"
+      },
+      {
+        "name": "G059___usa_algum_aparelho_de_auxilio_para_se_locomover",
+        "type": "string"
+      },
+      {
+        "name": "G060___faz_uso_de_cadeira_de_rodas",
+        "type": "string"
+      },
+      {
+        "name": "G061__a_cadeira_de_rodas_foi_obtida_no_sus",
+        "type": "string"
+      },
+      {
+        "name": "G062___faz_uso_de_bengala_muletas_ou_andador",
+        "type": "string"
+      },
+      {
+        "name": "G063__a_bengala_muletas_ou_andador_foram_obtidas_no_sus",
+        "type": "string"
+      },
+      {
+        "name": "G064___faz_uso_de_protese",
+        "type": "string"
+      },
+      {
+        "name": "G065__a_protese_foi_obtida_no_sus",
+        "type": "string"
+      },
+      {
+        "name": "G066___faz_uso_de_ortese",
+        "type": "string"
+      },
+      {
+        "name": "G067__a_ortese_foi_obtida_no_sus",
+        "type": "string"
+      },
+      {
+        "name": "G068___faz_uso_de_algum_outro_aparelho_de_auxilio_para_se_locomover",
+        "type": "string"
+      },
+      {
+        "name": "G070___tem_dificuldade_permanente_de_caminhar_ou_subir_degraus_mesmo_usando_protese_bengala_ou_outro_aparelho_de_auxilio_para_moradores_com_5_anos_ou_mais_de_idade_ou_comparado_com_criancas_da_mesma_idade_tem_dificuldade_permanente_para_caminhar_mesmo_usando_protese_bengala_ou_aparelho_de_auxilio_para_moradores_com_2_a_4_anos_de_idade",
+        "type": "string"
+      },
+      {
+        "name": "G071___tem_dificuldade_permanente_de_caminhar_ou_subir_degraus_para_moradores_com_5_anos_ou_mais_de_idade_ou_comparado_com_criancas_da_mesma_idade_tem_dificuldade_permanente_para_caminhar_para_moradores_com_2_a_4_anos_de_idade",
+        "type": "string"
+      },
+      {
+        "name": "G072___usa_algum_aparelho_de_auxilio_para_realizar_movimentos_com_os_membros_superiores",
+        "type": "string"
+      },
+      {
+        "name": "G073___faz_uso_de_protese_para_os_membros_superiores",
+        "type": "string"
+      },
+      {
+        "name": "G074__a_protese_para_os_membros_superiores_foi_obtida_no_sus",
+        "type": "string"
+      },
+      {
+        "name": "G075___faz_uso_de_ortese_para_os_membros_superiores",
+        "type": "string"
+      },
+      {
+        "name": "G076__a_ortese_para_os_membros_superiores_foi_obtida_no_sus",
+        "type": "string"
+      },
+      {
+        "name": "G077___faz_uso_de_algum_outro_aparelho_de_auxilio_para_realizar_movimentos_com_os_membros_superiores",
+        "type": "string"
+      },
+      {
+        "name": "G079___tem_dificuldade_permanente_para_levantar_uma_garrafa_com_dois_litros_de_agua_da_cintura_ate_a_altura_dos_olhos_mesmo_usando_protese_ou_aparelho_de_auxilio_somente_para_moradores_com_5_anos_ou_mais_de_idade",
+        "type": "string"
+      },
+      {
+        "name": "G080___tem_dificuldade_permanente_para_pegar_objetos_pequenos_como_botoes_e_lapis_ou_abrir_e_fechar_recipientes_ou_garrafas_mesmo_usando_protese_ou_aparelho_de_auxilio_somente_para_moradores_com_5_anos_ou_mais_de_idade_ou_comparado_com_criancas_da_mesma_idade_tem_dificuldade_permanente_para_pegar_objetos_pequenos_mesmo_usando_protese_ou_aparelho_de_auxilio_para_moradores_com_2_a_4_anos_de_idade",
+        "type": "string"
+      },
+      {
+        "name": "G081___tem_dificuldade_permanente_para_levantar_uma_garrafa_com_dois_litros_de_agua_da_cintura_ate_a_altura_dos_olhos_somente_para_moradores_com_5_anos_ou_mais_de_idade",
+        "type": "string"
+      },
+      {
+        "name": "G082___tem_dificuldade_permanente_para_pegar_objetos_pequenos_como_botoes_e_lapis_ou_abrir_e_fechar_recipientes_ou_garrafas_somente_para_moradores_com_5_anos_ou_mais_de_idade_ou_comparado_com_criancas_da_mesma_idade_tem_dificuldade_permanente_para_pegar_objetos_pequenos_para_moradores_com_2_a_4_anos_de_idade",
+        "type": "string"
+      },
+      {
+        "name": "G083__por_causa_de_alguma_limitacao_nas_funcoes_mentais_ou_intelectuais_tem_dificuldade_permanente_para_realizar_atividades_habituais_como_se_comunicar_realizar_cuidados_pessoais_trabalhar_ir_a_escola_brincar_etc_para_moradores_com_5_anos_ou_mais_de_idade_ou_por_causa_de_alguma_limitacao_nas_funcoes_mentais_ou_intelectuais_tem_dificuldade_permanente_para_realizar_atividades_habituais_como_frequentar_a_escola_brincar_e_etc_para_moradores_com_2_a_4_anos_de_idade",
+        "type": "string"
+      },
+      {
+        "name": "G084__nos_ultimos_doze_meses_recebe_ou_recebeu_algum_cuidado_em_reabilitacao_de_forma_regular_por_reabilitacao_quero_dizer_fisioterapia_terapia_ocupacional_fonoaudiologia_psicoterapia_etc",
+        "type": "string"
+      },
+      {
+        "name": "G085__onde_voce_recebe_recebeu_esse_cuidado_em_reabilitacao",
+        "type": "string"
+      },
+      {
+        "name": "G086__como_voce_conseguiu_ter_acesso_a_esse_cuidado_em_reabilitacao",
+        "type": "string"
+      },
+      {
+        "name": "G032__informante_do_modulo_g",
+        "type": "string"
+      },
+      {
+        "name": "I00101__tem_algum_plano_odontologico_particular_de_empresa_ou_orgao_publico",
+        "type": "string"
+      },
+      {
+        "name": "I00102__tem_algum_plano_de_saude_medico_particular_de_empresa_ou_orgao_publico",
+        "type": "string"
+      },
+      {
+        "name": "I001021__quantos",
+        "type": "string"
+      },
+      {
+        "name": "I00103__quem_e_o_titular_do_plano_de_saude_medico_unico_ou_principal",
+        "type": "string"
+      },
+      {
+        "name": "I001031__no_de_ordem_do_titular",
+        "type": "string"
+      },
+      {
+        "name": "I005__ha_quanto_tempo_sem_interrupcao_possui_esse_plano_de_saude_unico_ou_principal",
+        "type": "string"
+      },
+      {
+        "name": "I006___considera_este_plano_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "I004__o_plano_de_saude_medico_unico_ou_principal_que_possui_e_de_instituicao_de_assistencia_de_servidor_publico_municipal_estadual_ou_militar",
+        "type": "string"
+      },
+      {
+        "name": "I00401__o_plano_de_saude_unico_ou_principal_de_assistencia_medica_que_possui_da_direito_a_consultas",
+        "type": "string"
+      },
+      {
+        "name": "I00402__o_plano_de_saude_unico_ou_principal_de_assistencia_medica_que_possui_da_direito_a_exames",
+        "type": "string"
+      },
+      {
+        "name": "I00403__o_plano_de_saude_unico_ou_principal_de_assistencia_medica_que_possui_da_direito_a_internacoes",
+        "type": "string"
+      },
+      {
+        "name": "I00404__o_plano_de_saude_unico_ou_principal_de_assistencia_medica_que_possui_da_direito_a_partos",
+        "type": "string"
+      },
+      {
+        "name": "I010010__quem_paga_a_mensalidade_deste_plano_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "I012__informante_do_modulo_i",
+        "type": "string"
+      },
+      {
+        "name": "J001__de_um_modo_geral_como_e_o_estado_de_saude_de",
+        "type": "string"
+      },
+      {
+        "name": "J00101__considerando_saude_como_um_estado_de_bem_estar_fisico_e_mental_e_nao_somente_a_ausencia_de_doencas_como_e_o_estado_de_saude_de",
+        "type": "string"
+      },
+      {
+        "name": "J002___nas_duas_ultimas_semanas_deixou_de_realizar_quaisquer_de_suas_atividades_habituais_trabalhar_ir_a_escola_brincar_afazeres_domesticos_etc_por_motivo_da_propria_saude",
+        "type": "string"
+      },
+      {
+        "name": "J003__nas_duas_ultimas_semanas_quantos_dias_deixou_de_realizar_suas_atividades_habituais_por_motivo_da_propria_saude",
+        "type": "string"
+      },
+      {
+        "name": "J00402___qual_foi_o_principal_motivo_de_saude_que_impediu_de_realizar_suas_atividades_habituais_nas_duas_ultimas_semanas",
+        "type": "string"
+      },
+      {
+        "name": "J00404__este_motivo_de_saude_estava_relacionado_ao_trabalho",
+        "type": "string"
+      },
+      {
+        "name": "J005__nas_duas_ultimas_semanas_esteve_acamado_a",
+        "type": "string"
+      },
+      {
+        "name": "J006__nas_duas_ultimas_semanas_quantos_dias_esteve_acamado_a",
+        "type": "string"
+      },
+      {
+        "name": "J007__algum_medico_ja_deu_o_diagnostico_de_alguma_doenca_cronica_fisica_ou_mental_ou_doenca_de_longa_duracao_de_mais_de_6_meses_de_duracao_a",
+        "type": "string"
+      },
+      {
+        "name": "J00801__alguma_dessas_doencas_limita_de_alguma_forma_suas_atividades_habituais_trabalhar_ir_a_escola_brincar_afazeres_domesticos_etc",
+        "type": "string"
+      },
+      {
+        "name": "J009___costuma_procurar_o_mesmo_lugar_mesmo_medico_ou_mesmo_servico_de_saude_quando_precisa_de_atendimento_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "J01002__quando_esta_doente_ou_precisando_de_atendimento_de_saude_costuma_procurar",
+        "type": "string"
+      },
+      {
+        "name": "J01101__quando_consultou_um_medico_pela_ultima_vez",
+        "type": "string"
+      },
+      {
+        "name": "J012__quantas_vezes_consultou_um_medico_nos_ultimos_12_meses",
+        "type": "string"
+      },
+      {
+        "name": "J01301__quando_consultou_um_dentista_pela_ultima_vez",
+        "type": "string"
+      },
+      {
+        "name": "J014__nas_duas_ultimas_semanas_procurou_algum_lugar_servico_ou_profissional_de_saude_para_atendimento_relacionado_a_propria_saude",
+        "type": "string"
+      },
+      {
+        "name": "J01502__qual_foi_o_motivo_principal_pelo_qual_procurou_atendimento_relacionado_a_propria_saude_nas_duas_ultimas_semanas",
+        "type": "string"
+      },
+      {
+        "name": "J01602__onde_procurou_o_primeiro_atendimento_de_saude_por_este_motivo_nas_duas_ultimas_semanas",
+        "type": "string"
+      },
+      {
+        "name": "J01701__nessa_primeira_vez_que_procurou_atendimento_de_saude_por_este_motivo_nas_duas_ultimas_semanas",
+        "type": "string"
+      },
+      {
+        "name": "J01802__por_que_motivo_nao_foi_atendido_a_na_primeira_vez_que_procurou_atendimento_de_saude_nas_duas_ultimas_semanas",
+        "type": "string"
+      },
+      {
+        "name": "J019__nas_duas_ultimas_semanas_quantas_vezes_voltou_a_procurar_atendimento_de_saude_por_este_mesmo_motivo",
+        "type": "string"
+      },
+      {
+        "name": "J02002__onde_procurou_o_ultimo_atendimento_de_saude_por_este_motivo_nas_duas_ultimas_semanas",
+        "type": "string"
+      },
+      {
+        "name": "J021___nessa_ultima_vez_que_procurou_atendimento_de_saude_por_este_motivo_nas_duas_ultimas_semanas_foi_atendido_a",
+        "type": "string"
+      },
+      {
+        "name": "J022010__por_que_motivo_nao_foi_atendido_a_nessa_ultima_vez_que_procurou_atendimento_de_saude_nas_duas_ultimas_semanas",
+        "type": "string"
+      },
+      {
+        "name": "J023___este_servico_de_saude_onde_foi_atendido_era",
+        "type": "string"
+      },
+      {
+        "name": "J024___este_atendimento_de_saude_de_foi_coberto_por_algum_plano_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "J025___pagou_algum_valor_por_este_atendimento_de_saude_recebido_nas_duas_ultimas_semanas",
+        "type": "string"
+      },
+      {
+        "name": "J026__o_atendimento_de_foi_feito_pelo_sus",
+        "type": "string"
+      },
+      {
+        "name": "J02702__qual_foi_o_principal_atendimento_de_saude_que_recebeu",
+        "type": "string"
+      },
+      {
+        "name": "J02901___neste_atendimento_de_foi_receitado_algum_medicamento",
+        "type": "string"
+      },
+      {
+        "name": "J03001___conseguiu_obter_os_medicamentos_receitados_leia_as_opcoes_de_resposta",
+        "type": "string"
+      },
+      {
+        "name": "J03102__qual_o_principal_motivo_de_nao_ter_conseguido_obter_todos_os_medicamentos_receitados",
+        "type": "string"
+      },
+      {
+        "name": "J032__algum_dos_medicamentos_foi_coberto_por_plano_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "J03301__algum_dos_medicamentos_foi_obtido_no_programa_aqui_tem_farmacia_popular",
+        "type": "string"
+      },
+      {
+        "name": "J034__algum_dos_medicamentos_foi_obtido_em_servico_publico_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "J035___pagou_algum_valor_pelos_medicamentos",
+        "type": "string"
+      },
+      {
+        "name": "J03602__nas_duas_ultimas_semanas_por_que_motivo_nao_procurou_servico_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "J037__nos_ultimos_12_meses_ficou_internado_a_em_hospital_por_24_horas_ou_mais",
+        "type": "string"
+      },
+      {
+        "name": "J038__nos_ultimos_12_meses_quantas_vezes_esteve_internado_a",
+        "type": "string"
+      },
+      {
+        "name": "J039__qual_foi_o_principal_atendimento_de_saude_que_recebeu_quando_esteve_internado_a_pela_ultima_vez_nos_doze_ultimos_meses",
+        "type": "string"
+      },
+      {
+        "name": "J04001__quanto_tempo_em_meses_o_morador_ficou_internado",
+        "type": "string"
+      },
+      {
+        "name": "J04002__quanto_tempo_em_dias_o_morador_ficou_internado",
+        "type": "string"
+      },
+      {
+        "name": "J041__o_estabelecimento_de_saude_em_que_esteve_internado_a_pela_ultima_vez_nos_ultimos_12_meses_era",
+        "type": "string"
+      },
+      {
+        "name": "J042__a_ultima_internacao_de_nos_ultimos_12_meses_foi_coberta_por_algum_plano_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "J043___pagou_algum_valor_por_esta_ultima_internacao_entrevistador_se_o_a_entrevistado_a_responder_que_pagou_mas_teve_reembolso_total_marque_a_opcao_2",
+        "type": "string"
+      },
+      {
+        "name": "J044__esta_ultima_internacao_de_foi_feita_atraves_do_sistema_unico_de_saude_sus",
+        "type": "string"
+      },
+      {
+        "name": "J046__nos_ultimos_12_meses_teve_atendimento_de_urgencia_ou_emergencia_no_domicilio",
+        "type": "string"
+      },
+      {
+        "name": "J047__este_atendimento_foi_coberto_por_algum_plano_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "J048___pagou_algum_valor_por_este_atendimento_entrevistador_se_o_a_entrevistado_a_responder_que_pagou_mas_teve_reembolso_total_marque_a_opcao_2",
+        "type": "string"
+      },
+      {
+        "name": "J049__este_atendimento_foi_feito_atraves_do_sistema_unico_de_saude_sus",
+        "type": "string"
+      },
+      {
+        "name": "J051__neste_atendimento_foi_transportado_por_ambulancia_para_um_servico_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "J052__o_transporte_foi_feito_por",
+        "type": "string"
+      },
+      {
+        "name": "J05301__nos_ultimos_doze_meses_utilizou_tratamento_como_acupuntura_homeopatia_plantas_medicinais_e_fitoterapia_meditacao_yoga_tai_chi_chuan_lian_gong_ou_outra_pratica_integrativa_e_complementar_a_saude",
+        "type": "string"
+      },
+      {
+        "name": "J05402__qual_tratamento_fez_uso_acupuntura",
+        "type": "string"
+      },
+      {
+        "name": "J05403__qual_tratamento_fez_uso_homeopatia",
+        "type": "string"
+      },
+      {
+        "name": "J05404__qual_tratamento_fez_uso_plantas_medicinais_e_fitoterapia",
+        "type": "string"
+      },
+      {
+        "name": "J05405__qual_tratamento_fez_uso_auriculoterapia",
+        "type": "string"
+      },
+      {
+        "name": "J05406__qual_tratamento_fez_uso_meditacao",
+        "type": "string"
+      },
+      {
+        "name": "J05407__qual_tratamento_fez_uso_yoga",
+        "type": "string"
+      },
+      {
+        "name": "J05408__qual_tratamento_fez_uso_tai_chi_chuan_lian_gong_qi_gong",
+        "type": "string"
+      },
+      {
+        "name": "J05409__qual_tratamento_fez_uso_terapia_comunitaria_integrativa",
+        "type": "string"
+      },
+      {
+        "name": "J054010__qual_tratamento_fez_uso_outro",
+        "type": "string"
+      },
+      {
+        "name": "J056___pagou_algum_valor_por_este_s_tratamento_s",
+        "type": "string"
+      },
+      {
+        "name": "J057__este_s_tratamento_s_foi_foram_feito_s_atraves_do_sistema_unico_de_saude_sus",
+        "type": "string"
+      },
+      {
+        "name": "J060__informante_do_modulo_j",
+        "type": "string"
+      },
+      {
+        "name": "K001__em_geral_que_grau_de_dificuldade_tem_para_comer_sozinho_a_com_um_prato_colocado_a_sua_frente_incluindo_segurar_um_garfo_cortar_alimentos_e_beber_em_um_copo",
+        "type": "string"
+      },
+      {
+        "name": "K004__em_geral_que_grau_de_dificuldade_tem_para_tomar_banho_sozinho_a_incluindo_entrar_e_sair_do_chuveiro_ou_banheira",
+        "type": "string"
+      },
+      {
+        "name": "K007__em_geral_que_grau_de_dificuldade_tem_para_ir_ao_banheiro_sozinho_a_incluindo_sentar_e_levantar_do_vaso_sanitario",
+        "type": "string"
+      },
+      {
+        "name": "K010__em_geral_que_grau_de_dificuldade_tem_para_se_vestir_sozinho_a_incluindo_calcar_meias_e_sapatos_fechar_o_ziper_e_fechar_e_abrir_botoes",
+        "type": "string"
+      },
+      {
+        "name": "K013__em_geral_que_grau_de_dificuldade_tem_para_andar_em_casa_sozinho_a_de_um_comodo_a_outro_em_um_mesmo_andar_como_do_quarto_para_a_sala",
+        "type": "string"
+      },
+      {
+        "name": "K016__em_geral_que_grau_de_dificuldade_tem_para_deitar_se_ou_levantar_se_da_cama_sozinho_a",
+        "type": "string"
+      },
+      {
+        "name": "K019__em_geral_que_grau_de_dificuldade_tem_para_sentar_se_ou_levantar_se_da_cadeira_sozinho",
+        "type": "string"
+      },
+      {
+        "name": "K01901___precisa_de_ajuda_para_realizar_alguma_s_destas_atividades_comer_tomar_banho_ir_ao_banheiro_se_vestir_andar_em_casa_de_um_comodo_ao_outro_deitar_se_ou_levantar_se_da_cama_sozinho_sentar_ou_levantar_da_cadeira_sozinho",
+        "type": "string"
+      },
+      {
+        "name": "K02001___recebe_ajuda_para_realizar_alguma_s_destas_atividades",
+        "type": "string"
+      },
+      {
+        "name": "K02101__na_maioria_das_vezes_quem_presta_ajuda_a_para_realizar_algumas_dessas_atividades",
+        "type": "string"
+      },
+      {
+        "name": "K02102__essa_pessoa_que_lhe_presta_ajuda_e_remunerada_por_este_servico",
+        "type": "string"
+      },
+      {
+        "name": "K022__em_geral_que_grau_de_dificuldade_tem_para_fazer_compras_sozinho_a_por_exemplo_de_alimentos_roupas_ou_medicamentos",
+        "type": "string"
+      },
+      {
+        "name": "K025___em_geral_que_grau_de_dificuldade_tem_para_administrar_as_financas_sozinho_a_cuidar_do_seu_proprio_dinheiro",
+        "type": "string"
+      },
+      {
+        "name": "K028__em_geral_que_grau_de_dificuldade_tem_para_tomar_os_remedios_sozinho_a_engolir_o_remedio_organizar_horario_e_capacidade_de_lembrar_de_tomar_o_remedio",
+        "type": "string"
+      },
+      {
+        "name": "K031___em_geral_que_grau_de_dificuldade_tem_para_ir_ao_medico_sozinho_a",
+        "type": "string"
+      },
+      {
+        "name": "K034__em_geral_que_grau_de_dificuldade_tem_para_sair_sozinho_a_utilizando_um_transporte_como_onibus_metro_taxi_carro_etc",
+        "type": "string"
+      },
+      {
+        "name": "K03401___precisa_de_ajuda_para_realizar_alguma_s_destas_atividades_fazer_compras_administrar_as_financas_tomar_os_remedios_ir_ao_medico_sair_utilizando_um_transporte_como_onibus_metro_taxi_carro_etc",
+        "type": "string"
+      },
+      {
+        "name": "K03501___recebe_ajuda_para_realizar_alguma_s_destas_atividades",
+        "type": "string"
+      },
+      {
+        "name": "K03601__na_maioria_das_vezes_quem_presta_ajuda_a_para_realizar_algumas_dessas_atividades",
+        "type": "string"
+      },
+      {
+        "name": "K03602__essa_pessoa_que_lhe_presta_ajuda_e_remunerada_por_este_servico",
+        "type": "string"
+      },
+      {
+        "name": "K04301___faz_uso_de_algum_medicamento_que_foi_receitado_por_um_medico_para_uso_regular_ou_continuo_diario",
+        "type": "string"
+      },
+      {
+        "name": "K04302__quantos_medicamentos_diferentes_de_uso_regular_ou_continuo_receitados_pelo_medico_usou_nas_duas_ultimas_semanas",
+        "type": "string"
+      },
+      {
+        "name": "K04401___quando_foi_a_ultima_vez_que_fez_exame_de_vista_por_profissional_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "K045__algum_medico_ja_deu_a_diagnostico_de_catarata_em_uma_ou_em_ambas_as_vistas",
+        "type": "string"
+      },
+      {
+        "name": "K046__houve_indicacao_para_realizacao_de_cirurgia_nos_olhos_para_retirar_a_catarata",
+        "type": "string"
+      },
+      {
+        "name": "K047___fez_a_cirurgia",
+        "type": "string"
+      },
+      {
+        "name": "K048__qual_o_principal_motivo_do_a_nao_ter_feito_a_cirurgia_de_catarata",
+        "type": "string"
+      },
+      {
+        "name": "K050___pagou_algum_valor_pela_cirurgia",
+        "type": "string"
+      },
+      {
+        "name": "K051__a_cirurgia_foi_feita_atraves_do_sistema_unico_de_saude_sus",
+        "type": "string"
+      },
+      {
+        "name": "K052__nos_ultimos_doze_meses_tomou_vacina_contra_gripe",
+        "type": "string"
+      },
+      {
+        "name": "K05302__qual_o_principal_motivo_por_nao_ter_tomado_a_vacina_contra_gripe",
+        "type": "string"
+      },
+      {
+        "name": "K05401__nos_ultimos_doze_meses_teve_alguma_queda",
+        "type": "string"
+      },
+      {
+        "name": "K05402__nos_ultimos_doze_meses_na_ocasiao_dessa_as_queda_as_ocorrida_s_procurou_o_servico_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "k055___na_ocasiao_dessa_s_queda_s_nos_ultimos_doze_meses_fraturou_quadril_ou_femur",
+        "type": "string"
+      },
+      {
+        "name": "K05601___fez_cirurgia_por_causa_dessa_fratura",
+        "type": "string"
+      },
+      {
+        "name": "K05602___teve_colocacao_de_protese",
+        "type": "string"
+      },
+      {
+        "name": "K062__informante_do_modulo_k",
+        "type": "string"
+      },
+      {
+        "name": "L01701__leite_materno",
+        "type": "string"
+      },
+      {
+        "name": "L01702__outro_leite_ou_derivados_de_leite",
+        "type": "string"
+      },
+      {
+        "name": "L01703__agua",
+        "type": "string"
+      },
+      {
+        "name": "L01704__cha",
+        "type": "string"
+      },
+      {
+        "name": "L01705__mingau",
+        "type": "string"
+      },
+      {
+        "name": "L01706__frutas_ou_suco_natural_de_frutas",
+        "type": "string"
+      },
+      {
+        "name": "L01707__sucos_artificiais",
+        "type": "string"
+      },
+      {
+        "name": "L01708__verduras_legumes",
+        "type": "string"
+      },
+      {
+        "name": "L01709__feijao_ou_outras_leguminosas_lentilha_ervilha_etc",
+        "type": "string"
+      },
+      {
+        "name": "L01710__carnes_ou_ovos",
+        "type": "string"
+      },
+      {
+        "name": "L01711__batata_e_outros_tuberculos_e_raizes_batata_doce_mandioca",
+        "type": "string"
+      },
+      {
+        "name": "L01712__cereais_e_derivados_arroz_pao_cereal_macarrao_farinha_etc",
+        "type": "string"
+      },
+      {
+        "name": "L01713__biscoitos_ou_bolachas_ou_bolo",
+        "type": "string"
+      },
+      {
+        "name": "L01714__doces_balas_ou_outros_alimentos_com_acucar",
+        "type": "string"
+      },
+      {
+        "name": "L01715__refrigerantes",
+        "type": "string"
+      },
+      {
+        "name": "L01716__outros",
+        "type": "string"
+      },
+      {
+        "name": "L018__desde_que_nasceu_tomou_ou_comeu_outro_alimento_que_nao_leite_materno",
+        "type": "string"
+      },
+      {
+        "name": "L019__alguma_vez_recebeu_sulfato_ferroso",
+        "type": "string"
+      },
+      {
+        "name": "L021__foi_realizado_o_teste_do_pezinho",
+        "type": "string"
+      },
+      {
+        "name": "L022__quando_foi_realizado_o_teste_do_pezinho",
+        "type": "string"
+      },
+      {
+        "name": "L023__quanto_tempo_depois_da_realizacao_do_teste_do_pezinho_recebeu_o_resultado",
+        "type": "string"
+      },
+      {
+        "name": "L024__foi_realizado_o_teste_de_orelhinha",
+        "type": "string"
+      },
+      {
+        "name": "L025__quando_foi_realizado_o_teste_da_orelhinha",
+        "type": "string"
+      },
+      {
+        "name": "L026__quanto_tempo_depois_da_realizacao_do_teste_da_orelhinha_voce_recebeu_o_resultado",
+        "type": "string"
+      },
+      {
+        "name": "L027__foi_realizado_o_teste_do_olhinho",
+        "type": "string"
+      },
+      {
+        "name": "L028__o_teste_do_olhinho_foi_realizado_nas_primeiras_24_horas_de_vida",
+        "type": "string"
+      },
+      {
+        "name": "L029__recebeu_o_resultado_do_olhinho_na_hora_em_que_o_exame_foi_realizado",
+        "type": "string"
+      },
+      {
+        "name": "L030__foi_realizado_o_teste_do_coracaozinho",
+        "type": "string"
+      },
+      {
+        "name": "L031__o_teste_do_coracaozinho_foi_realizado_entre_24_e_48_horas_de_vida_quando_ele_a_ainda_estava_na_maternidade",
+        "type": "string"
+      },
+      {
+        "name": "L032__recebeu_o_resultado_do_teste_do_coracaozinho_realizado",
+        "type": "string"
+      },
+      {
+        "name": "L033__o_teste_do_coracaozinho_realizado_deu_resultado_alterado",
+        "type": "string"
+      },
+      {
+        "name": "L034__fez_exame_complementar",
+        "type": "string"
+      },
+      {
+        "name": "L035__recebeu_o_cartao_de_vacinacao_ou_caderneta_de_saude_da_crianca",
+        "type": "string"
+      },
+      {
+        "name": "L036__o_a_morador_a_mostrou_a_caderneta_de_saude_da_crianca",
+        "type": "string"
+      },
+      {
+        "name": "L037__vacina_penta_tambem_chamada_de_pentavalente_dtp_hib_hb",
+        "type": "string"
+      },
+      {
+        "name": "L038__vacina_poliomielite_tambem_chamada_de_gotinha_vip_vop_polio_antipolio_poliomielite_sabin",
+        "type": "string"
+      },
+      {
+        "name": "L039__vacina_pneumococica_tambem_chamada_de_pneumo_10_pneumo_13_pncc",
+        "type": "string"
+      },
+      {
+        "name": "L040__vacina_triplice_viral_tambem_chamada_scr_triviral_tv_mmr",
+        "type": "string"
+      },
+      {
+        "name": "L042__o_informante_desta_parte_foi",
+        "type": "string"
+      },
+      {
+        "name": "M001__entrevista_do_adulto_selecionado",
+        "type": "string"
+      },
+      {
+        "name": "M002__identificacao_da_mae_do_morador_selecionado",
+        "type": "string"
+      },
+      {
+        "name": "M00203___morador_selecionado_esta_apto_para_responder",
+        "type": "string"
+      },
+      {
+        "name": "M00302__o_informante_desta_parte_e",
+        "type": "string"
+      },
+      {
+        "name": "M00303__normalmente_quantos_dias_na_semana_o_a_sr_a_se_desloca_va_de_casa_para_o_s_trabalho_s",
+        "type": "string"
+      },
+      {
+        "name": "M00401__quanto_tempo_em_horas_o_a_sr_a_gasta_va_normalmente_por_dia_no_deslocamento_para_o_s_seu_s_trabalho_s_considerando_ida_e_volta",
+        "type": "string"
+      },
+      {
+        "name": "M00402__quanto_tempo_em_minutos_o_a_sr_a_gasta_normalmente_por_dia_no_deslocamento_para_o_s_seu_s_trabalho_s_considerando_ida_e_volta",
+        "type": "string"
+      },
+      {
+        "name": "M005010__no_s_seu_s_trabalho_s_habitualmente_s_o_a_sr_a_trabalha_va_algum_periodo_de_tempo_entre_as_8_horas_da_noite_e_as_5_horas_da_manha",
+        "type": "string"
+      },
+      {
+        "name": "M005011__quantas_horas_trabalha_va_por_dia_habitualmente_no_periodo_de_8_horas_da_noite_e_5_horas_da_manha",
+        "type": "string"
+      },
+      {
+        "name": "M00601__com_que_frequencia_habitualmente_o_a_sr_a_trabalha_va_no_horario_entre_8_horas_da_noite_e_5_horas_da_manha_em_algum_dos_seus_trabalhos",
+        "type": "string"
+      },
+      {
+        "name": "M007___em_algum_dos_seus_trabalhos_o_a_sr_a_trabalha_va_em_regime_de_turnos_ininterruptos_isto_e_por_24_horas_seguidas",
+        "type": "string"
+      },
+      {
+        "name": "M008___com_que_frequencia_o_a_sr_a_trabalha_va_por_24_horas_seguidas",
+        "type": "string"
+      },
+      {
+        "name": "M009__o_a_sr_a_normalmente_trabalha_va_em_ambientes",
+        "type": "string"
+      },
+      {
+        "name": "M01001__nos_ultimos_30_dias_alguem_fumou_no_mesmo_ambiente_fechado_onde_o_a_sr_a_trabalhava_todos_os_trabalhos",
+        "type": "string"
+      },
+      {
+        "name": "M011011___no_s_seu_s_trabalho_s_o_a_sr_a_esta_estava_exposto_a_a_algum_destes_fatores_que_podem_afetar_a_sua_saude_manuseio_de_substancias_quimicas_agrotoxicos_gasolina_diesel_formol_chumbo_mercurio_cromo_quimioterapicos_etc",
+        "type": "string"
+      },
+      {
+        "name": "M011021__no_s_seu_s_trabalho_s_o_a_sr_a_esta_exposto_a_a_algum_destes_fatores_que_podem_afetar_a_sua_saude_exposicao_a_ruido_barulho_intenso",
+        "type": "string"
+      },
+      {
+        "name": "M011031___no_s_seu_s_trabalho_s_o_a_sr_a_esta_exposto_a_a_algum_destes_fatores_que_podem_afetar_a_sua_saude_exposicao_longa_ao_sol",
+        "type": "string"
+      },
+      {
+        "name": "M011041___no_s_seu_s_trabalho_s_o_a_sr_a_esta_exposto_a_a_algum_destes_fatores_que_podem_afetar_a_sua_saude_manuseio_de_material_radioativo_transporte_recebimento_armazenagem_trabalho_com_raio_x",
+        "type": "string"
+      },
+      {
+        "name": "M011051__no_s_seu_s_trabalho_s_o_a_sr_a_esta_exposto_a_a_algum_destes_fatores_que_podem_afetar_a_sua_saude_manuseio_de_residuos_urbanos_lixo",
+        "type": "string"
+      },
+      {
+        "name": "M011061__no_s_seu_s_trabalho_s_o_a_sr_a_esta_exposto_a_a_algum_destes_fatores_que_podem_afetar_a_sua_saude_exposicao_a_material_biologico_sangue_agulhas_secrecoes",
+        "type": "string"
+      },
+      {
+        "name": "M011071__no_s_seu_s_trabalho_s_o_a_sr_a_esta_exposto_a_a_algum_destes_fatores_que_podem_afetar_a_sua_saude_exposicao_a_poeira_mineral_po_de_marmore_de_areia_de_brita_de_vidro_silica_de_amianto_asbesto_de_ferro_ou_aco",
+        "type": "string"
+      },
+      {
+        "name": "M01401__com_quantos_familiares_ou_parentes_pode_contar_em_momentos_bons_ou_ruins",
+        "type": "string"
+      },
+      {
+        "name": "M01501___com_quantos_amigos_proximos_pode_contar_em_momentos_bons_ou_ruins_sem_considerar_os_familiares_ou_parentes",
+        "type": "string"
+      },
+      {
+        "name": "M01601__nos_ultimos_doze_meses_com_que_frequencia_o_a_sr_a_se_reuniu_com_outras_pessoas_para_pratica_de_atividades_esportivas_exercicios_fisicos_recreativos_ou_artisticos",
+        "type": "string"
+      },
+      {
+        "name": "M01701__nos_ultimos_doze_meses_com_que_frequencia_o_a_sr_a_participou_de_reunioes_de_grupos_como_associacoes_de_moradores_ou_funcionarios_movimentos_sociais_comunitarios_centros_academicos_ou_similares",
+        "type": "string"
+      },
+      {
+        "name": "M01801__nos_ultimos_12_meses_com_que_frequencia_o_a_sr_a_fez_trabalho_voluntario_nao_remunerado",
+        "type": "string"
+      },
+      {
+        "name": "M01901__nos_ultimos_doze_meses_com_que_frequencia_o_a_sr_a_compareceu_a_atividades_coletivas_da_sua_religiao_ou_de_outra_religiao_sem_contar_com_situacoes_como_casamento_batizado_ou_enterro",
+        "type": "string"
+      },
+      {
+        "name": "N001__em_geral_como_o_a_sr_a_avalia_a_sua_saude",
+        "type": "string"
+      },
+      {
+        "name": "N00101__considerando_saude_como_um_estado_de_bem_estar_fisico_e_mental_e_nao_somente_a_ausencia_de_doencas_como_voce_avalia_o_seu_estado_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "N004__quando_o_a_sr_a_sobe_uma_ladeira_um_lance_de_escadas_ou_caminha_rapido_no_plano_sente_dor_ou_desconforto_no_peito",
+        "type": "string"
+      },
+      {
+        "name": "N005__quando_o_a_sr_a_caminha_em_lugar_plano_em_velocidade_normal_sente_dor_ou_desconforto_no_peito",
+        "type": "string"
+      },
+      {
+        "name": "N006___o_que_o_a_sr_a_faz_se_sente_dor_ou_desconforto_no_peito",
+        "type": "string"
+      },
+      {
+        "name": "N00701__quando_o_a_sr_a_para_o_que_acontece_com_a_dor_ou_desconforto_no_peito",
+        "type": "string"
+      },
+      {
+        "name": "N008__o_a_sr_a_pode_me_mostrar_onde_geralmente_sente_essa_dor_desconforto_no_peito",
+        "type": "string"
+      },
+      {
+        "name": "N010__nas_duas_ultimas_semanas_com_que_frequencia_o_a_sr_a_teve_problemas_no_sono_como_dificuldade_para_adormecer_acordar_frequentemente_a_noite_ou_dormir_mais_do_que_de_costume",
+        "type": "string"
+      },
+      {
+        "name": "N011__nas_duas_ultimas_semanas_com_que_frequencia_o_a_sr_a_teve_problemas_por_nao_se_sentir_descansado_a_e_disposto_a_durante_o_dia_sentindo_se_cansado_a_sem_ter_energia",
+        "type": "string"
+      },
+      {
+        "name": "N012__nas_duas_ultimas_semanas_com_que_frequencia_o_a_sr_a_teve_pouco_interesse_ou_nao_senitiu_prazer_em_fazer_as_coisas",
+        "type": "string"
+      },
+      {
+        "name": "N013__nas_duas_ultimas_semanas_com_que_frequencia_o_a_sr_a_teve_problemas_para_se_concentrar_nas_suas_atividades_habituais",
+        "type": "string"
+      },
+      {
+        "name": "N014__nas_duas_ultimas_semanas_com_que_frequencia_o_a_sr_a_teve_problemas_na_alimentacao_como_ter_falta_de_apetite_ou_comer_muito_mais_do_que_de_costume",
+        "type": "string"
+      },
+      {
+        "name": "N015__nas_duas_ultimas_semanas_com_que_frequencia_o_a_sr_a_teve_lentidao_para_se_movimentar_ou_falar_ou_ao_contrario_ficou_muito_agitado_a_ou_inquieto_a",
+        "type": "string"
+      },
+      {
+        "name": "N016__nas_duas_ultimas_semanas_com_que_frequencia_o_a_sr_a_se_sentiu_deprimido_a_pra_baixo_ou_sem_perspectiva",
+        "type": "string"
+      },
+      {
+        "name": "N017__nas_duas_ultimas_semanas_com_que_frequencia_o_a_sr_a_se_sentiu_mal_consigo_mesmo_se_achando_um_fracasso_ou_achando_que_decepcionou_sua_familia",
+        "type": "string"
+      },
+      {
+        "name": "N018__nas_duas_ultimas_semanas_com_que_frequencia_o_a_sr_a_pensou_em_se_ferir_de_alguma_maneira_ou_achou_que_seria_melhor_estar_morto",
+        "type": "string"
+      },
+      {
+        "name": "O00101___atualmente_o_a_sr_a_dirige_automovel_inclusive_taxi_aplicativos_de_transporte_e_similares",
+        "type": "string"
+      },
+      {
+        "name": "O00401__com_que_frequencia_o_a_sr_a_usa_cinto_de_seguranca_quando_dirige_automovel_inclusive_taxi_aplicativos_de_transporte_e_similares",
+        "type": "string"
+      },
+      {
+        "name": "O00402__com_que_frequencia_o_a_sr_a_usa_cinto_de_seguranca_quando_anda_no_banco_da_frente_como_passageiro_de_automovel_inclusive_taxi_aplicativos_de_transporte_e_similares",
+        "type": "string"
+      },
+      {
+        "name": "O00501___com_que_frequencia_o_a_sr_a_usa_cinto_de_seguranca_quando_anda_no_banco_de_tras_de_automovel_inclusive_taxi_aplicativos_de_transporte_e_similares",
+        "type": "string"
+      },
+      {
+        "name": "O00201__atualmente_o_a_sr_a_dirige_motocicleta",
+        "type": "string"
+      },
+      {
+        "name": "O00701__com_que_frequencia_o_a_sr_a_usa_capacete_quando_dirige_motocicleta",
+        "type": "string"
+      },
+      {
+        "name": "O00801__com_que_frequencia_o_a_sr_a_usa_capacete_quando_anda_como_passageiro_de_motocicleta",
+        "type": "string"
+      },
+      {
+        "name": "O00802___com_que_frequencia_o_a_senhor_a_manuseia_o_celular_durante_a_conducao_de_moto_ou_automovel_inclusive_taxi_aplicativos_de_transporte_e_similares",
+        "type": "string"
+      },
+      {
+        "name": "O00803__com_que_frequencia_o_a_senhor_a_conduz_moto_ou_automovel_inclusive_taxi_aplicativos_de_transporte_e_similares_acima_da_velocidade_da_via",
+        "type": "string"
+      },
+      {
+        "name": "O009___nos_ultimos_doze_meses_o_a_sr_a_se_envolveu_em_algum_acidente_de_transito_no_qual_tenha_sofrido_lesoes_corporais_ferimentos",
+        "type": "string"
+      },
+      {
+        "name": "O00901__quantos",
+        "type": "string"
+      },
+      {
+        "name": "O010__algum_desses_acidentes_de_transito_ocorreu_quando_o_a_sr_a_estava_trabalhando_indo_ou_voltando_do_trabalho",
+        "type": "string"
+      },
+      {
+        "name": "O01102__durante_o_acidente_de_transito_ocorrido_nos_ultimos_12_meses_o_a_sr_a_era_se_houver_mais_de_um_considere_o_mais_grave",
+        "type": "string"
+      },
+      {
+        "name": "O01401__por_causa_deste_acidente_de_transito_o_a_sr_a_deixou_de_realizar_quaisquer_de_suas_atividades_habituais_trabalhar_realizar_afazeres_domesticos_ir_a_escola_etc",
+        "type": "string"
+      },
+      {
+        "name": "O01501__para_este_acidente_de_transito_o_a_sr_a_recebeu_algum_tipo_de_atendimento_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "O01602__onde_o_a_sr_a_recebeu_o_primeiro_atendimento_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "O01702__quem_lhe_prestou_atendimento_no_local_do_acidente",
+        "type": "string"
+      },
+      {
+        "name": "O019__por_causa_deste_acidente_de_transito_o_a_sr_a_precisou_ser_internado_por_24_horas_ou_mais_se_houver_mais_de_um_considere_o_mais_grave",
+        "type": "string"
+      },
+      {
+        "name": "O02001___o_sr_a_tem_alguma_sequela_fisica_permanente_decorrente_deste_acidente_de_transito_se_houver_mais_de_um_considere_o_mais_grave",
+        "type": "string"
+      },
+      {
+        "name": "O021__nos_ultimos_doze_meses_o_a_sr_a_se_envolveu_em_algum_acidente_de_trabalho_sem_considerar_os_acidentes_de_transito_e_ou_de_deslocamento_para_o_trabalho",
+        "type": "string"
+      },
+      {
+        "name": "O02101__quantos",
+        "type": "string"
+      },
+      {
+        "name": "O02201___como_consequencia_desse_acidente_de_trabalho_o_a_sr_a_deixou_de_realizar_quaisquer_de_suas_atividades_habituais_trabalhar_realizar_afazeres_domesticos_ir_a_escola_etc",
+        "type": "string"
+      },
+      {
+        "name": "O023__por_causa_deste_acidente_de_trabalho_o_a_sr_a_precisou_ser_internado_por_24_horas_ou_mais_se_houver_mais_de_um_considere_o_mais_grave",
+        "type": "string"
+      },
+      {
+        "name": "O02401___o_a_sr_a_tem_alguma_sequela_fisica_permanente_decorrente_desse_acidente_de_trabalho",
+        "type": "string"
+      },
+      {
+        "name": "P00102__o_a_sr_a_sabe_seu_peso",
+        "type": "string"
+      },
+      {
+        "name": "P00103__peso_informado_em_kg_3_inteiros_e_1_casa_decimal",
+        "type": "string"
+      },
+      {
+        "name": "P00104__peso_final_em_kg_3_inteiros_e_1_casa_decimal",
+        "type": "string"
+      },
+      {
+        "name": "P00201__quanto_tempo_faz_que_o_a_sr_a_se_pesou_da_ultima_vez",
+        "type": "string"
+      },
+      {
+        "name": "P00402__o_a_sr_a_sabe_sua_altura_mesmo_que_seja_valor_aproximado",
+        "type": "string"
+      },
+      {
+        "name": "P00403__altura_informada_em_cm_3_inteiros",
+        "type": "string"
+      },
+      {
+        "name": "P00404__altura_final_em_cm_3_inteiros",
+        "type": "string"
+      },
+      {
+        "name": "P00405__marca_de_imputacao_para_altura_e_ou_peso_referido",
+        "type": "string"
+      },
+      {
+        "name": "P005__a_sra_esta_gravida_no_momento",
+        "type": "string"
+      },
+      {
+        "name": "P00601__ontem_o_a_sr_a_comeu_arroz_macarrao_polenta_cuscuz_ou_milho_verde",
+        "type": "string"
+      },
+      {
+        "name": "P00602__batata_comum_mandioca_aipim_macaxeira_cara_ou_inhame",
+        "type": "string"
+      },
+      {
+        "name": "P00603__feijao_ervilha_lentilha_ou_grao_de_bico",
+        "type": "string"
+      },
+      {
+        "name": "P00604__carne_de_boi_porco_frango_peixe",
+        "type": "string"
+      },
+      {
+        "name": "P00605__ovo_frito_cozido_ou_mexido",
+        "type": "string"
+      },
+      {
+        "name": "P00607__alface_couve_brocolis_agriao_ou_espinfre",
+        "type": "string"
+      },
+      {
+        "name": "P00608__abobora_cenoura_batata_doce_ou_quiabo_caruru",
+        "type": "string"
+      },
+      {
+        "name": "P00609__tomate_pepino_abobrinha_berinjela_chuchu_ou_beterraba",
+        "type": "string"
+      },
+      {
+        "name": "P00610__mamao_manga_melao_amarelo_ou_pequi",
+        "type": "string"
+      },
+      {
+        "name": "P00611__laranja_banana_maca_abacaxi",
+        "type": "string"
+      },
+      {
+        "name": "P00612__leite",
+        "type": "string"
+      },
+      {
+        "name": "P00613__amendoim_castanha_de_caju_ou_castanha_do_brasil_para",
+        "type": "string"
+      },
+      {
+        "name": "P00614__ontem_o_a_sr_a_tomou_ou_comeu_refrigerante",
+        "type": "string"
+      },
+      {
+        "name": "P00615__suco_de_fruta_em_caixinha_ou_lata_ou_refresco_em_po",
+        "type": "string"
+      },
+      {
+        "name": "P00616___bebida_achocolatada_ou_iogurte_com_sabor",
+        "type": "string"
+      },
+      {
+        "name": "P00617__salgadinho_de_pacote_ou_biscoito_bolacha_salgado",
+        "type": "string"
+      },
+      {
+        "name": "P00618__biscoito_bolacha_doce_ou_recheado_ou_bolo_de_pacote",
+        "type": "string"
+      },
+      {
+        "name": "P00619__sorvete_chocolate_gelatina_flan_ou_outra_sobremesa_industrializada",
+        "type": "string"
+      },
+      {
+        "name": "P00620__salsicha_linguica_mortadela_ou_presunto",
+        "type": "string"
+      },
+      {
+        "name": "P00621__pao_de_forma_de_cachorro_quente_ou_de_hamburguer",
+        "type": "string"
+      },
+      {
+        "name": "P00622__margarina_maionese_ketchup_ou_outros_molhos_industrializados",
+        "type": "string"
+      },
+      {
+        "name": "P00623__macarrao_instantaneo_sopa_de_pacote_lasanha_congelada_ou_outro_prato_congelado_comprado_pronto_industrilizado",
+        "type": "string"
+      },
+      {
+        "name": "P006__em_quantos_dias_da_semana_o_a_sr_a_costuma_comer_feijao",
+        "type": "string"
+      },
+      {
+        "name": "P00901__em_quantos_dias_da_semana_o_a_sr_a_costuma_comer_pelo_menos_um_tipo_de_verdura_ou_legume_sem_contar_batata_mandioca_cara_ou_inhame_como_alface_tomate_couve_cenoura_chuchu_berinjela_abobrinha",
+        "type": "string"
+      },
+      {
+        "name": "P01001__em_geral_o_a_sr_a_costuma_comer_esse_tipo_de_verdura_ou_legume",
+        "type": "string"
+      },
+      {
+        "name": "P01101__em_quantos_dias_da_semana_o_a_sr_a_costuma_comer_carne_vermelha_boi_porco_cabrito_bode_ovelha_etc",
+        "type": "string"
+      },
+      {
+        "name": "P013__em_quantos_dias_da_semana_o_a_sr_a_costuma_comer_frango_galinha",
+        "type": "string"
+      },
+      {
+        "name": "P015__em_quantos_dias_da_semana_o_a_sr_a_costuma_comer_peixe",
+        "type": "string"
+      },
+      {
+        "name": "P02001__em_quantos_dias_da_semana_o_a_sr_a_costuma_tomar_suco_de_caixinha_lata_ou_refresco_em_po",
+        "type": "string"
+      },
+      {
+        "name": "P02101__que_tipo_de_suco_de_caixinha_lata_ou_refresco_em_po_o_a_sr_a_costuma_tomar_ler_as_opcoes_de_resposta",
+        "type": "string"
+      },
+      {
+        "name": "P01601__em_quantos_dias_da_semana_o_a_sr_a_costuma_tomar_suco_de_fruta_natural_incluida_a_polpa_de_fruta_congelada",
+        "type": "string"
+      },
+      {
+        "name": "P018__em_quantos_dias_da_semana_o_a_sr_a_costuma_comer_frutas",
+        "type": "string"
+      },
+      {
+        "name": "P019__em_geral_quantas_vezes_por_dia_o_a_sr_a_come_frutas",
+        "type": "string"
+      },
+      {
+        "name": "P02002__em_quantos_dias_da_semana_o_a_sr_a_costuma_tomar_refrigerante",
+        "type": "string"
+      },
+      {
+        "name": "P02102__que_tipo_de_refrigerante_o_a_sr_a_costuma_tomar",
+        "type": "string"
+      },
+      {
+        "name": "P023__em_quantos_dias_da_semana_o_a_sr_a_costuma_tomar_leite_de_origem_animal_vaca_cabra_bufala_etc",
+        "type": "string"
+      },
+      {
+        "name": "P02401__que_tipo_de_leite_o_a_sr_a_costuma_tomar",
+        "type": "string"
+      },
+      {
+        "name": "P02501__em_quantos_dias_da_semana_o_a_sr_a_costuma_comer_alimentos_doces_como_biscoito_bolacha_recheado_chocolate_gelatina_balas_e_outros",
+        "type": "string"
+      },
+      {
+        "name": "P02602__em_quantos_dias_da_semana_o_a_sr_a_costuma_substituir_a_refeicao_do_almoco_por_lanches_rapidos_como_sanduiches_salgados_pizza_cachorro_quente_etc",
+        "type": "string"
+      },
+      {
+        "name": "P02601__considerando_a_comida_preparada_na_hora_e_os_alimentos_industrializados_o_a_sr_a_acha_que_o_seu_consumo_de_sal_e",
+        "type": "string"
+      },
+      {
+        "name": "P027__com_que_frequencia_o_a_sr_a_costuma_consumir_alguma_bebida_alcoolica",
+        "type": "string"
+      },
+      {
+        "name": "P02801__quantos_dias_por_semana_o_a_sr_a_costuma_consumir_alguma_bebida_alcoolica",
+        "type": "string"
+      },
+      {
+        "name": "P029__em_geral_no_dia_que_o_a_sr_a_bebe_quantas_doses_de_bebida_alcoolica_o_a_sr_a_consome",
+        "type": "string"
+      },
+      {
+        "name": "P03201__nos_ultimos_trinta_dias_o_a_sr_a_chegou_a_consumir_cinco_ou_mais_doses_de_bebida_alcoolica_em_uma_unica_ocasiao",
+        "type": "string"
+      },
+      {
+        "name": "P03202__quando_isso_ocorreu_qual_foi_o_numero_maximo_de_doses_consumido_em_uma_unica_ocasiao",
+        "type": "string"
+      },
+      {
+        "name": "P03001__nos_ultimos_doze_meses_quando_consumiu_bebida_alcoolica_o_a_sr_a_dirigiu_logo_depois_de_beber",
+        "type": "string"
+      },
+      {
+        "name": "P03301__nos_ultimos_doze_meses_quantas_vezes_o_a_sr_a_deixou_de_trabalhar_realizar_afazeres_domesticos_ir_a_escola_curso_ou_faculdade_fazer_compras_etc_porque_bebeu_demais",
+        "type": "string"
+      },
+      {
+        "name": "P03302__nos_ultimos_doze_meses_quantas_vezes_depois_apos_ter_bebido_o_a_sr_a_nao_conseguiu_lembrar_o_que_aconteceu",
+        "type": "string"
+      },
+      {
+        "name": "P03303__nos_ultimos_doze_meses_algum_parente_amigo_ou_profissional_de_saude_disse_que_voce_estava_bebendo_demais_ou_para_voce_parar_de_beber",
+        "type": "string"
+      },
+      {
+        "name": "P034__nos_ultimos_tres_meses_o_a_sr_a_praticou_algum_tipo_de_exercicio_fisico_ou_esporte",
+        "type": "string"
+      },
+      {
+        "name": "P035__quantos_dias_por_semana_o_a_sr_a_costuma_costumava_praticar_exercicio_fisico_ou_esporte",
+        "type": "string"
+      },
+      {
+        "name": "P03701__em_geral_no_dia_que_o_a_sr_a_pratica_exercicio_ou_esporte_quanto_tempo_em_horas_dura_essa_atividade_horas",
+        "type": "string"
+      },
+      {
+        "name": "P03702__em_geral_no_dia_que_o_a_sr_a_pratica_praticava_exercicio_ou_esporte_quanto_tempo_em_minutos_dura_essa_atividade_minutos",
+        "type": "string"
+      },
+      {
+        "name": "P036__qual_o_exercicio_fisico_ou_esporte_que_o_a_sr_a_pratica_praticava_com_mais_frequencia_anotar_apenas_o_primeiro_citado",
+        "type": "string"
+      },
+      {
+        "name": "P038__no_seu_trabalho_o_a_sr_a_anda_bastante_a_pe",
+        "type": "string"
+      },
+      {
+        "name": "P039__no_seu_trabalho_o_a_sr_a_faz_faxina_pesada_carrega_peso_ou_faz_outra_atividade_pesada_que_requer_esforco_fisico_intenso",
+        "type": "string"
+      },
+      {
+        "name": "P03904__em_uma_semana_normal_em_quantos_dias_o_a_sr_a_anda_bastante_a_pe_ou_faz_essas_atividades_pesadas_ou_que_requerem_esforco_fisico_no_seu_trabalho",
+        "type": "string"
+      },
+      {
+        "name": "P03905__em_um_dia_normal_quanto_tempo_o_a_sr_a_passa_andando_bastante_a_pe_ou_realizando_essas_atividades_pesadas_ou_que_requerem_esforco_fisico_no_seu_trabalho_horas",
+        "type": "string"
+      },
+      {
+        "name": "P03906__em_um_dia_normal_quanto_tempo_o_a_sr_a_passa_andando_bastante_a_pe_ou_realizando_atividades_essas_atividades_pesadas_ou_que_requerem_esforco_fisico_no_seu_trabalho_minutos",
+        "type": "string"
+      },
+      {
+        "name": "P040__para_ir_ou_voltar_do_trabalho_o_a_sr_a_faz_algum_trajeto_a_pe_ou_de_bicicleta",
+        "type": "string"
+      },
+      {
+        "name": "P04001__quantos_dias_por_semana_o_a_sr_a_faz_algum_trajeto_a_pe_ou_bicicleta",
+        "type": "string"
+      },
+      {
+        "name": "P04101__quanto_tempo_o_a_sr_a_gasta_por_dia_para_percorrer_este_trajeto_a_pe_ou_de_bicicleta_considerando_a_ida_e_a_volta_do_trabalho_horas",
+        "type": "string"
+      },
+      {
+        "name": "P04102__quanto_tempo_o_a_sr_a_gasta_por_dia_para_percorrer_este_trajeto_a_pe_ou_de_bicicleta_considerando_a_ida_e_a_volta_do_trabalho_minutos",
+        "type": "string"
+      },
+      {
+        "name": "P042__nas_suas_atividades_habituais_tais_como_ir_a_algum_curso_escola_ou_clube_ou_levar_alguem_a_algum_curso_escola_ou_clube_quantos_dias_por_semana_o_a_sr_a_faz_alguma_atividade_que_envolva_deslocamento_a_pe_ou_bicicleta_exceto_o_trabalho",
+        "type": "string"
+      },
+      {
+        "name": "P04301__no_dia_em_que_o_a_sr_a_faz_essa_s_atividade_s_quanto_tempo_o_a_sr_a_gasta_no_deslocamento_a_pe_ou_de_bicicleta_considerando_ida_e_volta_horas",
+        "type": "string"
+      },
+      {
+        "name": "P04302__no_dia_em_que_o_a_sr_a_faz_essa_s_atividade_s_quanto_tempo_o_a_sr_a_gasta_no_deslocamento_a_pe_ou_de_bicicleta_considerando_ida_e_volta_minutos",
+        "type": "string"
+      },
+      {
+        "name": "P044__nas_suas_atividades_domesticas_o_a_sr_a_faz_faxina_pesada_carrega_peso_ou_faz_outra_atividade_pesada_que_requer_esforco_fisico_intenso_nao_considerar_atividade_domestica_remunerada",
+        "type": "string"
+      },
+      {
+        "name": "P04401__em_uma_semana_normal_nas_suas_atividades_domesticas_em_quantos_dias_o_a_sr_a_faz_faxina_pesada_ou_realiza_atividades_que_requerem_esforco_fisico_intenso_nao_considerar_atividade_domestica_remunerada",
+        "type": "string"
+      },
+      {
+        "name": "P04405__quanto_tempo_gasta_por_dia_realizando_essas_atividades_domesticas_pesadas_ou_que_requerem_esforco_fisico_intenso_nao_considerar_atividade_domestica_remunerada_horas",
+        "type": "string"
+      },
+      {
+        "name": "P04406__quanto_tempo_gasta_por_dia_realizando_essas_atividades_domesticas_pesadas_ou_que_requerem_esforco_fisico_intenso",
+        "type": "string"
+      },
+      {
+        "name": "P04501__em_media_quantas_horas_por_dia_o_a_sr_a_costuma_ficar_assistindo_televisao",
+        "type": "string"
+      },
+      {
+        "name": "P04502__em_um_dia_quantas_horas_do_seu_tempo_livre_excluindo_o_trabalho_o_a_sr_a_costuma_usar_computador_tablet_ou_celular_para_lazer_tais_como_utilizar_redes_sociais_para_ver_noticias_videos_jogar_etc",
+        "type": "string"
+      },
+      {
+        "name": "P046__perto_do_seu_domicilio_existe_algum_lugar_publico_praca_parque_rua_fechada_praia_para_fazer_caminhada_realizar_exercicio_ou_praticar_esporte",
+        "type": "string"
+      },
+      {
+        "name": "P04701__o_a_sr_a_conhece_algum_programa_publico_de_estimulo_a_pratica_de_atividade_fisica_no_seu_municipio",
+        "type": "string"
+      },
+      {
+        "name": "P04801__o_a_sr_a_participa_desse_programa_publico_de_estimulo_a_pratica_de_atividade_fisica_no_seu_municipio",
+        "type": "string"
+      },
+      {
+        "name": "P04902__qual_o_principal_motivo_de_nao_participar",
+        "type": "string"
+      },
+      {
+        "name": "P050__atualmente_o_a_sr_a_fuma_algum_produto_do_tabaco",
+        "type": "string"
+      },
+      {
+        "name": "P051__e_no_passado_o_a_sr_a_fumou_algum_produto_do_tabaco_diariamente",
+        "type": "string"
+      },
+      {
+        "name": "P052__e_no_passado_o_a_sr_a_fumou_algum_produto_do_tabaco",
+        "type": "string"
+      },
+      {
+        "name": "P053__que_idade_o_a_sr_a_tinha_quando_comecou_a_fumar_produto_de_tabaco_diariamente",
+        "type": "string"
+      },
+      {
+        "name": "P05401__em_media_quanto_fuma_por_dia_ou_por_semana_cigarros_industrializados",
+        "type": "string"
+      },
+      {
+        "name": "P05402__quantos_por_dia",
+        "type": "string"
+      },
+      {
+        "name": "P05403__quantos_por_semana",
+        "type": "string"
+      },
+      {
+        "name": "P05404__em_media_quanto_fuma_por_dia_ou_por_semana_cigarros_de_palha_ou_enrolados_a_mao",
+        "type": "string"
+      },
+      {
+        "name": "P05405__quantos_por_dia",
+        "type": "string"
+      },
+      {
+        "name": "P05406__quantos_por_semana",
+        "type": "string"
+      },
+      {
+        "name": "P05407__em_media_quanto_fuma_por_dia_ou_por_semana_cigarros_de_cravo_ou_de_bali",
+        "type": "string"
+      },
+      {
+        "name": "P05408__quantos_por_dia",
+        "type": "string"
+      },
+      {
+        "name": "P05409__quantos_por_semana",
+        "type": "string"
+      },
+      {
+        "name": "P05410__em_media_quanto_fuma_por_dia_ou_por_semana_cachimbos_considere_cachimbos_cheios",
+        "type": "string"
+      },
+      {
+        "name": "P05411__quantos_por_dia",
+        "type": "string"
+      },
+      {
+        "name": "P05412__quantos_por_semana",
+        "type": "string"
+      },
+      {
+        "name": "P05413__em_media_quanto_fuma_por_dia_ou_por_semana_charutos_ou_cigarrilhas",
+        "type": "string"
+      },
+      {
+        "name": "P05414__quantos_por_dia",
+        "type": "string"
+      },
+      {
+        "name": "P05415__quantos_por_semana",
+        "type": "string"
+      },
+      {
+        "name": "P05416__em_media_quanto_fuma_por_dia_ou_por_semana_narguile_sessoes",
+        "type": "string"
+      },
+      {
+        "name": "P05417__quantos_por_dia",
+        "type": "string"
+      },
+      {
+        "name": "P05418__quantos_por_semana",
+        "type": "string"
+      },
+      {
+        "name": "P05419__em_media_quanto_fuma_por_dia_ou_por_semana_outro",
+        "type": "string"
+      },
+      {
+        "name": "P05421__quantos_por_dia",
+        "type": "string"
+      },
+      {
+        "name": "P05422__quantos_por_semana",
+        "type": "string"
+      },
+      {
+        "name": "P055__quanto_tempo_depois_de_acordar_o_a_sr_a_normalmente_fuma_pela_primeira_vez",
+        "type": "string"
+      },
+      {
+        "name": "P056__na_ultima_vez_que_o_a_sr_a_comprou_cigarros_para_uso_proprio_quantos_cigarros_comprou_registre_a_quantidade_e_quando_necessario_registre_os_detalhes_da_unidade",
+        "type": "string"
+      },
+      {
+        "name": "P05601__quantidade_de_cigarros",
+        "type": "string"
+      },
+      {
+        "name": "P05602__quantidade_de_macos",
+        "type": "string"
+      },
+      {
+        "name": "P05603__quantos_cigarros_havia_em_cada_maco",
+        "type": "string"
+      },
+      {
+        "name": "P05604__quantidade_de_pacotes",
+        "type": "string"
+      },
+      {
+        "name": "P05605__quantos_macos_havia_em_cada_pacote",
+        "type": "string"
+      },
+      {
+        "name": "P057__no_total_quanto_o_a_sr_a_pagou_por_essa_compra",
+        "type": "string"
+      },
+      {
+        "name": "P058__em_media_quantos_cigarros_industrializados_o_a_sr_a_fumava_por_dia_ou_por_semana",
+        "type": "string"
+      },
+      {
+        "name": "P05801__quantos_por_dia",
+        "type": "string"
+      },
+      {
+        "name": "P05802__quantos_por_semana",
+        "type": "string"
+      },
+      {
+        "name": "P05901__numero_de_anos_que_parou_de_fumar",
+        "type": "string"
+      },
+      {
+        "name": "P05902__numero_de_meses_que_parou_de_fumar",
+        "type": "string"
+      },
+      {
+        "name": "P05903__numero_de_semanas_que_parou_de_fumar",
+        "type": "string"
+      },
+      {
+        "name": "P05904__numero_de_dias_que_parou_de_fumar",
+        "type": "string"
+      },
+      {
+        "name": "P05905__nos_ultimos_doze_meses_durante_algum_atendimento_por_medico_ou_outro_profissional_de_saude_foi_perguntado_se_o_a_sr_a_fumava",
+        "type": "string"
+      },
+      {
+        "name": "P05906__nos_ultimos_doze_meses_durante_algum_desses_atendimentos_o_a_sr_a_foi_aconselhado_a_parar_de_fumar",
+        "type": "string"
+      },
+      {
+        "name": "P060__durante_os_ultimos_doze_meses_o_a_sr_a_tentou_parar_de_fumar",
+        "type": "string"
+      },
+      {
+        "name": "P06101__durante_os_ultimos_doze_meses_quando_o_a_sr_a_tentou_parar_de_fumar_usou_aconselhamento_por_profissional_de_saude_incluindo_unidades_de_saude_que_oferecem_tratamento_para_parar_de_fumar",
+        "type": "string"
+      },
+      {
+        "name": "P06102__o_a_sr_a_pagou_algum_valor_por_esse_aconselhamento",
+        "type": "string"
+      },
+      {
+        "name": "P06103__esse_aconselhamento_foi_feito_pelo_sus",
+        "type": "string"
+      },
+      {
+        "name": "P06104__durante_os_ultimos_12_meses_quando_o_sr_a_tentou_parar_de_fumar_usou_medicamento_s_que_auxilia_m_as_pessoas_no_processo_de_deixar_de_fumar_tais_como_adesivo_pastilha_spray_inalador_goma_de_mascar_bupropiona_champix_vareniclina_nortriptilina_clonidina_etc",
+        "type": "string"
+      },
+      {
+        "name": "P06105__o_a_sr_a_pagou_algum_valor_por_esse_s_medicamento_s",
+        "type": "string"
+      },
+      {
+        "name": "P06106__algum_desses_medicamentos_foi_obtido_em_servico_publico_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "P06302__durante_os_ultimos_12_meses_por_que_o_a_sr_a_nao_usou_nem_aconselhamento_nem_medicamento_para_tentar_parar_de_fumar",
+        "type": "string"
+      },
+      {
+        "name": "P067__atualmente_o_a_sr_a_masca_fumo_usa_rape_ou_algum_outro_produto_do_tabaco_que_nao_faz_fumaca",
+        "type": "string"
+      },
+      {
+        "name": "P06701__o_a_sr_a_usa_aparelhos_eletronicos_com_nicotina_liquida_ou_folha_de_tabaco_picado_cigarro_eletronico_narguile_eletronico_cigarro_aquecido_ou_outro_dispositivo_eletronico_para_fumar_ou_vaporizar",
+        "type": "string"
+      },
+      {
+        "name": "P068__com_que_frequencia_alguem_fuma_dentro_do_seu_domicilio",
+        "type": "string"
+      },
+      {
+        "name": "P069__nos_ultimos_trinta_dias_o_a_sr_a_viu_alguma_propaganda_ou_anuncio_de_cigarros_nos_pontos_de_venda_de_cigarros",
+        "type": "string"
+      },
+      {
+        "name": "P06901__nos_ultimos_30_dias_o_a_sr_a_viu_alguma_propaganda_ou_anuncio_de_cigarros_na_internet_incluindo_redes_sociais_facebook_instagram_twitter_whatsapp_youtube_snapchat_etc",
+        "type": "string"
+      },
+      {
+        "name": "P07004__viu_ou_ouviu_informacoes_nos_jornais_ou_revistas",
+        "type": "string"
+      },
+      {
+        "name": "P07005__viu_ou_ouviu_informacoes_na_televisao",
+        "type": "string"
+      },
+      {
+        "name": "P07006__viu_ou_ouviu_informacoes_no_radio",
+        "type": "string"
+      },
+      {
+        "name": "P07007__viu_ou_ouviu_informacoes_na_internet_incluindo_redes_sociais",
+        "type": "string"
+      },
+      {
+        "name": "P07101__nos_ultimos_trinta_dias_viu_alguma_foto_ou_advertencia_sobre_os_riscos_de_fumar_nos_macos_de_cigarros",
+        "type": "string"
+      },
+      {
+        "name": "P07201__nos_ultimos_30_dias_as_advertencias_nos_macos_de_cigarro_que_o_a_sr_a_viu_o_levaram_a_pensar_em_parar_de_fumar",
+        "type": "string"
+      },
+      {
+        "name": "Q00101__quando_foi_a_ultima_vez_que_o_a_sr_a_teve_sua_pressao_arterial_medida",
+        "type": "string"
+      },
+      {
+        "name": "Q00201__algum_medico_ja_lhe_deu_o_diagnostico_de_hipertensao_arterial_pressao_alta",
+        "type": "string"
+      },
+      {
+        "name": "Q00202__essa_hipertensao_arterial_pressao_alta_ocorreu_apenas_durante_algum_periodo_de_gravidez",
+        "type": "string"
+      },
+      {
+        "name": "Q003__que_idade_o_a_sr_a_tinha_no_primeiro_diagnostico_de_hipertensao_arterial_pressao_alta",
+        "type": "string"
+      },
+      {
+        "name": "Q00401__o_a_sr_a_vai_ao_medico_servico_de_saude_regularmente_para_acompanhamento_da_hipertensao_arterial_pressao_alta",
+        "type": "string"
+      },
+      {
+        "name": "Q00502__qual_o_principal_motivo_do_a_sr_a_nao_visitar_o_medico_servico_de_saude_regularmente_para_acompanhamento_da_hipertensao_arterial_pressao_alta",
+        "type": "string"
+      },
+      {
+        "name": "Q00503__algum_medico_ja_lhe_receitou_algum_medicamento_para_a_hipertensao_arterial_pressao_alta",
+        "type": "string"
+      },
+      {
+        "name": "Q00601__nas_duas_ultimas_semanas_o_a_sr_a_tomou_os_medicamentos_para_controlar_a_hipertensao_arterial_pressao_alta",
+        "type": "string"
+      },
+      {
+        "name": "Q00602__qual_o_principal_motivo_para_o_a_sr_a_nao_ter_tomado_os_medicamentos_receitados_para_a_hipertensao_arterial_pressao_alta",
+        "type": "string"
+      },
+      {
+        "name": "Q00801__algum_dos_medicamentos_para_hipertensao_arterial_foi_obtido_no_aqui_tem_farmacia_popular",
+        "type": "string"
+      },
+      {
+        "name": "Q009__algum_dos_medicamentos_para_hipertensao_arterial_foi_obtido_em_servico_publico_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "Q010__o_a_sr_a_pagou_algum_valor_pelos_medicamentos",
+        "type": "string"
+      },
+      {
+        "name": "Q01101__quando_foi_a_ultima_vez_que_o_a_sr_a_recebeu_atendimento_medico_por_causa_da_hipertensao_arterial",
+        "type": "string"
+      },
+      {
+        "name": "Q01202__na_ultima_vez_que_recebeu_atendimento_medico_para_hipertensao_arterial_onde_o_a_sr_a_foi_atendido",
+        "type": "string"
+      },
+      {
+        "name": "Q014__o_a_sr_a_pagou_algum_valor_por_este_atendimento_entrevistador_se_o_a_entrevistado_a_responder_que_pagou_mas_teve_reembolso_total_marque_a_opcao_2",
+        "type": "string"
+      },
+      {
+        "name": "Q015__esse_atendimento_foi_feito_pelo_sus",
+        "type": "string"
+      },
+      {
+        "name": "Q016__na_ultima_consulta_o_medico_que_o_a_atendeu_era_o_mesmo_das_consultas_anteriores",
+        "type": "string"
+      },
+      {
+        "name": "Q017__na_ultima_consulta_o_medico_viu_os_exames_das_consultas_passadas",
+        "type": "string"
+      },
+      {
+        "name": "Q018010__orientacoes_para_manter_uma_alimentacao_saudavel",
+        "type": "string"
+      },
+      {
+        "name": "Q018011__manter_o_peso_adequado",
+        "type": "string"
+      },
+      {
+        "name": "Q018012__ingerir_menos_sal",
+        "type": "string"
+      },
+      {
+        "name": "Q018013__praticar_atividade_fisica_regular",
+        "type": "string"
+      },
+      {
+        "name": "Q018014__nao_fumar",
+        "type": "string"
+      },
+      {
+        "name": "Q018015__nao_beber_em_excesso",
+        "type": "string"
+      },
+      {
+        "name": "Q018016__fazer_o_acompanhamento_regular_com_profissional_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "Q018017__fazer_uso_de_acupuntura_plantas_medicinais_e_fitoterapia_homeopatia_meditacao_yoga_tai_chi_chuan_liang_gong_ou_alguma_outra_pratica_integrativa_e_complementar",
+        "type": "string"
+      },
+      {
+        "name": "Q01910__foi_pedido_exame_de_sangue",
+        "type": "string"
+      },
+      {
+        "name": "Q019101__realizou_o_exame_de_sangue",
+        "type": "string"
+      },
+      {
+        "name": "Q01911__foi_pedido_exame_de_urina",
+        "type": "string"
+      },
+      {
+        "name": "Q019111__realizou_o_exame_de_urina",
+        "type": "string"
+      },
+      {
+        "name": "Q01912__foi_pedido_eletrocardiograma",
+        "type": "string"
+      },
+      {
+        "name": "Q019121__realizou_o_eletrocardiograma",
+        "type": "string"
+      },
+      {
+        "name": "Q01913__foi_pedido_teste_de_esforco",
+        "type": "string"
+      },
+      {
+        "name": "Q019131__realizou_o_teste_de_esforco",
+        "type": "string"
+      },
+      {
+        "name": "Q022__em_algum_dos_atendimentos_para_hipertensao_arterial_houve_encaminhamento_para_alguma_consulta_com_medico_especialista_tais_como_cardiologista_ou_nefrologista",
+        "type": "string"
+      },
+      {
+        "name": "Q02301__o_a_sr_a_foi_as_consultas_com_o_medico_especialista",
+        "type": "string"
+      },
+      {
+        "name": "Q026__alguma_vez_o_a_sr_a_se_internou_por_causa_da_hipertensao_ou_de_alguma_complicacao",
+        "type": "string"
+      },
+      {
+        "name": "Q02701__ha_quanto_tempo_foi_a_ultima_internacao_por_causa_da_hipertensao_ou_de_alguma_complicacao",
+        "type": "string"
+      },
+      {
+        "name": "Q028__em_geral_em_que_grau_a_hipertensao_ou_alguma_complicacao_da_hipertensao_limita_as_suas_atividades_habituais_como_trabalhar_estudar_realizar_afazeres_domesticos_etc",
+        "type": "string"
+      },
+      {
+        "name": "Q02901__quando_foi_a_ultima_vez_que_o_a_sr_a_fez_exame_de_sangue_para_medir_a_glicemia_isto_e_o_acucar_no_sangue",
+        "type": "string"
+      },
+      {
+        "name": "Q03001__algum_medico_ja_lhe_deu_o_diagnostico_de_diabetes",
+        "type": "string"
+      },
+      {
+        "name": "Q03002__esse_diabetes_ocorreu_apenas_durante_algum_periodo_de_gravidez",
+        "type": "string"
+      },
+      {
+        "name": "Q031__que_idade_o_a_sr_a_tinha_no_primeiro_diagnostico_do_diabetes",
+        "type": "string"
+      },
+      {
+        "name": "Q03201__o_a_sr_a_vai_ao_medico_servico_de_saude_regularmente_para_acompanhamento_do_diabetes",
+        "type": "string"
+      },
+      {
+        "name": "Q03302__qual_o_principal_motivo_do_a_sr_a_nao_visitar_o_medico_servico_de_saude_regularmente_para_acompanhamento_do_diabetes",
+        "type": "string"
+      },
+      {
+        "name": "Q03303__algum_medico_ja_lhe_receitou_algum_medicamento_oral_para_o_diabetes",
+        "type": "string"
+      },
+      {
+        "name": "Q03403__nas_duas_ultimas_semanas_por_causa_do_diabetes_o_a_sr_a_tomou_os_medicamentos_orais_para_baixar_o_acucar",
+        "type": "string"
+      },
+      {
+        "name": "Q03404__qual_o_principal_motivo_de_nao_ter_tomado_todos_os_medicamentos_orais_receitados_para_controlar_o_diabetes",
+        "type": "string"
+      },
+      {
+        "name": "Q03601__algum_dos_medicamentos_orais_para_diabetes_foi_obtido_no_aqui_tem_farmacia_popular",
+        "type": "string"
+      },
+      {
+        "name": "Q03701__algum_dos_medicamentos_orais_para_diabetes_foi_obtido_em_servico_publico_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "Q03801__o_a_sr_a_pagou_algum_valor_pelos_medicamentos_orais_para_diabetes",
+        "type": "string"
+      },
+      {
+        "name": "Q03802__algum_medico_ja_lhe_receitou_insulina_para_controlar_o_diabetes",
+        "type": "string"
+      },
+      {
+        "name": "Q03803__usou_a_insulina_receitada_na_ultima_prescricao",
+        "type": "string"
+      },
+      {
+        "name": "Q03804__qual_o_principal_motivo_de_nao_ter_usado_a_insulina_para_controlar_o_diabetes",
+        "type": "string"
+      },
+      {
+        "name": "Q03805__a_insulina_foi_obtida_no_aqui_tem_farmacia_popular_pfp",
+        "type": "string"
+      },
+      {
+        "name": "Q03806__a_insulina_foi_obtida_em_servico_publico_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "Q03807__o_a_sr_a_pagou_pela_insulina_para_controlar_o_diabetes",
+        "type": "string"
+      },
+      {
+        "name": "Q03901__quando_foi_a_ultima_vez_que_o_a_sr_a_recebeu_atendimento_medico_por_causa_do_diabetes",
+        "type": "string"
+      },
+      {
+        "name": "Q04002__na_ultima_vez_que_recebeu_atendimento_medico_para_diabetes_onde_o_a_sr_a_foi_atendido",
+        "type": "string"
+      },
+      {
+        "name": "Q042__o_a_sr_a_pagou_algum_valor_por_esse_atendimento",
+        "type": "string"
+      },
+      {
+        "name": "Q043__esse_atendimento_foi_feito_pelo_sus",
+        "type": "string"
+      },
+      {
+        "name": "Q044__na_ultima_consulta_o_medico_que_o_a_atendeu_era_o_mesmo_das_consultas_anteriores",
+        "type": "string"
+      },
+      {
+        "name": "Q045__na_ultima_consulta_o_medico_viu_os_exames_das_consultas_passadas",
+        "type": "string"
+      },
+      {
+        "name": "Q046011__orientacoes_para_manter_uma_alimentacao_saudavel",
+        "type": "string"
+      },
+      {
+        "name": "Q046012__manter_o_peso_adequado",
+        "type": "string"
+      },
+      {
+        "name": "Q046013__praticar_atividade_fisica_regular",
+        "type": "string"
+      },
+      {
+        "name": "Q046014__nao_fumar",
+        "type": "string"
+      },
+      {
+        "name": "Q046015__nao_beber_em_excesso",
+        "type": "string"
+      },
+      {
+        "name": "Q046016__diminuir_o_consumo_de_massas_e_paes",
+        "type": "string"
+      },
+      {
+        "name": "Q046017__evitar_o_consumo_de_acucar_bebidas_acucaradas_e_doces",
+        "type": "string"
+      },
+      {
+        "name": "Q046018__medir_a_glicemia_em_casa",
+        "type": "string"
+      },
+      {
+        "name": "Q046019__examinar_os_pes_regularmente",
+        "type": "string"
+      },
+      {
+        "name": "Q046020__fazer_uso_de_acupuntura_plantas_medicinais_e_fitoterapia_homeopatia_meditacao_yoga_tai_chi_chuan_liang_gong_ou_alguma_outra_pratica_integrativa_e_complementar",
+        "type": "string"
+      },
+      {
+        "name": "Q046021__fazer_acompanhamento_regular_com_profissional_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "Q04707__foi_pedido_glicemia_acucar_no_sangue",
+        "type": "string"
+      },
+      {
+        "name": "Q047071__realizou_o_exame",
+        "type": "string"
+      },
+      {
+        "name": "Q04708__foi_pedido_hemoglobina_glicada",
+        "type": "string"
+      },
+      {
+        "name": "Q047081__realizou_o_exame",
+        "type": "string"
+      },
+      {
+        "name": "Q04709__foi_pedido_curva_glicemica",
+        "type": "string"
+      },
+      {
+        "name": "Q047091__realizou_o_exame",
+        "type": "string"
+      },
+      {
+        "name": "Q04710__foi_pedido_exame_de_urina",
+        "type": "string"
+      },
+      {
+        "name": "Q047101__realizou_o_exame",
+        "type": "string"
+      },
+      {
+        "name": "Q04711__foi_pedido_colesterol_e_ou_triglicerideos",
+        "type": "string"
+      },
+      {
+        "name": "Q047111__realizou_o_exame",
+        "type": "string"
+      },
+      {
+        "name": "Q050__em_algum_dos_atendimentos_para_diabetes_houve_encaminhamento_para_alguma_consulta_com_medico_especialista_tal_como_cardiologista_endocrinologista_nefrologista_ou_oftalmologista",
+        "type": "string"
+      },
+      {
+        "name": "Q05101__o_a_sr_a_foi_as_consultas_com_medico_especialista",
+        "type": "string"
+      },
+      {
+        "name": "Q05301__quando_foi_a_ultima_vez_que_realizaram_um_exame_de_vista_ou_fundo_de_olho_em_que_dilataram_sua_pupila",
+        "type": "string"
+      },
+      {
+        "name": "Q05401__quando_foi_a_ultima_vez_que_um_medico_ou_profissional_de_saude_examinou_seus_pes_para_verificar_sensibilidade_ou_presenca_de_feridas_ou_irritacoes",
+        "type": "string"
+      },
+      {
+        "name": "Q055011__problemas_na_vista",
+        "type": "string"
+      },
+      {
+        "name": "Q055012__infarto_ou_avc_acidente_vascular_cerebral_derrame_ou_outro_problema_circulatorio",
+        "type": "string"
+      },
+      {
+        "name": "Q055013__problema_nos_rins",
+        "type": "string"
+      },
+      {
+        "name": "Q055014__ulcera_ferida_nos_pes_ou_amputacao_de_membros_pes_pernas_maos_ou_bracos",
+        "type": "string"
+      },
+      {
+        "name": "Q055015__coma_diabetico",
+        "type": "string"
+      },
+      {
+        "name": "Q055016__outro_especifique",
+        "type": "string"
+      },
+      {
+        "name": "Q056__alguma_vez_o_a_sr_a_se_internou_por_causa_do_diabetes_ou_de_alguma_complicacao",
+        "type": "string"
+      },
+      {
+        "name": "Q05701__ha_quanto_tempo_foi_a_ultima_internacao_por_causa_do_diabetes_ou_de_alguma_complicacao",
+        "type": "string"
+      },
+      {
+        "name": "Q058__em_geral_em_que_grau_o_diabetes_ou_alguma_complicacao_do_diabetes_limita_as_suas_atividades_habituais_tais_como_trabalhar_realizar_afazeres_domesticos_etc",
+        "type": "string"
+      },
+      {
+        "name": "Q05901__quando_foi_a_ultima_vez_que_o_a_sr_a_fez_exame_de_sangue_para_medir_o_colesterol_e_triglicerideos",
+        "type": "string"
+      },
+      {
+        "name": "Q060__algum_medico_ja_lhe_deu_o_diagnostico_de_colesterol_alto",
+        "type": "string"
+      },
+      {
+        "name": "Q061__que_idade_o_a_sr_a_tinha_no_primeiro_diagnostico_de_colesterol_alto",
+        "type": "string"
+      },
+      {
+        "name": "Q06207__recomendacao_para_manter_uma_alimentacao_saudavel",
+        "type": "string"
+      },
+      {
+        "name": "Q06208__recomendacao_para_manter_o_peso_adequado",
+        "type": "string"
+      },
+      {
+        "name": "Q06209__recomendacao_para_praticar_atividade_fisica_regular",
+        "type": "string"
+      },
+      {
+        "name": "Q06210__recomendacao_para_tomar_medicamentos",
+        "type": "string"
+      },
+      {
+        "name": "Q06211__recomendacao_para_nao_fumar",
+        "type": "string"
+      },
+      {
+        "name": "Q06212__recomendacao_para_fazer_acompanhamento_regular_com_profissional_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "Q06306__algum_medico_ja_lhe_deu_o_diagnostico_de_uma_doenca_do_coracao_tal_como_infarto_angina_insuficiencia_cardiaca_ou_outra",
+        "type": "string"
+      },
+      {
+        "name": "Q06307__infarto",
+        "type": "string"
+      },
+      {
+        "name": "Q06308___angina",
+        "type": "string"
+      },
+      {
+        "name": "Q06309__insuficiencia_cardiaca",
+        "type": "string"
+      },
+      {
+        "name": "Q06310__arritmia",
+        "type": "string"
+      },
+      {
+        "name": "Q06311__outra",
+        "type": "string"
+      },
+      {
+        "name": "Q064__que_idade_o_a_sr_a_tinha_no_primeiro_diagnostico_da_doenca_do_coracao",
+        "type": "string"
+      },
+      {
+        "name": "Q06506__faz_atualmente_por_causa_da_doenca_do_coracao_dieta",
+        "type": "string"
+      },
+      {
+        "name": "Q06507__faz_atualmente_por_causa_da_doenca_do_coracao_pratica_de_atividade_fisica_regular",
+        "type": "string"
+      },
+      {
+        "name": "Q06508__faz_atualmente_por_causa_da_doenca_do_coracao_toma_medicamentos_regularmente",
+        "type": "string"
+      },
+      {
+        "name": "Q06509__faz_atualmente_por_causa_da_doenca_do_coracao_acompanhamento_regular",
+        "type": "string"
+      },
+      {
+        "name": "Q06601__o_a_sr_a_ja_fez_alguma_cirurgia_de_ponte_de_safena_ou_cateterismo_com_colocacao_de_stent_ou_angioplastia",
+        "type": "string"
+      },
+      {
+        "name": "Q067__em_geral_em_que_grau_a_doenca_do_coracao_limita_as_suas_atividades_habituais_tais_como_trabalhar_realizar_afazeres_domesticos_etc",
+        "type": "string"
+      },
+      {
+        "name": "Q068__algum_medico_ja_lhe_deu_o_diagnostico_de_avc_acidente_vascular_cerebral_ou_derrame",
+        "type": "string"
+      },
+      {
+        "name": "Q070__que_idade_o_a_sr_a_tinha_no_primeiro_diagnostico_do_derrame_ou_avc",
+        "type": "string"
+      },
+      {
+        "name": "Q07208__faz_atualmente_por_causa_do_derrame_ou_avc_dieta",
+        "type": "string"
+      },
+      {
+        "name": "Q07209__faz_atualmente_por_causa_do_derrame_ou_avc_fisioterapia",
+        "type": "string"
+      },
+      {
+        "name": "Q07210__faz_atualmente_por_causa_do_derrame_ou_avc_outras_terapias_de_reabilitacao",
+        "type": "string"
+      },
+      {
+        "name": "Q07211__faz_atualmente_por_causa_do_derrame_ou_avc_toma_aspirina_regularmente",
+        "type": "string"
+      },
+      {
+        "name": "Q07212__faz_atualmente_por_causa_do_derrame_ou_avc_toma_outros_medicamentos",
+        "type": "string"
+      },
+      {
+        "name": "Q07213__faz_acompanhamento_regular_com_profissional_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "Q073__em_geral_em_que_grau_o_derrame_ou_avc_limita_as_suas_atividades_habituais_tais_como_trabalhar_realizar_afazeres_domesticos_etc",
+        "type": "string"
+      },
+      {
+        "name": "Q074__algum_medico_ja_lhe_deu_o_diagnostico_de_asma_ou_bronquite_asmatica",
+        "type": "string"
+      },
+      {
+        "name": "Q075__que_idade_o_a_sr_a_tinha_no_primeiro_diagnostico_de_asma",
+        "type": "string"
+      },
+      {
+        "name": "Q076__nos_ultimos_doze_meses_o_a_sr_a_teve_alguma_crise_de_asma",
+        "type": "string"
+      },
+      {
+        "name": "Q07601__algum_medico_ja_lhe_receitou_algum_medicamento_para_asma_ou_bronquite_asmatica",
+        "type": "string"
+      },
+      {
+        "name": "Q07704___nas_duas_ultimas_semanas_o_a_sr_a_usou_os_medicamentos_orais_por_causa_da_asma_ou_bronquite_asmatica",
+        "type": "string"
+      },
+      {
+        "name": "Q07705__algum_dos_medicamentos_orais_para_asma_ou_bronquite_asmatica_foi_obtido_no_aqui_tem_farmacia_popular",
+        "type": "string"
+      },
+      {
+        "name": "Q07706__algum_dos_medicamentos_orais_para_asma_ou_bronquite_asmatica_foi_obtido_em_servico_publico_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "Q07707__o_a_sr_a_pagou_algum_valor_pelos_medicamentos_orais_para_asma",
+        "type": "string"
+      },
+      {
+        "name": "Q07708__nas_duas_ultimas_semanas_o_a_sr_a_usou_aerossois_bombinha_por_causa_da_asma_ou_bronquite_asmatica",
+        "type": "string"
+      },
+      {
+        "name": "Q07709__algum_dos_aerossois_bombinha_para_asma_ou_bronquite_asmatica_foi_obtido_no_aqui_tem_farmacia_popular",
+        "type": "string"
+      },
+      {
+        "name": "Q07710__algum_dos_aerossois_bombinha_para_asma_ou_bronquite_asmatica_foi_obtido_em_servico_publico_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "Q07711__o_a_sr_a_pagou_algum_valor_pelos_aerossois_bombinha_para_asma",
+        "type": "string"
+      },
+      {
+        "name": "Q078__em_geral_em_que_grau_a_asma_limita_as_suas_atividades_habituais_tais_como_trabalhar_realizar_afazeres_domesticos_etc",
+        "type": "string"
+      },
+      {
+        "name": "Q079__algum_medico_ja_lhe_deu_o_diagnostico_de_artrite_ou_reumatismo",
+        "type": "string"
+      },
+      {
+        "name": "Q080__que_idade_o_a_sr_a_tinha_no_primeiro_diagnostico_de_artrite_ou_reumatismo",
+        "type": "string"
+      },
+      {
+        "name": "Q08107__recomendacao_para_praticar_atividade_fisica_regularmente",
+        "type": "string"
+      },
+      {
+        "name": "Q08108__recomendacao_para_fazer_fisioterapia",
+        "type": "string"
+      },
+      {
+        "name": "Q08109__recomendacao_para_usar_medicamentos_ou_injecoes",
+        "type": "string"
+      },
+      {
+        "name": "Q08110__recomendacao_para_fazer_uso_de_acupuntura_plantas_medicinais_e_fitoterapia_homeopatia_meditacao_yoga_tai_chi_chuan_ou_alguma_outra_pratica_integrativa_e_complementar",
+        "type": "string"
+      },
+      {
+        "name": "Q08111__recomendacao_para_fazer_acompanhamento_regular_com_profissional_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "Q082__o_a_sr_a_ja_fez_alguma_cirurgia_por_causa_da_artrite_ou_reumatismo",
+        "type": "string"
+      },
+      {
+        "name": "Q083__em_geral_em_que_grau_a_artrite_ou_reumatismo_limita_as_suas_atividades_habituais_tais_como_trabalhar_realizar_afazeres_domesticos_etc",
+        "type": "string"
+      },
+      {
+        "name": "Q084__o_a_sr_a_tem_algum_problema_cronico_de_coluna_como_dor_cronica_nas_costas_ou_no_pescoco_lombalgia_dor_ciatica_problemas_nas_vertebras_ou_disco",
+        "type": "string"
+      },
+      {
+        "name": "Q085__que_idade_o_a_sr_a_tinha_quando_comecou_o_problema_na_coluna",
+        "type": "string"
+      },
+      {
+        "name": "Q08607__pratica_exercicio_regularmente_por_causa_do_problema_na_coluna",
+        "type": "string"
+      },
+      {
+        "name": "Q08608__faz_fisioterapia_por_causa_do_problema_na_coluna",
+        "type": "string"
+      },
+      {
+        "name": "Q08609__usa_medicamentos_ou_injecoes",
+        "type": "string"
+      },
+      {
+        "name": "Q08610__faz_uso_de_acupuntura_plantas_medicinais_e_fitoterapia_homeopatia_meditacao_yoga_tai_chi_chuan_ou_alguma_outra_pratica_integrativa_e_complementar_por_causa_do_problema_na_coluna",
+        "type": "string"
+      },
+      {
+        "name": "Q08611__faz_acompanhamento_regular_com_profissional_de_saude_por_causa_do_problema_na_coluna",
+        "type": "string"
+      },
+      {
+        "name": "Q087__em_geral_em_que_grau_o_problema_na_coluna_limita_as_suas_atividades_habituais_tais_como_trabalhar_realizar_afazeres_domesticos_etc",
+        "type": "string"
+      },
+      {
+        "name": "Q088__algum_medico_ja_lhe_deu_o_diagnostico_de_dort",
+        "type": "string"
+      },
+      {
+        "name": "Q08901__que_idade_o_a_sr_a_tinha_no_primeiro_diagnostico_de_dort",
+        "type": "string"
+      },
+      {
+        "name": "Q09007__recomendado_para_dort_praticar_exercicio_regularmente",
+        "type": "string"
+      },
+      {
+        "name": "Q09008__recomendado_para_dort_fazer_fisioterapia",
+        "type": "string"
+      },
+      {
+        "name": "Q09009__recomendado_para_dort_usar_medicamentos_ou_injecoes",
+        "type": "string"
+      },
+      {
+        "name": "Q09010__recomendado_para_dort_fazer_uso_de_acupuntura_plantas_medicinais_e_fitoterapia_homeopatia_meditacao_yoga_tai_chi_chuan_ou_alguma_outra_pratica_integrativa_e_complementar",
+        "type": "string"
+      },
+      {
+        "name": "Q09011__recomendado_para_dort_fazer_acompanhamento_regular_com_profissional_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "Q091__em_geral_em_que_grau_o_dort_limita_as_suas_atividades_habituais_tais_como_trabalhar_realizar_afazeres_domesticos_etc",
+        "type": "string"
+      },
+      {
+        "name": "Q092__algum_medico_ou_profissional_de_saude_mental_como_psiquiatra_ou_psicologo_ja_lhe_deu_o_diagnostico_de_depressao",
+        "type": "string"
+      },
+      {
+        "name": "Q09201__algum_medico_ja_lhe_receitou_algum_medicamento_para_depressao",
+        "type": "string"
+      },
+      {
+        "name": "Q09202__nas_duas_ultimas_semanas_o_a_senhor_a_usou_algum_medicamento_para_depressao",
+        "type": "string"
+      },
+      {
+        "name": "Q09301__que_idade_o_a_sr_a_tinha_no_primeiro_diagnostico_de_depressao",
+        "type": "string"
+      },
+      {
+        "name": "Q094__o_a_sr_a_vai_ao_medico_servico_de_saude_regularmente_por_causa_da_depressao_ou_so_quando_tem_algum_problema",
+        "type": "string"
+      },
+      {
+        "name": "Q09502__qual_o_principal_motivo_do_a_sr_a_nao_visitar_o_medico_servico_de_saude_regularmente_por_causa_da_depressao",
+        "type": "string"
+      },
+      {
+        "name": "Q09605__por_causa_da_depressao_faz_psicoterapia",
+        "type": "string"
+      },
+      {
+        "name": "Q09606__por_causa_da_depressao_toma_medicamentos",
+        "type": "string"
+      },
+      {
+        "name": "Q09607__por_causa_da_depressao_faz_uso_de_acupuntura_plantas_medicinais_e_fitoterapia_homeopatia_meditacao_yoga_tai_chi_chuan_liang_gong_ou_alguma_outra_pratica_integrativa_e_complementar",
+        "type": "string"
+      },
+      {
+        "name": "Q098__algum_dos_medicamentos_para_depressao_foi_obtido_em_servico_publico_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "Q100__o_a_sr_a_pagou_algum_valor_pelos_medicamentos",
+        "type": "string"
+      },
+      {
+        "name": "Q10101__quando_foi_a_ultima_vez_que_o_a_sr_a_recebeu_atendimento_medico_por_causa_da_depressao",
+        "type": "string"
+      },
+      {
+        "name": "Q10202__na_ultima_vez_que_recebeu_assistencia_medica_para_depressao_onde_o_a_sr_a_foi_atendido",
+        "type": "string"
+      },
+      {
+        "name": "Q104__o_a_sr_a_pagou_algum_valor_por_esse_atendimento",
+        "type": "string"
+      },
+      {
+        "name": "Q105__esse_atendimento_foi_feito_pelo_sus",
+        "type": "string"
+      },
+      {
+        "name": "Q106__em_algum_dos_atendimentos_para_depressao_houve_encaminhamento_para_algum_acompanhamento_com_profissional_de_saude_mental_como_psiquiatra_ou_psicologo",
+        "type": "string"
+      },
+      {
+        "name": "Q10701__o_a_sr_a_conseguiu_ir_as_consultas_com_profissional_especialista_de_saude_mental",
+        "type": "string"
+      },
+      {
+        "name": "Q109__em_geral_em_que_grau_a_depressao_limita_as_suas_atividades_habituais_tais_como_trabalhar_realizar_afazeres_domesticos_etc",
+        "type": "string"
+      },
+      {
+        "name": "Q11006__algum_medico_ou_profissional_de_saude_como_psiquiatra_ou_psicologo_ja_lhe_deu_o_diagnostico_de_outra_doenca_mental_como_transtorno_de_ansiedade_sindrome_do_panico_esquizofrenia_transtorno_bipolar_psicose_ou_toc_transtorno_obsessivo_compulsivo_etc",
+        "type": "string"
+      },
+      {
+        "name": "Q11007__diagnostico_de_esquizofrenia",
+        "type": "string"
+      },
+      {
+        "name": "Q11008__diagnostico_de_transtorno_bipolar",
+        "type": "string"
+      },
+      {
+        "name": "Q11009__diagnostico_de_toc_transtorno_obsessivo_compulsivo",
+        "type": "string"
+      },
+      {
+        "name": "Q11010__outro_diagnostico",
+        "type": "string"
+      },
+      {
+        "name": "Q111__que_idade_o_a_sr_a_tinha_no_primeiro_diagnostico_de_doenca_mental",
+        "type": "string"
+      },
+      {
+        "name": "Q11201__o_a_sr_a_visita_o_medico_servico_de_saude_regularmente_por_causa_dessa_doenca_mental_ou_so_quando_tem_algum_problema",
+        "type": "string"
+      },
+      {
+        "name": "Q11405__por_causa_da_doenca_mental_faz_psicoterapia",
+        "type": "string"
+      },
+      {
+        "name": "Q11406__por_causa_da_doenca_mental_usa_medicamentos_ou_injecoes",
+        "type": "string"
+      },
+      {
+        "name": "Q11407__por_causa_da_doenca_mental_faz_uso_de_acupuntura_plantas_medicinais_e_fitoterapia_homeopatia_meditacao_yoga_tai_chi_chuan_ou_alguma_outra_pratica_integrativa_e_complementar",
+        "type": "string"
+      },
+      {
+        "name": "Q11408__por_causa_da_doenca_mental_faz_acompanhamento_regular_com_profissional_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "Q115__em_geral_em_que_grau_essa_doenca_mental_limita_as_suas_atividades_habituais_tais_como_trabalhar_realizar_afazeres_domesticos_etc",
+        "type": "string"
+      },
+      {
+        "name": "Q11604__algum_medico_ja_lhe_deu_o_diagnostico_de_alguma_outra_doenca_cronica_no_pulmao_tais_como_enfisema_pulmonar_bronquite_cronica_ou_dpoc_doenca_pulmonar_obstrutiva_cronica",
+        "type": "string"
+      },
+      {
+        "name": "Q11605__diagnostico_de_enfisema_pulmonar",
+        "type": "string"
+      },
+      {
+        "name": "Q11606__diagnostico_de_bronquite_cronica",
+        "type": "string"
+      },
+      {
+        "name": "Q11607__diagnostico_de_outro",
+        "type": "string"
+      },
+      {
+        "name": "Q11701__que_idade_o_a_sr_a_tinha_no_primeiro_diagnostico_dessa_s_doenca_s_no_pulmao",
+        "type": "string"
+      },
+      {
+        "name": "Q11806__por_causa_da_doenca_no_pulmao_usa_medicamentos_inaladores_aerossol_ou_comprimidos",
+        "type": "string"
+      },
+      {
+        "name": "Q11807__por_causa_da_doenca_no_pulmao_usa_oxigenio",
+        "type": "string"
+      },
+      {
+        "name": "Q11808__por_causa_da_doenca_no_pulmao_fisioterapia_respiratoria",
+        "type": "string"
+      },
+      {
+        "name": "Q11809__por_causa_da_doenca_no_pulmao_faz_acompanhamento_regular_com_profissional_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "Q119__em_geral_em_que_grau_a_doenca_do_pulmao_limita_as_suas_atividades_habituais_tais_como_trabalhar_realizar_afazeres_domesticos_etc",
+        "type": "string"
+      },
+      {
+        "name": "Q120__algum_medico_ja_lhe_deu_diagnostico_de_cancer",
+        "type": "string"
+      },
+      {
+        "name": "Q12102__foi_um_diagnostico_de_cancer_de_pele",
+        "type": "string"
+      },
+      {
+        "name": "Q12103__o_cancer_de_pele_diagnosticado_foi_do_tipo_melanoma",
+        "type": "string"
+      },
+      {
+        "name": "Q12104__diagnostico_de_outro_cancer_pulmao",
+        "type": "string"
+      },
+      {
+        "name": "Q12105__diagnostico_de_outro_cancer_colon_e_reto_intestino",
+        "type": "string"
+      },
+      {
+        "name": "Q12106__diagnostico_de_outro_cancer_estomago",
+        "type": "string"
+      },
+      {
+        "name": "Q12107__diagnostico_de_outro_cancer_mama_so_para_mulheres",
+        "type": "string"
+      },
+      {
+        "name": "Q12108__diagnostico_de_outro_cancer_colo_de_utero_so_para_mulheres",
+        "type": "string"
+      },
+      {
+        "name": "Q12109__diagnostico_de_outro_cancer_prostata_so_para_homens",
+        "type": "string"
+      },
+      {
+        "name": "Q121010__diagnostico_de_outro_cancer_boca_orofaringe_ou_laringe",
+        "type": "string"
+      },
+      {
+        "name": "Q121011__diagnostico_de_outro_cancer_bexiga",
+        "type": "string"
+      },
+      {
+        "name": "Q121012__diagnostico_de_outro_cancer_linfoma_ou_leucemia",
+        "type": "string"
+      },
+      {
+        "name": "Q121013__diagnostico_de_outro_cancer_cerebro",
+        "type": "string"
+      },
+      {
+        "name": "Q121014__diagnostico_de_outro_cancer_ovario_so_para_mulheres",
+        "type": "string"
+      },
+      {
+        "name": "Q121015__diagnostico_de_outro_cancer_tireoide",
+        "type": "string"
+      },
+      {
+        "name": "Q121016__diagnostico_de_outro_cancer",
+        "type": "string"
+      },
+      {
+        "name": "Q12201__que_idade_o_a_sr_a_tinha_no_primeiro_diagnostico_de_doenca_mental",
+        "type": "string"
+      },
+      {
+        "name": "Q12301__em_geral_seu_tratamento_ou_algum_problema_provocado_pelo_cancer_limita_as_suas_atividades_profissionais_ou_habituais_tais_como_trabalhar_realizar_afazeres_domesticos_etc",
+        "type": "string"
+      },
+      {
+        "name": "Q124__algum_medico_ja_lhe_deu_o_diagnostico_de_insuficiencia_renal_cronica",
+        "type": "string"
+      },
+      {
+        "name": "Q125__que_idade_o_a_sr_a_tinha_no_primeiro_diagnostico_de_insuficiencia_renal_cronica",
+        "type": "string"
+      },
+      {
+        "name": "Q12501__o_sr_a_fez_transplante_de_rim_por_causa_da_insuficiencia_renal_cronica",
+        "type": "string"
+      },
+      {
+        "name": "Q12607__toma_medicamentos_por_causa_da_insuficiencia_renal_cronica",
+        "type": "string"
+      },
+      {
+        "name": "Q12608__hemodialise_por_causa_da_insuficiencia_renal_cronica",
+        "type": "string"
+      },
+      {
+        "name": "Q12609__dialise_peritoneal_por_causa_da_insuficiencia_renal_cronica",
+        "type": "string"
+      },
+      {
+        "name": "Q12610__faz_acompanhamento_regular_com_profissional_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "Q127__em_geral_em_que_grau_a_insuficiencia_renal_cronica_limita_as_suas_atividades_habituais_tais_como_trabalhar_realizar_afazeres_domesticos_etc",
+        "type": "string"
+      },
+      {
+        "name": "Q128__algum_medico_ja_lhe_deu_algum_diagnostico_de_outra_doenca_cronica_fisica_ou_mental_ou_doenca_de_longa_duracao_de_mais_de_6_meses_de_duracao",
+        "type": "string"
+      },
+      {
+        "name": "Q132__nas_ultimas_duas_semanas_o_a_sr_a_fez_uso_de_algum_medicamento_para_dormir",
+        "type": "string"
+      },
+      {
+        "name": "Q133__nas_ultimas_duas_semanas_por_quantos_dias_usou_o_medicamento_para_dormir",
+        "type": "string"
+      },
+      {
+        "name": "Q134__o_medicamento_que_o_a_sr_a_usa_usou_para_dormir_foi_receitado_por_medico",
+        "type": "string"
+      },
+      {
+        "name": "R00101__quando_foi_a_ultima_vez_que_a_sra_fez_exame_preventivo_para_cancer_de_colo_do_utero",
+        "type": "string"
+      },
+      {
+        "name": "R002010___qual_o_principal_motivo_da_sra_nao_ter_feito_exame_preventivo_nos_ultimos_tres_anos",
+        "type": "string"
+      },
+      {
+        "name": "R004___a_sra_pagou_algum_valor_pelo_ultimo_exame_preventivo_para_cancer_do_colo_do_utero_entrevistador_se_a_entrevistada_responder_que_pagou_mas_teve_reembolso_marque_a_opcao_2",
+        "type": "string"
+      },
+      {
+        "name": "R005__o_ultimo_exame_preventivo_para_cancer_do_colo_do_utero_foi_feito_atraves_do_sistema_unico_de_saude_sus",
+        "type": "string"
+      },
+      {
+        "name": "R00601__quanto_tempo_depois_de_ter_realizado_o_ultimo_exame_preventivo_a_sra_recebeu_o_resultado",
+        "type": "string"
+      },
+      {
+        "name": "R007__apos_receber_o_resultado_do_exame_a_sra_foi_encaminhada_a_alguma_consulta_com_ginecologista_ou_outro_medico_especialista",
+        "type": "string"
+      },
+      {
+        "name": "R008___a_sra_foi_a_consulta",
+        "type": "string"
+      },
+      {
+        "name": "R009010__qual_o_principal_motivo_da_sra_nao_ter_ido_a_consulta",
+        "type": "string"
+      },
+      {
+        "name": "R010__a_sra_ja_foi_submetida_a_cirurgia_para_retirada_do_utero",
+        "type": "string"
+      },
+      {
+        "name": "R011__segundo_o_medico_qual_o_motivo_da_retirada_do_utero",
+        "type": "string"
+      },
+      {
+        "name": "R012__que_idade_a_sra_tinha_quando_foi_submetida_a_cirurgia",
+        "type": "string"
+      },
+      {
+        "name": "R013__quando_foi_a_ultima_vez_que_um_medico_ou_enfermeiro_fez_o_exame_clinico_das_suas_mamas",
+        "type": "string"
+      },
+      {
+        "name": "R014___algum_medico_ja_lhe_solicitou_um_exame_de_mamografia",
+        "type": "string"
+      },
+      {
+        "name": "R015___a_sra_fez_o_exame_de_mamografia",
+        "type": "string"
+      },
+      {
+        "name": "R01701__quando_foi_a_ultima_vez_que_a_sra_fez_um_exame_de_mamografia",
+        "type": "string"
+      },
+      {
+        "name": "R019__a_sra_pagou_algum_valor_pela_ultima_mamografia",
+        "type": "string"
+      },
+      {
+        "name": "R020__a_ultima_mamografia_foi_feita_atraves_do_sistema_unico_de_saude_sus",
+        "type": "string"
+      },
+      {
+        "name": "R02101__quanto_tempo_depois_de_ter_realizado_o_ultimo_exame_de_mamografia_a_sra_recebeu_o_resultado",
+        "type": "string"
+      },
+      {
+        "name": "R022__apos_receber_o_resultado_da_mamografia_a_sra_foi_encaminhada_para_consulta_com_medico_especialista",
+        "type": "string"
+      },
+      {
+        "name": "R023__a_sra_foi_a_consulta_com_o_especialista",
+        "type": "string"
+      },
+      {
+        "name": "R02402__qual_o_principal_motivo_da_sra_nao_ter_ido_a_consulta_com_o_especialista",
+        "type": "string"
+      },
+      {
+        "name": "R025__com_que_idade_a_sra_ficou_menstruada_pela_primeira_vez",
+        "type": "string"
+      },
+      {
+        "name": "R026__a_sra_ainda_fica_menstruada",
+        "type": "string"
+      },
+      {
+        "name": "R027__com_que_idade_a_sra_parou_de_menstruar",
+        "type": "string"
+      },
+      {
+        "name": "R028__a_sra_ja_entrou_na_menopausa",
+        "type": "string"
+      },
+      {
+        "name": "R029__alguma_vez_a_sra_fez_ou_faz_tratamento_hormonal_para_alivio_dos_sintomas_da_menopausa_com_comprimidos_adesivos_gel_ou_injecoes",
+        "type": "string"
+      },
+      {
+        "name": "R030__este_medicamento_foi_receitado_por_medico",
+        "type": "string"
+      },
+      {
+        "name": "R031__nos_ultimos_12_meses_a_sra_teve_relacoes_sexuais",
+        "type": "string"
+      },
+      {
+        "name": "R032__nos_ultimos_12_meses_a_sra_participou_de_grupo_de_planejamento_familiar",
+        "type": "string"
+      },
+      {
+        "name": "R033__e_o_seu_parceiro_participou_de_grupo_de_planejamento_familiar",
+        "type": "string"
+      },
+      {
+        "name": "R034__a_sra_usa_algum_metodo_para_evitar_a_gravidez_atualmente",
+        "type": "string"
+      },
+      {
+        "name": "R035__qual_o_principal_motivo_de_nao_evitar_a_gravidez",
+        "type": "string"
+      },
+      {
+        "name": "R03601__pilula",
+        "type": "string"
+      },
+      {
+        "name": "R03602__tabela",
+        "type": "string"
+      },
+      {
+        "name": "R03603__camisinha_masculina",
+        "type": "string"
+      },
+      {
+        "name": "R03604__camisinha_feminina",
+        "type": "string"
+      },
+      {
+        "name": "R03605__diafragma",
+        "type": "string"
+      },
+      {
+        "name": "R03606__diu",
+        "type": "string"
+      },
+      {
+        "name": "R03607__contraceptivo_injetavel",
+        "type": "string"
+      },
+      {
+        "name": "R03608__implantes_norplant",
+        "type": "string"
+      },
+      {
+        "name": "R03609__creme_ovulo",
+        "type": "string"
+      },
+      {
+        "name": "R03610__piulula_do_dia_seguinte",
+        "type": "string"
+      },
+      {
+        "name": "R03611__outro",
+        "type": "string"
+      },
+      {
+        "name": "R037__a_sra_e_ou_seu_companheiro_ja_fizeram_ou_fazem_algum_tratamento_para_engravidar",
+        "type": "string"
+      },
+      {
+        "name": "R038__ha_quanto_tempo_a_sra_esta_tentando_engravidar",
+        "type": "string"
+      },
+      {
+        "name": "S065__alguma_vez_ficou_gravida_mesmo_que_a_gravidez_nao_tenha_chegado_ate_o_final",
+        "type": "string"
+      },
+      {
+        "name": "S066__quantos_partos_a_sra_ja_teve",
+        "type": "string"
+      },
+      {
+        "name": "S06701__em_que_data_foi_o_ultimo_parto",
+        "type": "string"
+      },
+      {
+        "name": "S06702__em_que_data_foi_o_ultimo_parto",
+        "type": "string"
+      },
+      {
+        "name": "S06703__em_que_data_foi_o_ultimo_parto",
+        "type": "string"
+      },
+      {
+        "name": "S068__quando_estava_gravida_fez_alguma_consulta_de_pre_natal",
+        "type": "string"
+      },
+      {
+        "name": "S06901__quantas_tempo_de_gravidez_tinha_quando_fez_a_primeira_consulta_pre_natal",
+        "type": "string"
+      },
+      {
+        "name": "S06902__quantas_tempo_de_gravidez_tinha_quando_fez_a_primeira_consulta_pre_natal",
+        "type": "string"
+      },
+      {
+        "name": "S070__quantas_consultas_de_pre_natal_fez_durante_esta_gravidez",
+        "type": "string"
+      },
+      {
+        "name": "S071__voce_fez_a_maioria_das_consultas_do_pre_natal_em_servico_de_saude_de",
+        "type": "string"
+      },
+      {
+        "name": "S072__pagou_por_alguma_consulta_de_pre_natal",
+        "type": "string"
+      },
+      {
+        "name": "S073__as_consultas_do_pre_natal_foram_feitas_atraves_do_sistema_unico_de_saude_sus",
+        "type": "string"
+      },
+      {
+        "name": "S074__nesta_gravidez_quem_a_atendeu_na_maioria_das_consultas",
+        "type": "string"
+      },
+      {
+        "name": "S075__nesta_gravidez_voce_tinha_uma_caderneta_cartao_da_gestante",
+        "type": "string"
+      },
+      {
+        "name": "S076__nesta_gravidez_voce_fez_algum_exame_de_sangue_sem_considerar_o_teste_de_gravidez",
+        "type": "string"
+      },
+      {
+        "name": "S077__nesta_gravidez_voce_fez_algum_exame_de_urina_sem_considerar_o_teste_de_gravidez",
+        "type": "string"
+      },
+      {
+        "name": "S07901__durante_o_pre_natal_em_quantas_consultas_mediram_sua_pressao_arterial",
+        "type": "string"
+      },
+      {
+        "name": "S07902__durante_o_pre_natal_em_quantas_consultas_mediram_o_seu_peso",
+        "type": "string"
+      },
+      {
+        "name": "S07903__durante_o_pre_natal_em_quantas_consultas_mediram_sua_barriga",
+        "type": "string"
+      },
+      {
+        "name": "S07904__durante_o_pre_natal_em_quantas_consultas_ouviram_o_coracao_do_bebe",
+        "type": "string"
+      },
+      {
+        "name": "S07905__durante_o_pre_natal_em_quantas_consultas_examinaram_suas_mamas",
+        "type": "string"
+      },
+      {
+        "name": "S080__durante_o_pre_natal_de_nome_foi_realizado_teste_exame_para_sifilis",
+        "type": "string"
+      },
+      {
+        "name": "S081__recebeu_ou_foi_informada_sobre_o_resultado_do_teste_exame_para_sifilis_antes_do_parto",
+        "type": "string"
+      },
+      {
+        "name": "S082__qual_foi_o_resultado_do_teste_exame_para_sifilis",
+        "type": "string"
+      },
+      {
+        "name": "S083__recebeu_tratamento_para_sifilis",
+        "type": "string"
+      },
+      {
+        "name": "S084__foi_solicitado_teste_exame_de_sifilis_para_o_seu_parceiro_a",
+        "type": "string"
+      },
+      {
+        "name": "S085__o_seu_parceiro_recebeu_o_resultado_do_teste_exame_para_sifilis_antes_do_parto",
+        "type": "string"
+      },
+      {
+        "name": "S086__qual_foi_o_resultado_do_teste_exame_para_sifilis_do_seu_parceiro",
+        "type": "string"
+      },
+      {
+        "name": "S087__o_seu_parceiro_foi_tratado",
+        "type": "string"
+      },
+      {
+        "name": "S088__durante_o_pre_natal_foi_realizado_teste_exame_para_hepatite_b",
+        "type": "string"
+      },
+      {
+        "name": "S089__recebeu_o_resultado_da_hepatite_b_antes_do_parto",
+        "type": "string"
+      },
+      {
+        "name": "S090__durante_o_pre_natal_foi_solicitado_o_teste_exame_para_hiv_aids",
+        "type": "string"
+      },
+      {
+        "name": "S091__neste_pre_natal_foi_realizado_teste_exame_para_hiv_aids",
+        "type": "string"
+      },
+      {
+        "name": "S092__recebeu_o_resultado_do_teste_exame_para_hiv_aids_antes_do_parto",
+        "type": "string"
+      },
+      {
+        "name": "S095__durante_o_pre_natal_a_sra_foi_orientada_a_usar_preservativo",
+        "type": "string"
+      },
+      {
+        "name": "S096__quanto_tempo_antes_do_parto_a_sra_foi_a_ultima_consulta_do_pre_natal",
+        "type": "string"
+      },
+      {
+        "name": "S097__durante_este_pre_natal_voce_foi_informada_orientada_pelo_servico_de_saude_profissional_de_saude_sobre_a_maternidade_para_qual_deveria_se_dirigir_no_momento_do_parto",
+        "type": "string"
+      },
+      {
+        "name": "S098__quando_estava_gravida_tomou_alguma_injecao_para_prevenir_o_bebe_contra_difteria_e_tetano_mal_dos_sete_dias_dt_ou_dtpa",
+        "type": "string"
+      },
+      {
+        "name": "S099__quantas_doses_dessa_injecao_tomou_durante_esta_gravidez",
+        "type": "string"
+      },
+      {
+        "name": "S09901__numero_de_doses",
+        "type": "string"
+      },
+      {
+        "name": "S109__seu_sua_filho_a_foi_pesado_ao_nascer",
+        "type": "string"
+      },
+      {
+        "name": "S110__qual_foi_o_peso_dele_a_ao_nascer",
+        "type": "string"
+      },
+      {
+        "name": "S11001__peso_ao_nascer_em_quilogramas",
+        "type": "string"
+      },
+      {
+        "name": "S111__quem_fez_o_parto",
+        "type": "string"
+      },
+      {
+        "name": "S112__onde_foi_realizado_o_parto",
+        "type": "string"
+      },
+      {
+        "name": "S113__pagou_algum_valor_pelo_parto",
+        "type": "string"
+      },
+      {
+        "name": "S114__o_parto_foi_feito_atraves_do_sistema_unico_de_saude_sus",
+        "type": "string"
+      },
+      {
+        "name": "S115__qual_foi_o_tipo_de_parto",
+        "type": "string"
+      },
+      {
+        "name": "S116__nesta_gravidez_entrou_em_trabalho_de_parto",
+        "type": "string"
+      },
+      {
+        "name": "S117__qual_o_principal_motivo_de_ter_tido_parto_cesareo",
+        "type": "string"
+      },
+      {
+        "name": "S118__quantas_semanas_de_gravidez_tinha_no_momento_do_parto",
+        "type": "string"
+      },
+      {
+        "name": "S11801__quantidade_de_semanas",
+        "type": "string"
+      },
+      {
+        "name": "S119__neste_parto_fizeram_em_voce_a_episiotomia_aquele_corte_na_vagina",
+        "type": "string"
+      },
+      {
+        "name": "S120__neste_trabalho_de_parto_foi_oferecido_algum_metodo_para_alivio_da_dor",
+        "type": "string"
+      },
+      {
+        "name": "S121__neste_trabalho_de_parto_foi_utilizado_algum_metodo_para_alivio_da_dor",
+        "type": "string"
+      },
+      {
+        "name": "S122__qual_foi_o_metodo_utilizado_para_o_alivio_da_dor",
+        "type": "string"
+      },
+      {
+        "name": "S123__alguem_conhecido_ficou_com_voce_durante_todo_o_periodo_de_parto_pre_parto_parto_e_pos_parto",
+        "type": "string"
+      },
+      {
+        "name": "S124__em_algum_momento_esse_acompanhante_foi_o_pai_da_crianca",
+        "type": "string"
+      },
+      {
+        "name": "S125__teve_alguma_complicacao_durante_o_parto",
+        "type": "string"
+      },
+      {
+        "name": "S126__voce_teve_alguma_complicacao_apos_o_parto",
+        "type": "string"
+      },
+      {
+        "name": "S127__por_causa_dessa_complicacao_precisou_ser_internada",
+        "type": "string"
+      },
+      {
+        "name": "S128__o_parto_foi_realizado_no_estabelecimento_de_saude_indicado_no_pre_natal",
+        "type": "string"
+      },
+      {
+        "name": "S129__quantos_servicos_de_saude_procurou_quando_entrou_em_trabalho_de_parto_para_que_seu_sua_filho_a_pudesse_nascer",
+        "type": "string"
+      },
+      {
+        "name": "S130__durante_a_primeira_hora_apos_o_nascimento_seu_sua_filho_a_foi_colocado_a_em_contato_com_voce_pele_a_pele",
+        "type": "string"
+      },
+      {
+        "name": "S131__depois_do_nascimento_ele_a_ficou_com_voce_no_quarto_ate_a_alta_hospitalar",
+        "type": "string"
+      },
+      {
+        "name": "S132__seu_sua_filho_a_saiu_do_hospital_junto_com_voce",
+        "type": "string"
+      },
+      {
+        "name": "S133__a_crianca_nao_saiu_do_hospital_junto_com_voce_porque",
+        "type": "string"
+      },
+      {
+        "name": "S134__voce_fez_consulta_de_puerperio_consulta_com_medico_ou_enfermeiro_ate_42_dias_apos_o_parto",
+        "type": "string"
+      },
+      {
+        "name": "S135__qual_o_motivo_de_nao_ter_feito_a_consulta_de_puerperio_consulta_com_medico_ou_enfermeiro_ate_42_dias_apos_o_parto",
+        "type": "string"
+      },
+      {
+        "name": "S136__durante_os_primeiros_tres_meses_apos_o_parto_voce_tomou_medicamento_contendo_somente_ferro_ou_ferro_com_vitaminas",
+        "type": "string"
+      },
+      {
+        "name": "S137__por_que_nao_tomou_o_medicamento",
+        "type": "string"
+      },
+      {
+        "name": "S138__na_maioria_das_vezes_o_medicamento_contendo_somente_ferro_ou_ferro_com_vitaminas_foi_obtido_em_servico_publico_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "S139__apos_o_parto_por_quanto_tempo_tomou_o_medicamento_contendo_somente_ferro_ou_ferro_com_vitaminas",
+        "type": "string"
+      },
+      {
+        "name": "U00204___o_que_o_a_sr_a_usa_para_fazer_a_limpeza_de_sua_boca_escova_de_dente",
+        "type": "string"
+      },
+      {
+        "name": "U00205___o_que_o_a_sr_a_usa_para_fazer_a_limpeza_de_sua_boca_pasta_de_dente",
+        "type": "string"
+      },
+      {
+        "name": "U00206__o_que_o_a_sr_a_usa_para_fazer_a_limpeza_de_sua_boca_fio_dental",
+        "type": "string"
+      },
+      {
+        "name": "U00207__o_que_o_a_sr_a_usa_para_fazer_a_limpeza_de_sua_boca_enxaguatorio_bucal_como_plax_colgate_cepacol",
+        "type": "string"
+      },
+      {
+        "name": "U00208__o_que_o_a_sr_a_usa_para_fazer_a_limpeza_de_sua_boca_outros",
+        "type": "string"
+      },
+      {
+        "name": "U00101__com_que_frequencia_o_a_sr_a_usa_escova_de_dentes_para_a_higiene_bucal",
+        "type": "string"
+      },
+      {
+        "name": "U00401___com_que_frequencia_o_a_sr_a_troca_a_sua_escova_de_dente_por_uma_nova",
+        "type": "string"
+      },
+      {
+        "name": "U005__em_geral_como_o_a_sr_a_avalia_sua_saude_bucal_dentes_e_gengivas",
+        "type": "string"
+      },
+      {
+        "name": "U006__que_grau_de_dificuldade_o_a_sr_s_tem_para_se_alimentar_por_causa_de_problemas_com_seus_dentes_ou_dentadura",
+        "type": "string"
+      },
+      {
+        "name": "U00902__qual_o_principal_motivo_que_o_a_fez_consultar_o_dentista_na_ultima_vez",
+        "type": "string"
+      },
+      {
+        "name": "U01002__onde_foi_a_ultima_consulta_odontologica",
+        "type": "string"
+      },
+      {
+        "name": "U014__como_o_s_sr_a_conseguiu_a_consulta_odontologica",
+        "type": "string"
+      },
+      {
+        "name": "U02001__o_a_sr_a_pagou_algum_valor_por_esta_consulta_odontologica_entrevistador_se_o_a_entrevistado_a_responder_que_pagou_mas_teve_reembolso_total_marque_a_opcao_2",
+        "type": "string"
+      },
+      {
+        "name": "U02101___esta_consulta_odontologica_foi_feita_pelo_sus",
+        "type": "string"
+      },
+      {
+        "name": "U02302___lembrando_se_dos_seus_dentes_permanentes_de_cima_o_a_sr_a_perdeu_algum",
+        "type": "string"
+      },
+      {
+        "name": "U02303__quantos_dentes_permanentes_de_cima_perdeu",
+        "type": "string"
+      },
+      {
+        "name": "U02402__lembrando_se_dos_seus_dentes_permanentes_de_baixo_o_a_sr_a_perdeu_algum",
+        "type": "string"
+      },
+      {
+        "name": "U02403__quantos_dentes_permanentes_de_baixo_perdeu",
+        "type": "string"
+      },
+      {
+        "name": "U02501__o_a_sr_a_usa_algum_tipo_de_protese_dentaria_dente_artificial_implante_dentadura_chapa",
+        "type": "string"
+      },
+      {
+        "name": "Z001__voce_ja_teve_tem_filho_s_biologico_s",
+        "type": "string"
+      },
+      {
+        "name": "Z00101__quantos_homens",
+        "type": "string"
+      },
+      {
+        "name": "Z00102__quantas_mulheres",
+        "type": "string"
+      },
+      {
+        "name": "Z002__quantos_anos_voce_tinha_quando_seu_primeiro_filho_nasceu",
+        "type": "string"
+      },
+      {
+        "name": "Z003__qual_a_idade_do_seu_filho_mais_novo_ou_unico_nascido_vivo",
+        "type": "string"
+      },
+      {
+        "name": "Z004__atualmente_alguma_mulher_esta_gravida_de_voce",
+        "type": "string"
+      },
+      {
+        "name": "Z005__na_gravidez_atual_ou_na_do_de_seu_ultimo_filho_nascido_vivo_voce_desejava_ter_filho_naquele_momento",
+        "type": "string"
+      },
+      {
+        "name": "Z006__na_gravidez_atual_ou_na_do_seu_ultimo_filho_nascido_vivo_foi_feito_pre_natal",
+        "type": "string"
+      },
+      {
+        "name": "Z007__a_maioria_das_consultas_na_gravidez_atual_ou_na_do_seu_ultimo_filho_nascido_vivo_foi_feita_pelo_sus",
+        "type": "string"
+      },
+      {
+        "name": "Z008__voce_acompanha_ou_acompanhou_o_pre_natal_da_gravidez_atual_ou_da_gravidez_do_seu_ultimo_filho",
+        "type": "string"
+      },
+      {
+        "name": "Z009__algum_profissional_de_saude_responsavel_pelo_pre_natal_fez_solicitacao_de_exame_para_voce",
+        "type": "string"
+      },
+      {
+        "name": "Z010__voce_realizou_os_exames_solicitados",
+        "type": "string"
+      },
+      {
+        "name": "Z011__durante_o_pre_natal_da_gravidez_atual_ou_da_gravidez_do_ultimo_filho_voce_foi_incentivado_a_participar_de_palestras_rodas_de_conversas_cursos_etc_sobre_os_cuidados_com_o_bebe",
+        "type": "string"
+      },
+      {
+        "name": "Z012__voce_foi_informado_por_algum_profissional_de_saude_que_realizou_o_pre_natal_sobre_a_possibilidade_de_participar_do_momento_do_parto",
+        "type": "string"
+      },
+      {
+        "name": "Z013__tem_filhos_as_adotivos_as",
+        "type": "string"
+      },
+      {
+        "name": "Z01401__quantos_homens",
+        "type": "string"
+      },
+      {
+        "name": "Z01402__quantas_mulheres",
+        "type": "string"
+      },
+      {
+        "name": "V001__foi_assegurada_a_privacidade_para_aplicacao_desse_modulo",
+        "type": "string"
+      },
+      {
+        "name": "V00101__o_questionario_foi_preenchido_por",
+        "type": "string"
+      },
+      {
+        "name": "V00201__nos_ultimos_doze_meses_alguem_te_ofendeu_humilhou_ou_ridicularizou_na_frente_de_outras_pessoas",
+        "type": "string"
+      },
+      {
+        "name": "V00202__nos_ultimos_doze_meses_alguem_gritou_com_voce_ou_te_xingou",
+        "type": "string"
+      },
+      {
+        "name": "V00203__nos_ultimos_doze_meses_alguem_usou_redes_sociais_ou_celular_para_ameacar_ofender_xingar_ou_expor_imagens_suas_sem_o_seu_consentimento",
+        "type": "string"
+      },
+      {
+        "name": "V00204__nos_ultimos_doze_meses_alguem_te_ameacou_de_ferir_ou_machucar_alguem_importante_para_voce",
+        "type": "string"
+      },
+      {
+        "name": "V00205__nos_ultimos_doze_meses_alguem_destruiu_alguma_coisa_sua_de_proposito",
+        "type": "string"
+      },
+      {
+        "name": "V003__nos_ultimos_doze_meses_quantas_vezes_isso_aconteceu_com_voce",
+        "type": "string"
+      },
+      {
+        "name": "V006__quem_fez_isso_com_voce_se_mais_de_uma_pessoa_defina_o_pirncipal_agressor",
+        "type": "string"
+      },
+      {
+        "name": "V007__onde_isso_ocorreu",
+        "type": "string"
+      },
+      {
+        "name": "V01401__nos_ultimos_doze_meses_alguem_te_deu_um_tapa_ou_uma_bofetada",
+        "type": "string"
+      },
+      {
+        "name": "V01402__nos_ultimos_doze_meses_alguem_te_empurrou_segurou_com_forca_ou_jogou_algo_em_voce_com_a_intencao_de_machucar",
+        "type": "string"
+      },
+      {
+        "name": "V01403__nos_ultimos_doze_meses_alguem_te_deu_um_soco_chutou_ou_arrastou_pelo_cabelo",
+        "type": "string"
+      },
+      {
+        "name": "V01404__nos_ultimos_doze_meses_alguem_tentou_ou_efetivamente_estrangulou_asfixiou_ou_te_queimou_de_proposito",
+        "type": "string"
+      },
+      {
+        "name": "V01405__nos_ultimos_doze_meses_alguem_te_ameacou_ou_feriu_com_uma_faca_arma_de_fogo_ou_alguma_outra_arma_ou_objeto",
+        "type": "string"
+      },
+      {
+        "name": "V015__nos_ultimos_doze_meses_quantas_vezes_isso_aconteceu",
+        "type": "string"
+      },
+      {
+        "name": "V018__quem_fez_isso_com_voce",
+        "type": "string"
+      },
+      {
+        "name": "V019__onde_isso_ocorreu",
+        "type": "string"
+      },
+      {
+        "name": "V02701__nos_ultimos_doze_meses_alguem_tocou_manipulou_beijou_ou_expos_partes_do_seu_corpo_contra_sua_vontade",
+        "type": "string"
+      },
+      {
+        "name": "V02702__nos_ultimos_doze_meses_alguem_te_ameacou_ou_forcou_a_ter_relacoes_sexuais_ou_quaisquer_outros_atos_sexuais_contra_sua_vontade",
+        "type": "string"
+      },
+      {
+        "name": "V02801___e_alguma_vez_na_vida_alguem_tocou_manipulou_beijou_ou_expos_partes_do_seu_corpo_contra_sua_vontade",
+        "type": "string"
+      },
+      {
+        "name": "V02802__e_alguma_vez_na_vida_alguem_te_ameacou_ou_forcou_a_ter_relacoes_sexuais_ou_quaisquer_outros_atos_sexuais_contra_sua_vontade",
+        "type": "string"
+      },
+      {
+        "name": "V029__nos_ultimos_doze_meses_quantas_vezes_isso_aconteceu",
+        "type": "string"
+      },
+      {
+        "name": "V032__quem_fez_isso_com_voce",
+        "type": "string"
+      },
+      {
+        "name": "V033___onde_isso_ocorreu",
+        "type": "string"
+      },
+      {
+        "name": "V034__nos_ultimos_doze_meses_voce_deixou_de_realizar_quaisquer_de_suas_atividades_habituais_trabalhar_realizar_afazeres_domesticos_ir_a_escola_etc_por_causa_desse_ato",
+        "type": "string"
+      },
+      {
+        "name": "V03501__esse_s_ato_s_sexual_is_forcado_s_gerou_aram_alguma_consequencia_para_sua_saude_tais_como_hematomas_cortes_fraturas_queimaduras_ou_outras_lesoes_fisicas_ou_ferimentos",
+        "type": "string"
+      },
+      {
+        "name": "V03502__esse_s_ato_s_sexual_is_forcado_s_gerou_aram_alguma_consequencia_para_sua_saude_tais_como_medo_tristeza_desanimo_dificuldade_para_dormir_ansiedade_depressao_ou_outras_consequencias_psicologicas",
+        "type": "string"
+      },
+      {
+        "name": "V03503__esse_s_ato_s_sexual_is_forcado_s_gerou_aram_alguma_consequencia_para_sua_saude_tais_como_doenca_sexualmente_transmissivel_ou_gravidez_indesejada",
+        "type": "string"
+      },
+      {
+        "name": "V036__por_causa_desta_s_consequencia_s_voce_procurou_algum_atendimento_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "V037__por_causa_desta_s_consequencia_s_voce_recebeu_algum_atendimento_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "V038__onde_foi_realizado_este_atendimento_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "V039__por_causa_desta_s_consequencia_s_voce_precisou_ser_internado_por_24_horas_ou_mais",
+        "type": "string"
+      },
+      {
+        "name": "T001__o_a_sr_a_esta_com_tosse_ha_tres_semanas_ou_mais",
+        "type": "string"
+      },
+      {
+        "name": "T002__o_a_sr_a_tem_mancha_com_dormencia_ou_parte_da_pele_com_dormencia",
+        "type": "string"
+      },
+      {
+        "name": "T003__algum_medico_ja_lhe_deu_o_diagnostico_de_doenca_de_chagas",
+        "type": "string"
+      },
+      {
+        "name": "T004__nos_ultimos_12_meses_algum_medico_lhe_deu_diagnostico_de_doenca_infeccao_sexualmente_transmissivel",
+        "type": "string"
+      },
+      {
+        "name": "T005__nesse_diagnostico_se_houver_mais_de_um_considere_o_ultimo_de_doenca_infeccao_sexualmente_transmissivel_o_a_sr_a_fez_algum_tipo_de_tratamento_com_prescricao_medica",
+        "type": "string"
+      },
+      {
+        "name": "T00601__nesse_diagnostico_recebeu_orientacoes_usar_regularmente_preservativo",
+        "type": "string"
+      },
+      {
+        "name": "T00602__nesse_diagnostico_recebeu_orientacoes_informar_aos_as_parceiros_as_da_infeccao",
+        "type": "string"
+      },
+      {
+        "name": "T00603__nesse_diagnostico_recebeu_orientacoes_fazer_o_teste_de_hiv",
+        "type": "string"
+      },
+      {
+        "name": "T00604__nesse_diagnostico_recebeu_orientacoes_fazer_o_teste_de_sifilis",
+        "type": "string"
+      },
+      {
+        "name": "T00605__nesse_diagnostico_recebeu_orientacoes_fazer_os_testes_para_as_hepatites_b_e_c",
+        "type": "string"
+      },
+      {
+        "name": "T00606__nesse_diagnostico_recebeu_orientacoes_tomar_vacina_para_hepatite_b",
+        "type": "string"
+      },
+      {
+        "name": "Y001__que_idade_tinha_quando_teve_relacoes_sexuais_pela_primeira_vez",
+        "type": "string"
+      },
+      {
+        "name": "Y00101__idade_do_morador_quando_teve_relacoes_sexuais_pela_primeira_vez",
+        "type": "string"
+      },
+      {
+        "name": "Y002__nos_ultimos_doze_meses_teve_relacoes_sexuais",
+        "type": "string"
+      },
+      {
+        "name": "Y003__nos_ultimos_doze_meses_nas_relacoes_sexuais_que_teve_com_que_frequencia_usou_camisinha",
+        "type": "string"
+      },
+      {
+        "name": "Y004__nos_ultimos_doze_meses_na_ultima_relacao_sexual_que_teve_foi_usada_camisinha_masculina_ou_feminina",
+        "type": "string"
+      },
+      {
+        "name": "Y005__qual_o_principal_motivo_por_nao_ter_usado_camisinha",
+        "type": "string"
+      },
+      {
+        "name": "Y006__nos_ultimos_doze_meses_alguma_vez_procurou_algum_servico_publico_posto_centro_de_saude_hospital_publico_hospital_conveniado_do_sus_agente_comunitario_de_saude_para_obter_camisinha_masculina_ou_feminina",
+        "type": "string"
+      },
+      {
+        "name": "Y007__por_que_nao_procurou_algum_servico_publico_saude_para_obter_camisinha_masculina_ou_feminina",
+        "type": "string"
+      },
+      {
+        "name": "Y008__qual_e_a_sua_orientacao_sexual",
+        "type": "string"
+      },
+      {
+        "name": "H001__quando_foi_a_ultima_vez_que_o_a_sr_a_consultou_com_um_a_medico_a",
+        "type": "string"
+      },
+      {
+        "name": "H002__essa_consulta_foi_o_seu_primeiro_atendimento_com_esse_a_medico_a",
+        "type": "string"
+      },
+      {
+        "name": "H003__por_qual_motivo_o_a_sr_a_precisou_consultar_com_um_a_medico_a",
+        "type": "string"
+      },
+      {
+        "name": "H004__onde_procurou_o_atendimento_medico_por_este_motivo",
+        "type": "string"
+      },
+      {
+        "name": "H005__voce_geralmente_procura_esse_a_medico_a_quando_adoece_ou_precisa_de_conselhos_sobre_a_sua_saude",
+        "type": "string"
+      },
+      {
+        "name": "H006___esse_a_e_o_a_medico_a_que_melhor_conhece_voce_como_pessoa",
+        "type": "string"
+      },
+      {
+        "name": "H007___esse_a_e_o_a_medico_a_mais_responsavel_por_seu_atendimento_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "H008__quando_voce_tem_um_novo_problema_de_saude_voce_vai_a_esse_a_medico_a_antes_de_ir_a_outro_servico_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "H009__quando_o_a_servico_de_saude_esta_aberto_a_voce_consegue_aconselhamento_rapido_pelo_telefone_se_precisar",
+        "type": "string"
+      },
+      {
+        "name": "H010__e_dificil_para_voce_conseguir_atendimento_medico_no_a_servico_de_saude_quando_pensa_que_e_necessario",
+        "type": "string"
+      },
+      {
+        "name": "H011__quando_voce_vai_ao_a_servico_de_saude_e_o_a_mesmo_a_medico_a_que_atende_voce_todas_as_vezes",
+        "type": "string"
+      },
+      {
+        "name": "H012__voce_se_sente_a_vontade_contando_as_suas_preocupacoes_ou_problemas_a_esse_a_medico_a",
+        "type": "string"
+      },
+      {
+        "name": "H013___esse_a_medico_a_sabe_quais_problemas_sao_mais_importantes_para_voce",
+        "type": "string"
+      },
+      {
+        "name": "H014__se_fosse_muito_facil_voce_mudaria_do_a_servico_de_saude_para_outro_servico_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "H015__voce_foi_consultar_qualquer_tipo_de_especialista_ou_servico_especializado_no_periodo_em_que_voce_esta_em_acompanhamento_com_esse_a_medico_a",
+        "type": "string"
+      },
+      {
+        "name": "H016___esse_a_medico_a_sugeriu_indicou_encaminhou_que_voce_fosse_consultar_com_esse_a_especialista_ou_servico_especializado",
+        "type": "string"
+      },
+      {
+        "name": "H017___esse_a_medico_a_escreveu_alguma_informacao_para_o_a_especialista_sobre_o_motivo_dessa_consulta",
+        "type": "string"
+      },
+      {
+        "name": "H018___esse_a_medico_a_sabe_quais_foram_os_resultados_dessa_consulta",
+        "type": "string"
+      },
+      {
+        "name": "H019___esse_a_medico_a_pareceu_interessado_a_na_qualidade_do_cuidado_que_voce_recebeu_no_a_especialista_ou_servico_especializado_perguntou_se_voce_foi_bem_ou_mal_atendido_a",
+        "type": "string"
+      },
+      {
+        "name": "H020__se_quisesse_voce_poderia_ler_consultar_o_seu_prontuario_medico_no_a_servico_de_saude",
+        "type": "string"
+      },
+      {
+        "name": "H021__aconselhamento_para_problemas_de_saude_mental_ex_ansiedade_depressao",
+        "type": "string"
+      },
+      {
+        "name": "H022__aconselhamento_sobre_como_parar_de_fumar",
+        "type": "string"
+      },
+      {
+        "name": "H023__aconselhamento_sobre_as_mudancas_que_acontecem_com_o_envelhecimento_ex_diminuicao_da_memoria_risco_de_cair",
+        "type": "string"
+      },
+      {
+        "name": "H024__orientacoes_sobre_alimentacao_saudavel_boa_higiene_e_sono_adequado_dormir_suficientemente",
+        "type": "string"
+      },
+      {
+        "name": "H025__orientacoes_sobre_exercicios_fisicos_apropriados_para_voce",
+        "type": "string"
+      },
+      {
+        "name": "H026__verificar_e_discutir_os_medicamentos_que_voce_esta_usando",
+        "type": "string"
+      },
+      {
+        "name": "H027__como_prevenir_quedas",
+        "type": "string"
+      },
+      {
+        "name": "H028___esse_a_medico_a_pergunta_as_suas_ideias_e_opinioes_o_que_voce_pensa_ao_planejar_o_tratamento_e_cuidado_para_voce_ou_para_um_membro_da_sua_familia",
+        "type": "string"
+      },
+      {
+        "name": "H029___esse_a_medico_a_se_reuniria_com_membros_de_sua_familia_se_voce_achasse_necessario",
+        "type": "string"
+      },
+      {
+        "name": "H030__no_seu_sevico_de_saude_sao_realizadas_pesquisas_com_os_pacientes_para_ver_se_os_servicos_estao_satisfazendo_atendendo_as_necessidades_das_pessoas",
+        "type": "string"
+      },
+      {
+        "name": "W001__antropometria_aferida_do_morador_selecionado",
+        "type": "string"
+      },
+      {
+        "name": "W00101__peso_1a_pesagem_em_kg_3_inteiros_e_1_casa_decimal",
+        "type": "string"
+      },
+      {
+        "name": "W00102__peso_2a_pesagem_em_kg_3_inteiros_e_1_casa_decimal",
+        "type": "string"
+      },
+      {
+        "name": "W00103__peso_final_em_kg_3_inteiros_e_1_casa_decimal",
+        "type": "string"
+      },
+      {
+        "name": "W00201__altura_1a_medicao_em_cm_3_inteiros_e_1_casa_decimal",
+        "type": "string"
+      },
+      {
+        "name": "W00202__altura_2a_medicao_em_cm_3_inteiros_e_1_casa_decimal",
+        "type": "string"
+      },
+      {
+        "name": "W00203__altura_final_em_cm_3_inteiros_e_1_casa_decimal",
+        "type": "string"
+      },
+      {
+        "name": "V0028__peso_do_domicilio_e_dos_moradores_sem_calibracao",
+        "type": "string"
+      },
+      {
+        "name": "V0029__peso_do_morador_selecionado_sem_calibracao",
+        "type": "string"
+      },
+      {
+        "name": "V0030__peso_do_morador_selecionado_para_antropometria_sem_calibracao",
+        "type": "string"
+      },
+      {
+        "name": "V00281__peso_do_domicilio_e_dos_moradores_com_calibracao",
+        "type": "string"
+      },
+      {
+        "name": "V00291__peso_do_morador_selecionado_com_calibracao",
+        "type": "string"
+      },
+      {
+        "name": "V00301__peso_do_morador_selecionado_para_antropometria_com_calibracao",
+        "type": "string"
+      },
+      {
+        "name": "V00282__projecao_da_populacao",
+        "type": "string"
+      },
+      {
+        "name": "V00292__projecao_da_populacao_para_moradores_selecionados",
+        "type": "string"
+      },
+      {
+        "name": "V00302__projecao_da_populacao_para_moradores_selecionados_para_antropometria",
+        "type": "string"
+      },
+      {
+        "name": "V00283__dominio_de_projecao_para_domicilio_e_moradores",
+        "type": "string"
+      },
+      {
+        "name": "V00293__dominio_de_projecao_para_morador_selecionado",
+        "type": "string"
+      },
+      {
+        "name": "V00303__dominio_de_projecao_para_morador_selecionado_para_antropometria",
+        "type": "string"
+      },
+      {
+        "name": "VDC001__numero_de_componentes_do_domicilio_exclusive_as_pessoas_cuja_condicao_na_familia_era_pensionista_empregado_domestico_ou_parente_do_empregado_domestico",
+        "type": "string"
+      },
+      {
+        "name": "VDC003__total_de_moradores_com_15_anos_ou_mais",
+        "type": "string"
+      },
+      {
+        "name": "VDD004A__nivel_de_instrucao_mais_elevado_alcancado_pessoas_de_5_anos_ou_mais_de_idade_padronizado_para_o_ensino_fundamental_sistema_de_9_anos",
+        "type": "string"
+      },
+      {
+        "name": "VDE001__condicao_em_relacao_a_forca_de_trabalho_na_semana_de_referencia_para_pessoas_de_14_anos_ou_mais_de_idade",
+        "type": "string"
+      },
+      {
+        "name": "VDE002__condicao_de_ocupacao_na_semana_de_referencia_para_pessoas_de_14_anos_ou_mais_de_idade",
+        "type": "string"
+      },
+      {
+        "name": "VDE014__grupamentos_de_atividade_do_trabalho_principal_da_semana_de_referencia_para_pessoas_de_14_anos_ou_mais_de_idade",
+        "type": "string"
+      },
+      {
+        "name": "VDF002__rendimento_domiciliar_exclusive_o_rendimento_das_pessoas_cuja_condicao_na_unidade_domiciliar_era_pensionista_empregado_domestico_ou_parente_do_empregado_domestico",
+        "type": "string"
+      },
+      {
+        "name": "VDF003__rendimento_domiciliar_per_capita_exclusive_o_rendimento_das_pessoas_cuja_condicao_na_unidade_domiciliar_era_pensionista_empregado_domestico_ou_parente_do_empregado_domestico",
+        "type": "string"
+      },
+      {
+        "name": "VDF004__faixa_de_rendimento_domiciliar_per_capita_exclusive_o_rendimento_das_pessoas_cuja_condicao_na_unidade_domiciliar_era_pensionista_empregado_domestico_ou_parente_do_empregado_domestico",
+        "type": "string"
+      },
+      {
+        "name": "VDL001__idade_em_meses_das_criancas_nascidas_no_periodo_de_referencia_do_modulo_l",
+        "type": "string"
+      },
+      {
+        "name": "VDM001__faixa_de_tempo_gasto_por_dia_no_deslocamento_casa_trabalho_pelas_pessoas_ocupadas_que_se_deslocavam_para_o_trabalho",
+        "type": "string"
+      },
+      {
+        "name": "VDP001__tipo_de_cigarro_industrializado_comprado",
+        "type": "string"
+      },
+      {
+        "name": "VDR001__metodo_contraceptivo_mais_eficaz_que_faz_uso",
+        "type": "integer"
+      }
+    ]
+  }
+}
