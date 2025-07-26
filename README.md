@@ -56,3 +56,7 @@ A biblioteca padrão é o Polars mas você pode trabalhar com Pandas também.
 ```python
 df = cacimbao.download_dataset("filmografia_brasileira", df_format="pandas")
 ```
+
+## O que é um cacimbão?
+
+Veja o que é um cacimbão [aqui](https://www.youtube.com/watch?v=Ft8-XXILjgE).
