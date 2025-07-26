@@ -43,6 +43,20 @@ EXPECTED_DATASETS_METADATA = [
         "local": True,
         "filepath": Path("aldeias-indigenas/aldeias-indigenas-08062025.parquet"),
     },
+    {
+        "name": "pesquisa_nacional_de_saude_2019",
+        "local": False,
+        "size": Size.LARGE,
+        "description": "Pesquisa Nacional de Saúde 2019, realizada pelo IBGE. Contém dados sobre condições de saúde, "
+        "acesso e uso dos serviços de saúde, e outros aspectos relacionados à saúde "
+        "da população brasileira. Tem por volta de 293.726 linhas e 1.087 colunas "
+        "(valor pode mudar com a atualização da base).",
+        "url": "https://www.pns.icict.fiocruz.br/bases-de-dados/",
+        "download_url": "https://www.pns.icict.fiocruz.br/wp-content/uploads/2023/11/pns2019.zip",
+        "filepath": Path(
+            "pesquisa-nacional-de-saude-2019/pesquisa-nacional-de-saude-2019-25072025.parquet"
+        ),
+    },
 ]
 
 
@@ -53,6 +67,7 @@ class TestListDatasets:
             "pescadores_e_pescadoras_profissionais",
             "salario_minimo_real_vigente",
             "aldeias_indigenas",
+            "pesquisa_nacional_de_saude_2019",
         ]
         assert list_datasets() == expected_datasets
 
