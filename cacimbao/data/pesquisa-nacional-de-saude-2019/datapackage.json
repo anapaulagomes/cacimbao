@@ -1,7 +1,7 @@
 {
   "name": "pesquisa-nacional-de-saude-2019-26072025",
   "type": "table",
-  "path": "cacimbao/data/pesquisa-nacional-de-saude-2019/pesquisa-nacional-de-saude-2019-26072025.parquet",
+  "path": "pesquisa-nacional-de-saude-2019-26072025.parquet",
   "scheme": "file",
   "format": "parquet",
   "mediatype": "application/parquet",
