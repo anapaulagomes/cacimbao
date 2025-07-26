@@ -43,6 +43,28 @@ class TestPesquisaNacionalDeSaude2019Dataset:
         os.unlink(PesquisaNacionalDeSaude2019Dataset.new_filepath())
         os.unlink(PesquisaNacionalDeSaude2019Dataset.new_datapackage_filepath())
 
+    def test_dataset_attributes(self):
+        description = (
+            "Pesquisa Nacional de Saúde 2019, realizada pelo IBGE. "
+            "Contém dados sobre condições de saúde, acesso e uso dos serviços de saúde, "
+            "e outros aspectos relacionados à saúde da população brasileira. "
+            "Tem por volta de 293.726 linhas e 1.087 colunas (valor pode mudar com a atualização da base)."
+        )
+        url = "https://www.pns.icict.fiocruz.br/bases-de-dados/"
+        download_url = "https://raw.githubusercontent.com/anapaulagomes/cacimbao/main/cacimbao/data/pesquisa-nacional-de-saude-2019/pesquisa-nacional-de-saude-2019-26072025.parquet.zip"
+        filepath = Path(
+            "pesquisa-nacional-de-saude-2019/pesquisa-nacional-de-saude-2019-25072025.parquet"
+        )
+        assert (
+            PesquisaNacionalDeSaude2019Dataset.name == "pesquisa_nacional_de_saude_2019"
+        )
+        assert PesquisaNacionalDeSaude2019Dataset.local is False
+        assert PesquisaNacionalDeSaude2019Dataset.size == Size.LARGE
+        assert PesquisaNacionalDeSaude2019Dataset.description == description
+        assert PesquisaNacionalDeSaude2019Dataset.url == url
+        assert PesquisaNacionalDeSaude2019Dataset.download_url == download_url
+        assert PesquisaNacionalDeSaude2019Dataset.filepath == filepath
+
 
 class TestFilmografiaBrasileiraDataset:
     @pytest.mark.integration
@@ -90,8 +112,10 @@ class TestPescadoresEPescadorasProfissionaisDataset:
     def test_dataset_attributes(self):
         description = (
             "Pescadores e pescadoras profissionais do Brasil, com dados de 2015 a 2024."
-            "Contém dados como faixa de renda, nível de escolaridade, forma de atuação e localização."
-            "Tem por volta de shape: 1.700.000 linhas e 10 colunas (valor pode mudar com a atualização da base)."
+            "Contém dados como faixa de renda, nível de escolaridade, forma de atuação e localização. "
+            "Tem por volta de 1.700.000 linhas e 8 colunas (valor pode mudar com a atualização da base). "
+            "A base de dados original tem 10 colunas. Duas colunas foram removidas: CPF e Nome do "
+            "Pescador, por serem informações pessoais."
         )
         url = "https://dados.gov.br/dados/conjuntos-dados/base-de-dados-dos-registros-de-pescadores-e-pescadoras-profissionais"
         filepath = Path(
@@ -108,8 +132,8 @@ class TestPescadoresEPescadorasProfissionaisDataset:
         assert PescadoresEPescadorasProfissionaisDataset.filepath == filepath
 
 
-@pytest.mark.integration
 class TestSalarioMinimoRealVigenteDataset:
+    @pytest.mark.integration
     @freeze_time("2000-01-01")
     def test_prepare(self):
         real_salary_file = "tests/fixtures/salarios/ipeadata_GAC12_SALMINRE12.csv"
@@ -130,13 +154,14 @@ class TestSalarioMinimoRealVigenteDataset:
 
     def test_dataset_attributes(self):
         description = (
-            "Salário mínimo real e vigente de 1940 a 2024."
-            "Contém dados mensais do salário mínimo real (ajustado pela inflação) e o salário mínimo vigente (valor atual)."
-            "Tem por volta de shape: 1.000 linhas e 3 colunas (valor pode mudar com a atualização da base)."
+            "Salário mínimo real e vigente de 1940 a 2024. Contém dados mensais do "
+            "salário mínimo real (ajustado pela inflação) e o salário mínimo vigente "
+            "(valor atual). Tem por volta de 1.000 linhas e 3 colunas (valor pode "
+            "mudar com a atualização da base)."
         )
         url = "http://www.ipeadata.gov.br/Default.aspx"
         filepath = Path(
-            "salario-minimo-real-vigente/salario-minimo-real-vigente-real-vigente-04062025.parquet"
+            "salario-minimo-real-vigente/salario-minimo-real-vigente-04062025.parquet"
         )
         assert SalarioMinimoRealVigenteDataset.name == "salario_minimo_real_vigente"
         assert SalarioMinimoRealVigenteDataset.local is True
@@ -146,8 +171,8 @@ class TestSalarioMinimoRealVigenteDataset:
         assert SalarioMinimoRealVigenteDataset.filepath == filepath
 
 
-@pytest.mark.integration
 class TestAldeiasIndigenasDataset:
+    @pytest.mark.integration
     @freeze_time("2000-01-01")
     def test_prepare(self):
         csv_file = "tests/fixtures/sample_aldeias.csv"

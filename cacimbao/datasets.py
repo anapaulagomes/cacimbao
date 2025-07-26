@@ -101,8 +101,8 @@ class PescadoresEPescadorasProfissionaisDataset(BaseDataset):
     size: Size = Size.LARGE
     description: str = (
         "Pescadores e pescadoras profissionais do Brasil, com dados de 2015 a 2024."
-        "Contém dados como faixa de renda, nível de escolaridade, forma de atuação e localização."
-        "Tem por volta de shape: 1.700.000 linhas e 8 colunas (valor pode mudar com a atualização da base)."
+        "Contém dados como faixa de renda, nível de escolaridade, forma de atuação e localização. "
+        "Tem por volta de 1.700.000 linhas e 8 colunas (valor pode mudar com a atualização da base). "
         "A base de dados original tem 10 colunas. Duas colunas foram removidas: "
         "CPF e Nome do Pescador, por serem informações pessoais."
     )
@@ -135,13 +135,14 @@ class SalarioMinimoRealVigenteDataset(BaseDataset):
     local: bool = True
     size: Size = Size.SMALL
     description: str = (
-        "Salário mínimo real e vigente de 1940 a 2024."
-        "Contém dados mensais do salário mínimo real (ajustado pela inflação) e o salário mínimo vigente (valor atual)."
-        "Tem por volta de shape: 1.000 linhas e 3 colunas (valor pode mudar com a atualização da base)."
+        "Salário mínimo real e vigente de 1940 a 2024. Contém dados mensais do "
+        "salário mínimo real (ajustado pela inflação) e o salário mínimo vigente "
+        "(valor atual). Tem por volta de 1.000 linhas e 3 colunas (valor pode "
+        "mudar com a atualização da base)."
     )
     url: str = "http://www.ipeadata.gov.br/Default.aspx"
     filepath: Path = Path(
-        "salario-minimo-real-vigente/salario-minimo-real-vigente-real-vigente-04062025.parquet"
+        "salario-minimo-real-vigente/salario-minimo-real-vigente-04062025.parquet"
     )
 
     @classmethod
