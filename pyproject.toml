@@ -19,7 +19,7 @@ include = [
     "cacimbao/",
 ]
 # heavy files
-exclude = ["cacimbao/data/pesquisa-nacional-de-saude-2019/*.parquet"]
+exclude = ["cacimbao/data/pesquisa-nacional-de-saude-2019/*.parquet", "cacimbao/data/pesquisa-nacional-de-saude-2019/*.zip"]
 
 [dependency-groups]
 analysis = [
