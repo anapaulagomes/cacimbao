@@ -45,7 +45,7 @@ class BaseDataset:
         write to parquet, and any other necessary transformations, and return a Polars DataFrame."""
 
     @classmethod
-    def filename_prefix(cls):
+    def filename_prefix(cls) -> str:
         return cls.name.replace("_", "-")
 
     @classmethod
@@ -53,17 +53,25 @@ class BaseDataset:
         return files("cacimbao.data").joinpath(cls.filename_prefix())
 
     @classmethod
-    def datapackage_filepath(cls):
+    def datapackage_filepath(cls) -> str:
         return f"{cls.dir()}/datapackage.json"
 
     @classmethod
-    def new_datapackage_filepath(cls):
+    def new_datapackage_filepath(cls) -> str:
         return f"{cls.dir()}/datapackage-{today_label()}.json"
 
     @classmethod
-    def new_filepath(cls):
+    def new_filepath(cls) -> str:
         filepath = f"{cls.dir()}/{cls.filename_prefix()}-{today_label()}.parquet"
-        return files("cacimbao.data").joinpath(filepath)
+        return str(files("cacimbao.data").joinpath(filepath))
+
+    @classmethod
+    def create_datapackage_from_file(cls, filepath):
+        resource = Resource(path=filepath)
+        resource.infer()
+        datapackage_filepath = cls.new_datapackage_filepath()
+        resource.to_json(datapackage_filepath)
+        return datapackage_filepath
 
 
 class FilmografiaBrasileiraDataset(BaseDataset):
@@ -104,16 +112,18 @@ class PescadoresEPescadorasProfissionaisDataset(BaseDataset):
     @classmethod
     def prepare(cls, csv_dir: str):
         """Merge the CSVs from the states into one parquet file and remove personal information."""
-        output_filepath = f"data/pescadores-e-pescadoras-profissionais/pescadores-e-pescadoras-profissionais-{today_label()}.parquet"
+        output_filepath = cls.new_filepath()
         drop_columns = ["CPF", "Nome do Pescador"]  # personal information
-        combined_data = merge_csvs_to_parquet(
+        merge_csvs_to_parquet(
             Path(csv_dir),
             output_filepath,
             drop_columns,
             separator=";",
             truncate_ragged_lines=True,
         )
-        return combined_data
+
+        cls.create_datapackage_from_file(output_filepath)
+        return pl.read_parquet(output_filepath)
 
 
 class SalarioMinimoRealVigenteDataset(BaseDataset):
@@ -176,9 +186,9 @@ class SalarioMinimoRealVigenteDataset(BaseDataset):
             .str.replace(",", ".")
             .cast(pl.Float64)
         )
-        combined_data.write_parquet(
-            f"data/salario-minimo/salario-minimo-real-vigente-{today_label()}.parquet"
-        )
+        combined_data.write_parquet(cls.new_filepath())
+
+        cls.create_datapackage_from_file(cls.new_filepath())
         return combined_data
 
 
@@ -203,8 +213,9 @@ class AldeiasIndigenasDataset(BaseDataset):
         It is not possible to read the ODS file directly with Polars due to an open issue:
         https://github.com/pola-rs/polars/issues/14053"""
         df = pl.read_csv(source=filepath)
-        filepath = f"aldeias-indigenas/aldeias-indigenas-{today_label()}.parquet"
-        df.write_parquet(files("cacimbao.data").joinpath(filepath))
+        filepath = cls.new_filepath()
+        df.write_parquet(filepath)
+        cls.create_datapackage_from_file(filepath)
         return df
 
 
