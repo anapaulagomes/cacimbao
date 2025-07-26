@@ -31,4 +31,5 @@ dev = [
     "frictionless[parquet]>=5.18.1",
     "pre-commit>=4.2.0",
     "pytest>=8.3.5",
+    "unicode>=2.9",
 ]
