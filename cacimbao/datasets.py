@@ -140,7 +140,9 @@ class SalarioMinimoRealVigenteDataset(BaseDataset):
         "Tem por volta de shape: 1.000 linhas e 3 colunas (valor pode mudar com a atualização da base)."
     )
     url: str = "http://www.ipeadata.gov.br/Default.aspx"
-    filepath: Path = Path("salario-minimo/salario-minimo-real-vigente-04062025.parquet")
+    filepath: Path = Path(
+        "salario-minimo-real-vigente/salario-minimo-real-vigente-real-vigente-04062025.parquet"
+    )
 
     @classmethod
     def prepare(cls, real_salary_filepath: str, current_salary_filepath: str):
@@ -267,7 +269,7 @@ class PesquisaNacionalDeSaude2019Dataset(BaseDataset):
         df.columns = [field["alternative_name"] for field in data_dict.values()]
 
         df.write_parquet(cls.new_filepath())
-        return str(cls.new_filepath())
+        return cls.new_filepath()
 
     @classmethod
     def _create_datapackage(cls, parquet_filepath: str, data_dict: dict):
