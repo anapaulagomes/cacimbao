@@ -1,3 +1,4 @@
+import logging
 from abc import abstractmethod
 from dataclasses import dataclass
 from enum import Enum
@@ -7,8 +8,11 @@ from typing import Union
 from zipfile import ZipFile
 
 import polars as pl
+from frictionless import Resource, Schema
 
-from cacimbao.helpers import merge_csvs_to_parquet, today_label
+from cacimbao.helpers import merge_csvs_to_parquet, normalize_column_name, today_label
+
+logger = logging.getLogger(__name__)
 
 
 class Size(Enum):
@@ -184,7 +188,15 @@ class AldeiasIndigenasDataset(BaseDataset):
 
 
 class PesquisaNacionalDeSaude2019Dataset(BaseDataset):
-    """Dataset for the 2019 National Health Survey in Brazil."""
+    """Dataset for the 2019 National Health Survey in Brazil.
+
+    This dataset is special because it lives in our repository, but it is downloaded only
+    when required by the user. Since it is a large dataset, we do not want to have a large
+    package size by default.
+
+    The original dataset is available at:
+        https://www.pns.icict.fiocruz.br/wp-content/uploads/2023/11/pns2019.zip
+    """
 
     name: str = "pesquisa_nacional_de_saude_2019"
     local: bool = False
@@ -204,14 +216,109 @@ class PesquisaNacionalDeSaude2019Dataset(BaseDataset):
     )
 
     @staticmethod
-    def prepare(zip_filepath: str):
-        # TODO run prepare after downloading the zip file
+    def prepare(zip_filepath: str) -> pl.DataFrame:
+        logger.info("Preparando o dicionário de dados...")
+        data_dict = PesquisaNacionalDeSaude2019Dataset._data_dict()
+        logger.info("Hora do download do arquivo .zip e criação do .parquet...")
+        parquet_filepath = (
+            PesquisaNacionalDeSaude2019Dataset._download_zip_and_create_parquet_file(
+                zip_filepath, data_dict
+            )
+        )  # FIXME
+        logger.info("Momento de criação do datapackage...")
+        PesquisaNacionalDeSaude2019Dataset._create_datapackage(
+            parquet_filepath, data_dict
+        )
+        logger.info("Fim.")
+
+        return pl.read_parquet(parquet_filepath)
+
+    @staticmethod
+    def _download_zip_and_create_parquet_file(
+        zip_filepath: str, data_dict: dict
+    ) -> str:
         index = zip_filepath.rfind("/")
         csv_filename = zip_filepath[index + 1 :].replace(".zip", ".csv")
         df = pl.read_csv(ZipFile(zip_filepath).read(csv_filename))
+        df.columns = [field["alternative_name"] for field in data_dict.values()]
         # TODO adjust the filepath to include the date
         filepath = f"pesquisa-nacional-de-saude-2019/pesquisa-nacional-de-saude-2019-{today_label()}.parquet"
         df.write_parquet(files("cacimbao.data").joinpath(filepath))
+        return str(files("cacimbao.data").joinpath(filepath))
+
+    @staticmethod
+    def _create_datapackage(parquet_filepath: str, data_dict: dict):
+        resource = Resource(path=parquet_filepath)
+        resource.infer()
+
+        schema_descriptor = resource.schema.to_descriptor()
+
+        modified_fields = []
+        for field in schema_descriptor["fields"]:
+            modified_field = field.copy()
+            if data_dict.get(field["name"]):
+                field_data = data_dict[field["name"]]
+                modified_field["name"] = field_data["alternative_name"]
+                modified_field["description"] = field_data["description"]
+                modified_field["constraints"] = {
+                    "enum": list(field_data["categories"].keys())
+                }
+            modified_fields.append(modified_field)
+
+        schema_descriptor["fields"] = modified_fields
+
+        resource.schema = Schema.from_descriptor(schema_descriptor)
+        #  FIXME: adjust the path to avoid repetition
+        datapackage_filepath = (
+            "cacimbao/data/pesquisa-nacional-de-saude-2019/datapackage.json"
+        )
+        resource.to_json(datapackage_filepath)
+        return datapackage_filepath
+
+    @staticmethod
+    def _data_dict():
+        data_dict_file = pl.read_excel(
+            "cacimbao/data/pesquisa-nacional-de-saude-2019/dicionario_PNS_microdados_2019_23062023.xls",
+            read_options={"header_row": 3},
+        )
+        data_dict_file.columns = [
+            "posicao_inicial",
+            "tamanho",
+            "codigo_da_variavel",
+            "quesito_nr",
+            "quesito_descricao",
+            "categorias_tipo",
+            "categorias_descricao",
+        ]
+
+        section = ""
+        data_dict = {}
+        categories = {}
+        current_field = {}
+        for row in data_dict_file.iter_rows(named=True):
+            number_of_nones = list(row.values()).count(None)
+            if (
+                row["posicao_inicial"] and number_of_nones == 6
+            ):  # início de uma nova seção
+                section = row["posicao_inicial"].strip()
+            elif row["codigo_da_variavel"]:  # nova variável
+                if current_field:
+                    current_field["categories"] = categories
+                    current_field["description"] += (
+                        f" Opções: {categories}" if categories else ""
+                    )
+                    data_dict[current_field["name"]] = current_field
+                    categories = {}
+
+                normalized_question = normalize_column_name(row["quesito_descricao"])
+                current_field = {
+                    "name": row["codigo_da_variavel"],
+                    "alternative_name": f"{row['codigo_da_variavel']}__{normalized_question}",
+                    "description": f"{row['quesito_descricao']} (seção: {section}). Tamanho: {row['tamanho']}.",
+                }
+            else:
+                categories[row["categorias_tipo"]] = row["categorias_descricao"]
+        return data_dict
 
 
 def list_datasets(include_metadata=False) -> list:
