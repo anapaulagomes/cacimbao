@@ -56,7 +56,7 @@ EXPECTED_DATASETS_METADATA = [
         "da população brasileira. Tem por volta de 293.726 linhas e 1.087 colunas "
         "(valor pode mudar com a atualização da base).",
         "url": "https://www.pns.icict.fiocruz.br/bases-de-dados/",
-        "download_url": "https://raw.githubusercontent.com/anapaulagomes/cacimbao/add-pns/cacimbao/data/pesquisa-nacional-de-saude-2019/pesquisa-nacional-de-saude-2019-26072025.parquet.zip",
+        "download_url": "https://raw.githubusercontent.com/anapaulagomes/cacimbao/main/cacimbao/data/pesquisa-nacional-de-saude-2019/pesquisa-nacional-de-saude-2019-26072025.parquet.zip",
         "filepath": Path(
             "pesquisa-nacional-de-saude-2019/pesquisa-nacional-de-saude-2019-25072025.parquet"
         ),
