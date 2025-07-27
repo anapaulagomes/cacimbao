@@ -8,7 +8,6 @@ from typing import Union
 from zipfile import ZipFile
 
 import polars as pl
-from frictionless import Resource, Schema
 
 from cacimbao.helpers import merge_csvs_to_parquet, normalize_column_name, today_label
 
@@ -67,6 +66,8 @@ class BaseDataset:
 
     @classmethod
     def create_datapackage_from_file(cls, filepath):
+        from frictionless import Resource
+
         resource = Resource(path=filepath)
         resource.infer()
         datapackage_filepath = cls.new_datapackage_filepath()
@@ -274,6 +275,8 @@ class PesquisaNacionalDeSaude2019Dataset(BaseDataset):
 
     @classmethod
     def _create_datapackage(cls, parquet_filepath: str, data_dict: dict):
+        from frictionless import Resource, Schema
+
         resource = Resource(path=parquet_filepath, format="parquet")
         resource.infer()
 
