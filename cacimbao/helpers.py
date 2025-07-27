@@ -8,7 +8,6 @@ from typing import Dict
 
 import polars as pl
 import requests
-from unidecode import unidecode
 
 
 def download_and_extract_zip(url: str, target_dir: Path) -> Path:
@@ -67,6 +66,8 @@ def merge_csvs_to_parquet(
 
 
 def normalize_column_name(text: str) -> str:
+    from unidecode import unidecode
+
     normalized_description = unidecode(text)
     normalized_description = re.sub(r"[^\w]", " ", normalized_description)
     normalized_description = normalized_description.lower().replace(" ", "_")
