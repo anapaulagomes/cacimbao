@@ -2,7 +2,7 @@
 
 <img src="cacimbao_logo.svg" alt="cacimbão logo" width="125" align="right"/>
 
-![PyPI - Version](https://img.shields.io/pypi/v/cacimbao) [![Test](https://github.com/anapaulagomes/cacimbao/actions/workflows/ci.yml/badge.svg)](https://github.com/anapaulagomes/cacimbao/actions/workflows/ci.yml) [![DOI](https://zenodo.org/badge/975927667.svg)](https://doi.org/10.5281/zenodo.15640773)
+[![PyPI - Version](https://img.shields.io/pypi/v/cacimbao)](https://pypi.org/project/cacimbao/) [![Test](https://github.com/anapaulagomes/cacimbao/actions/workflows/ci.yml/badge.svg)](https://github.com/anapaulagomes/cacimbao/actions/workflows/ci.yml) [![DOI](https://zenodo.org/badge/975927667.svg)](https://doi.org/10.5281/zenodo.15640773)
 
 Bases de dados brasileiras para fins educacionais 🤓 [demo](https://huggingface.co/spaces/anapaulagomes/pescadores-e-pescadoras-profissionais)
 
