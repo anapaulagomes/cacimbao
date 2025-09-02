@@ -8,7 +8,7 @@ Bases de dados brasileiras para fins educacionais 🤓 [demo](https://huggingfac
 
 ## Uso
 
-Primeiro, instale o pacote com o PyPi:
+Primeiro, instale o pacote com o PyPi ou interaja através do notebook <a target="_blank" href="https://marimo.app/l/8pi68g"><img src="https://marimo.io/shield.svg"/></a>
 
 ```bash
 pip install cacimbao
