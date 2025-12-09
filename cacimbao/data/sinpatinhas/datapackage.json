@@ -1,0 +1,40 @@
+{
+  "name": "sinpatinhas-09122025",
+  "type": "table",
+  "path": "data/sinpatinhas/sinpatinhas-09122025.parquet",
+  "scheme": "file",
+  "format": "parquet",
+  "mediatype": "application/parquet",
+  "schema": {
+    "fields": [
+      {
+        "name": "especie",
+        "type": "string"
+      },
+      {
+        "name": "idade",
+        "type": "integer"
+      },
+      {
+        "name": "sexo",
+        "type": "string"
+      },
+      {
+        "name": "corpelagem",
+        "type": "string"
+      },
+      {
+        "name": "datacadastro",
+        "type": "datetime"
+      },
+      {
+        "name": "uf",
+        "type": "string"
+      },
+      {
+        "name": "no_municipio",
+        "type": "string"
+      }
+    ]
+  }
+}

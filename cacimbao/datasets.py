@@ -348,6 +348,39 @@ class PesquisaNacionalDeSaude2019Dataset(BaseDataset):
         return data_dict
 
 
+class SinPatinhasDataset(BaseDataset):
+    """Dataset for animals from the SinPatinhas system."""
+
+    name: str = "sinpatinhas"
+    local: bool = True
+    size: Size = Size.SMALL
+    description: str = (
+        "Animais do sistema SinPatinhas de 15 de abril a 2 de  dezembro."
+        "Contém dados como espécie, idade, sexo, cor da pelagem, data de cadastro, "
+        "e localização (UF e município). "
+        "Tem por volta de 930.000 linhas e 7 colunas (valor pode mudar com a "
+        "atualização da base)."
+        "A decisão veio após ecisão proferida em sede de recurso de 2ª instância, "
+        "que determinou a complementação da resposta,Despacho SEI nº 98764 (2171855)."
+    )
+    url: str = "https://buscalai.cgu.gov.br/PedidosLai/DetalhePedido?id=9499381"
+    filepath: Path = Path("sinpatinhas/sinpatinhas-09122025.parquet")
+
+    @classmethod
+    def prepare(cls, csv_filepath: str):
+        """Read unzipped csv filepath and convert it to a parquet file."""
+        output_filepath = cls.new_filepath()
+        df = pl.read_csv(
+            csv_filepath,
+            separator=";",  # has_header=True, encoding='unicode_escape'
+        ).with_columns(
+            pl.col("datacadastro").str.to_date(format="%d/%m/%Y"),
+        )
+        df.write_parquet(output_filepath)
+        cls.create_datapackage_from_file(output_filepath)
+        return pl.read_parquet(output_filepath)
+
+
 def list_datasets(include_metadata=False) -> list:
     """
     List available datasets.

@@ -10,6 +10,7 @@ from cacimbao.datasets import (
     PescadoresEPescadorasProfissionaisDataset,
     PesquisaNacionalDeSaude2019Dataset,
     SalarioMinimoRealVigenteDataset,
+    SinPatinhasDataset,
     Size,
     list_datasets,
 )
@@ -23,6 +24,7 @@ class TestListDatasets:
             "salario_minimo_real_vigente",
             "aldeias_indigenas",
             "pesquisa_nacional_de_saude_2019",
+            "sinpatinhas",
         ]
         assert list_datasets() == expected_datasets
 
@@ -200,3 +202,42 @@ class TestAldeiasIndigenasDataset:
         assert AldeiasIndigenasDataset.description == description
         assert AldeiasIndigenasDataset.url == url
         assert AldeiasIndigenasDataset.filepath == filepath
+
+
+class TestSinPatinhas:
+    @freeze_time("2000-01-01")
+    def test_prepare(self, tmp_path):
+        csv_content = """especie;idade;sexo;corpelagem;datacadastro;uf;no_municipio
+        Gato;1;Fêmea;Outros;04/06/2025;SP;Osasco
+        Cão;4;Macho;Tricolor;28/05/2025;PI;Parnaíba
+        """
+        csv_file = tmp_path / "sinpatinhas.csv"
+        csv_file.write_text(csv_content)
+
+        result = SinPatinhasDataset.prepare(csv_file)
+
+        assert result.shape == (3, 7)
+        assert os.path.exists(SinPatinhasDataset.new_filepath())
+        assert os.path.exists(SinPatinhasDataset.new_datapackage_filepath())
+
+        os.unlink(SinPatinhasDataset.new_filepath())
+        os.unlink(SinPatinhasDataset.new_datapackage_filepath())
+
+    def test_dataset_attributes(self):
+        description = (
+            "Animais do sistema SinPatinhas de 15 de abril a 2 de  dezembro."
+            "Contém dados como espécie, idade, sexo, cor da pelagem, data de cadastro, "
+            "e localização (UF e município). "
+            "Tem por volta de 930.000 linhas e 7 colunas (valor pode mudar com a "
+            "atualização da base)."
+            "A decisão veio após ecisão proferida em sede de recurso de 2ª instância, "
+            "que determinou a complementação da resposta,Despacho SEI nº 98764 (2171855)."
+        )
+        url = "https://buscalai.cgu.gov.br/PedidosLai/DetalhePedido?id=9499381"
+        filepath = Path("sinpatinhas/sinpatinhas-09122025.parquet")
+        assert SinPatinhasDataset.name == "sinpatinhas"
+        assert SinPatinhasDataset.local is True
+        assert SinPatinhasDataset.size == Size.SMALL
+        assert SinPatinhasDataset.description == description
+        assert SinPatinhasDataset.url == url
+        assert SinPatinhasDataset.filepath == filepath
