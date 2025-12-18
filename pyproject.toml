@@ -29,7 +29,7 @@ markers = [
 
 [dependency-groups]
 analysis = [
-    "marimo>=0.14.13",
+    "marimo>=0.18.4",
     "plotly==6.1.2",
 ]
 dev = [
