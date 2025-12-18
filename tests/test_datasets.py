@@ -212,7 +212,7 @@ class TestSinPatinhas:
         Cão;4;Macho;Tricolor;28/05/2025;PI;Parnaíba
         """
         csv_file = tmp_path / "sinpatinhas.csv"
-        csv_file.write_text(csv_content)
+        csv_file.write_text(csv_content, encoding="utf-8")
 
         result = SinPatinhasDataset.prepare(csv_file)
 

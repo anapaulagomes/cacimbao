@@ -374,7 +374,8 @@ class SinPatinhasDataset(BaseDataset):
         output_filepath = cls.new_filepath()
         df = pl.read_csv(
             csv_filepath,
-            separator=";",  # has_header=True, encoding='unicode_escape'
+            separator=";",
+            encoding="utf-8",
         ).with_columns(
             pl.col("datacadastro").str.to_date(format="%d/%m/%Y"),
         )
