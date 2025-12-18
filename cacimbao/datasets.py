@@ -360,8 +360,10 @@ class SinPatinhasDataset(BaseDataset):
         "e localização (UF e município). "
         "Tem por volta de 930.000 linhas e 7 colunas (valor pode mudar com a "
         "atualização da base)."
-        "A decisão veio após ecisão proferida em sede de recurso de 2ª instância, "
-        "que determinou a complementação da resposta,Despacho SEI nº 98764 (2171855)."
+        "Os dados foram repassados a partir do recurso em 2ª instância, "
+        "no pedido de informação SIC n. 02303.016805/2025 e publicados no DESPACHO "
+        "Nº 98764/2025-MMA pela Sra. Ministra de Estado do Meio Ambiente (Marina Silva), "
+        'que determinou a "disponibilização das informações identificadas como não sensíveis".'
     )
     url: str = "https://buscalai.cgu.gov.br/PedidosLai/DetalhePedido?id=9499381"
     filepath: Path = Path("sinpatinhas/sinpatinhas-09122025.parquet")
