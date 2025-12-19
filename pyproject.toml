@@ -35,7 +35,6 @@ analysis = [
 dev = [
     "fastexcel>=0.14.0",
     "freezegun>=1.5.3",
-    "frictionless[parquet]>=5.18.1",
     "pre-commit>=4.2.0",
     "pytest==8.4.1",
     "unidecode>=1.4.0",
