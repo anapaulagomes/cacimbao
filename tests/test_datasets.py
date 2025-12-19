@@ -205,14 +205,10 @@ class TestAldeiasIndigenasDataset:
 
 
 class TestSinPatinhas:
+    @pytest.mark.integration
     @freeze_time("2000-01-01")
-    def test_prepare(self, tmp_path):
-        csv_content = """especie;idade;sexo;corpelagem;datacadastro;uf;no_municipio
-        Gato;1;Fêmea;Outros;04/06/2025;SP;Osasco
-        Cão;4;Macho;Tricolor;28/05/2025;PI;Parnaíba
-        """
-        csv_file = tmp_path / "sinpatinhas.csv"
-        csv_file.write_text(csv_content, encoding="utf-8")
+    def test_prepare(self):
+        csv_file = "tests/fixtures/sample_sinpatinhas.csv"
 
         result = SinPatinhasDataset.prepare(csv_file)
 
