@@ -1,6 +1,9 @@
+import json
 import os
+from datetime import date
 from pathlib import Path
 
+import polars as pl
 import pytest
 from freezegun import freeze_time
 
@@ -212,7 +215,7 @@ class TestSinPatinhas:
 
         result = SinPatinhasDataset.prepare(csv_file)
 
-        assert result.shape == (3, 7)
+        assert result.shape == (10, 7)
         assert os.path.exists(SinPatinhasDataset.new_filepath())
         assert os.path.exists(SinPatinhasDataset.new_datapackage_filepath())
 
@@ -239,3 +242,109 @@ class TestSinPatinhas:
         assert SinPatinhasDataset.description == description
         assert SinPatinhasDataset.url == url
         assert SinPatinhasDataset.filepath == filepath
+
+
+class TestCreateDatapackageFromFile:
+    @pytest.fixture
+    def sample_parquet_file(self, tmp_path):
+        df = pl.DataFrame(
+            {
+                "id": [1, 2, 3],
+                "name": ["Pedro", "Helena", "Tonino"],
+                "age": [25, 30, 35],
+                "salary": [50000.50, 60000.75, 70000.25],
+                "is_active": [True, False, True],
+                "birth_date": [
+                    date(1998, 1, 15),
+                    date(1993, 5, 20),
+                    date(1988, 10, 10),
+                ],
+            }
+        )
+        filepath = tmp_path / "kids_and_pets.parquet"
+        df.write_parquet(filepath)
+        return str(filepath)
+
+    @freeze_time("2000-01-01")
+    def test_create_datapackage_generates_file(self, sample_parquet_file):
+        datapackage_path = SinPatinhasDataset.create_datapackage_from_file(
+            sample_parquet_file
+        )
+        datapackage_path_obj = Path(datapackage_path)
+        datapackage = json.loads(datapackage_path_obj.read_text())
+
+        assert os.path.exists(datapackage_path)
+        assert datapackage_path.suffix == ".json"
+        assert datapackage["type"] == "table"
+        assert datapackage["format"] == "parquet"
+        assert datapackage["mediatype"] == "application/parquet"
+
+        assert "name" in datapackage
+        assert "type" in datapackage
+        assert "path" in datapackage
+        assert "format" in datapackage
+        assert "schema" in datapackage
+        assert "fields" in datapackage["schema"]
+        datapackage_path_obj.unlink()
+
+    @freeze_time("2000-01-01")
+    def test_create_datapackage_type_mapping(self, sample_parquet_file):
+        datapackage_path = SinPatinhasDataset.create_datapackage_from_file(
+            sample_parquet_file
+        )
+        datapackage_path_obj = Path(datapackage_path)
+        datapackage = json.loads(datapackage_path_obj.read_text())
+
+        fields = {
+            field["name"]: field["type"] for field in datapackage["schema"]["fields"]
+        }
+
+        assert fields["id"] == "integer"
+        assert fields["name"] == "string"
+        assert fields["age"] == "integer"
+        assert fields["salary"] == "number"
+        assert fields["is_active"] == "boolean"
+        assert fields["birth_date"] == "date"
+
+        datapackage_path_obj.unlink()
+
+    @freeze_time("2000-01-01")
+    def test_create_datapackage_all_columns(self, sample_parquet_file):
+        datapackage_path = SinPatinhasDataset.create_datapackage_from_file(
+            sample_parquet_file
+        )
+        datapackage_path_obj = Path(datapackage_path)
+        datapackage = json.loads(datapackage_path_obj.read_text())
+
+        df = pl.read_parquet(sample_parquet_file)
+
+        actual_columns = [field["name"] for field in datapackage["schema"]["fields"]]
+
+        assert df.columns == actual_columns
+        datapackage_path_obj.unlink()
+
+    @freeze_time("2000-01-01")
+    def test_create_datapackage_unknown_type_defaults_to_string(self, tmp_path):
+        df = pl.DataFrame(
+            {
+                "simple": ["a", "b", "c"],
+                "list_col": [[1, 2], [3, 4], [5, 6]],
+            }
+        )
+        filepath = tmp_path / "complex_types.parquet"
+        df.write_parquet(filepath)
+
+        datapackage_path = SinPatinhasDataset.create_datapackage_from_file(
+            str(filepath)
+        )
+        datapackage_path_obj = Path(datapackage_path)
+        datapackage = json.loads(datapackage_path_obj.read_text())
+
+        fields = {
+            field["name"]: field["type"] for field in datapackage["schema"]["fields"]
+        }
+
+        # list_col should default to string since List[Int64] is not in the mapping
+        assert fields["simple"] == "string"
+        assert fields["list_col"] == "string"
+        datapackage_path_obj.unlink()

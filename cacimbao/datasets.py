@@ -1,3 +1,4 @@
+import json
 import logging
 from abc import abstractmethod
 from dataclasses import dataclass
@@ -65,13 +66,46 @@ class BaseDataset:
         return str(files("cacimbao.data").joinpath(filepath))
 
     @classmethod
-    def create_datapackage_from_file(cls, filepath):
-        from frictionless import Resource
+    def create_datapackage_from_file(cls, filepath_str: str):
+        filepath = Path(filepath_str)
+        datapackage = {
+            "name": filepath.name,
+            "type": "table",
+            "path": filepath_str,  # TODO expected: "data/sinpatinhas/sinpatinhas-09122025.parquet",
+            "scheme": "file",
+            "format": "parquet",
+            "mediatype": "application/parquet",
+            "schema": {"fields": []},
+        }
 
-        resource = Resource(path=filepath)
-        resource.infer()
-        datapackage_filepath = cls.new_datapackage_filepath()
-        resource.to_json(datapackage_filepath)
+        polars_to_datapackage_type_mapping = {
+            "Int8": "integer",
+            "Int16": "integer",
+            "Int32": "integer",
+            "Int64": "integer",
+            "UInt8": "integer",
+            "UInt16": "integer",
+            "UInt32": "integer",
+            "UInt64": "integer",
+            "Float32": "number",
+            "Float64": "number",
+            "Boolean": "boolean",
+            "Utf8": "string",
+            "String": "string",
+            "Date": "date",
+            "Datetime": "datetime",
+            "Time": "time",
+        }
+        schema = pl.scan_parquet(filepath).collect_schema()
+        for col, dtype in schema.items():
+            field_type = polars_to_datapackage_type_mapping.get(str(dtype), "string")
+            datapackage["schema"]["fields"].append({"name": col, "type": field_type})
+
+        datapackage_filepath = Path(cls.new_datapackage_filepath())
+        datapackage_filepath.write_text(
+            json.dumps(datapackage, indent=2, ensure_ascii=False)
+        )
+
         return datapackage_filepath
 
 
@@ -258,7 +292,7 @@ class PesquisaNacionalDeSaude2019Dataset(BaseDataset):
         logger.info("Hora descompactar o arquivo .zip e criar o .parquet...")
         parquet_filepath = cls._create_parquet_file(zip_filepath, data_dict)
         logger.info("Momento de criação do datapackage...")
-        cls._create_datapackage(parquet_filepath, data_dict)
+        cls.create_datapackage_from_file(parquet_filepath)
         logger.info("Fim.")
 
         return pl.read_parquet(parquet_filepath)
@@ -272,35 +306,6 @@ class PesquisaNacionalDeSaude2019Dataset(BaseDataset):
 
         df.write_parquet(cls.new_filepath())
         return cls.new_filepath()
-
-    @classmethod
-    def _create_datapackage(cls, parquet_filepath: str, data_dict: dict):
-        from frictionless import Resource, Schema
-
-        resource = Resource(path=parquet_filepath, format="parquet")
-        resource.infer()
-
-        schema_descriptor = resource.schema.to_descriptor()
-
-        modified_fields = []
-        for field in schema_descriptor["fields"]:
-            modified_field = field.copy()
-            if data_dict.get(field["name"]):
-                field_data = data_dict[field["name"]]
-                modified_field["name"] = field_data["alternative_name"]
-                modified_field["description"] = field_data["description"]
-                modified_field["constraints"] = {
-                    "enum": list(field_data["categories"].keys())
-                }
-            modified_fields.append(modified_field)
-
-        schema_descriptor["fields"] = modified_fields
-        # the path needs to be adjusted to the relative path so it can work when the user
-        # downloads the dataset
-        resource.path = parquet_filepath[parquet_filepath.rfind("/") + 1 :]
-        resource.schema = Schema.from_descriptor(schema_descriptor)
-        resource.to_json(cls.new_datapackage_filepath())
-        return cls.new_datapackage_filepath()
 
     @classmethod
     def _data_dict(cls):
