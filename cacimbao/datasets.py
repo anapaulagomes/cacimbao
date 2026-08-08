@@ -389,6 +389,25 @@ class SinPatinhasDataset(BaseDataset):
         return pl.read_parquet(output_filepath)
 
 
+class DeteccaoDeLaranjasPorImagemDataset(BaseDataset):
+    """Dataset for orange detection by image from Embrapa."""
+
+    name: str = "deteccao_de_laranjas_por_imagem"
+    local: bool = True
+    size: Size = Size.MEDIUM
+    description: str = (
+        "Base de dados de detecção de laranjas por imagem, disponibilizada pela Embrapa. "
+        "Contém imagens e metadados para treinamento e teste de modelos de detecção de frutos. "
+        "Fonte: Embrapa (doi:10.48432/IG6VIQ)."
+    )
+    url: str = "https://www.redape.dados.embrapa.br/dataset.xhtml?persistentId=doi:10.48432/IG6VIQ"
+    filepath: Path = Path("deteccao-de-laranjas-por-imagem/deteccao-de-laranjas-por-imagem.parquet")
+
+    @classmethod
+    def prepare(cls, *args, **kwargs):
+        """Not implemented yet."""
+        pass
+
 def list_datasets(include_metadata=False) -> list:
     """
     List available datasets.
