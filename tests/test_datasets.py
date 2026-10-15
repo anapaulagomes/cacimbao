@@ -12,6 +12,7 @@ from cacimbao.datasets import (
     FilmografiaBrasileiraDataset,
     PescadoresEPescadorasProfissionaisDataset,
     PesquisaNacionalDeSaude2019Dataset,
+    ProcessoLiberacaoDominiosDataset,
     SalarioMinimoRealVigenteDataset,
     SinPatinhasDataset,
     Size,
@@ -28,6 +29,7 @@ class TestListDatasets:
             "aldeias_indigenas",
             "pesquisa_nacional_de_saude_2019",
             "sinpatinhas",
+            "processo_liberacao_dominios",
         ]
         assert list_datasets() == expected_datasets
 
@@ -242,6 +244,41 @@ class TestSinPatinhas:
         assert SinPatinhasDataset.description == description
         assert SinPatinhasDataset.url == url
         assert SinPatinhasDataset.filepath == filepath
+
+
+class TestProcessoLiberacaoDominios:
+    @pytest.mark.integration
+    @freeze_time("2000-01-01")
+    def test_prepare(self):
+        txt_file = "tests/fixtures/sample_processo_liberacao_dominios.txt"
+
+        result = ProcessoLiberacaoDominiosDataset.prepare(txt_file)
+
+        assert result.shape == (4, 1)
+        assert result["dominio"].to_list() == [
+            "zzzgame.com.br",
+            "007ecouniformes.com.br",
+            "meuescritorio.adv.br",
+            "exemplo.app.br",
+        ]
+        assert os.path.exists(ProcessoLiberacaoDominiosDataset.new_filepath())
+        assert os.path.exists(
+            ProcessoLiberacaoDominiosDataset.new_datapackage_filepath()
+        )
+
+        os.unlink(ProcessoLiberacaoDominiosDataset.new_filepath())
+        os.unlink(ProcessoLiberacaoDominiosDataset.new_datapackage_filepath())
+
+    def test_dataset_attributes(self):
+        url = "https://registro.br/dominio/lista-processo-liberacao.txt"
+        filepath = Path(
+            "processo-liberacao-dominios/processo-liberacao-dominios-15102026.parquet"
+        )
+        assert ProcessoLiberacaoDominiosDataset.name == "processo_liberacao_dominios"
+        assert ProcessoLiberacaoDominiosDataset.local is True
+        assert ProcessoLiberacaoDominiosDataset.size == Size.SMALL
+        assert ProcessoLiberacaoDominiosDataset.url == url
+        assert ProcessoLiberacaoDominiosDataset.filepath == filepath
 
 
 class TestCreateDatapackageFromFile:

@@ -1,0 +1,16 @@
+{
+  "name": "processo-liberacao-dominios-15102026",
+  "type": "table",
+  "path": "data/processo-liberacao-dominios/processo-liberacao-dominios-15102026.parquet",
+  "scheme": "file",
+  "format": "parquet",
+  "mediatype": "application/parquet",
+  "schema": {
+    "fields": [
+      {
+        "name": "dominio",
+        "type": "string"
+      }
+    ]
+  }
+}

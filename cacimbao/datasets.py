@@ -389,6 +389,38 @@ class SinPatinhasDataset(BaseDataset):
         return pl.read_parquet(output_filepath)
 
 
+class ProcessoLiberacaoDominiosDataset(BaseDataset):
+    """Dataset for .br domains in the registro.br release process."""
+
+    name: str = "processo_liberacao_dominios"
+    local: bool = True
+    size: Size = Size.SMALL
+    description: str = (
+        "Domínios .br no processo de liberação do Registro.br, ou seja, domínios "
+        "que foram cancelados ou não renovados e que voltam a ficar disponíveis para registro. "
+        "Esta versão corresponde ao processo aberto em 14/10/2026 (de 14/10/2026 15h a "
+        "21/10/2026 15h, horário de Brasília), com a lista baixada em 15/10/2026. "
+        "Contém apenas o nome do domínio. "
+        "Tem por volta de 157.550 linhas e 1 coluna (valor pode mudar com a atualização da base). "
+        "Mais informações em https://registro.br/dominio/processo-de-liberacao/"
+    )
+    url: str = "https://registro.br/dominio/lista-processo-liberacao.txt"
+    filepath: Path = Path(
+        "processo-liberacao-dominios/processo-liberacao-dominios-15102026.parquet"
+    )
+
+    @classmethod
+    def prepare(cls, txt_filepath: str):
+        """Read the domain list (latin-1, one domain per line) skipping comment lines."""
+        lines = Path(txt_filepath).read_text(encoding="latin-1").splitlines()
+        domains = [line for line in lines if line and not line.startswith("#")]
+        df = pl.DataFrame({"dominio": domains})
+        output_filepath = cls.new_filepath()
+        df.write_parquet(output_filepath)
+        cls.create_datapackage_from_file(output_filepath)
+        return pl.read_parquet(output_filepath)
+
+
 def list_datasets(include_metadata=False) -> list:
     """
     List available datasets.
