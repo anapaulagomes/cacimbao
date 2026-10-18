@@ -36,6 +36,6 @@ dev = [
     "fastexcel>=0.14.0",
     "freezegun>=1.5.3",
     "pre-commit>=4.2.0",
-    "pytest==8.4.1",
+    "pytest==9.0.3",
     "unidecode>=1.4.0",
 ]
